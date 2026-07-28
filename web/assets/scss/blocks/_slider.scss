@@ -11,7 +11,7 @@
 
     // Achtergrondkleur-varianten
     &--bg-wit {
-        background: $color-text-light;
+        background: $color-heading-light;
     }
 
     &--bg-beige {
@@ -60,6 +60,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                width: 75%;
             }
         }
     }

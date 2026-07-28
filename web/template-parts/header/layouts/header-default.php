@@ -33,8 +33,8 @@ $header_logo      = $subpagina_logo ?: get_field( 'logo', 'option' );
                         <?php endif; ?>
                     </a>
                     <?php endif; ?>
-                    <span class="mk-header__topmenu__vfc">VFC</span>
-                    <span class="mk-header__topmenu__timberland">TIMBERLAND</span>
+                    <a href="https://vfc.com" class="mk-header__topmenu__vfc">VFC</a>
+                    <a href="https://timberland.nl" class="mk-header__topmenu__timberland">TIMBERLAND</a>
                 </div>
 
                 <?php get_template_part( 'template-parts/header/nav-main' ); ?>

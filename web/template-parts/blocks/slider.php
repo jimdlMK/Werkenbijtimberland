@@ -99,7 +99,7 @@ if ( ! empty( $block['className'] ) ) {
             <div class="swiper" id="<?php echo esc_attr( $slider_id ); ?>" data-slider-type="merken">
                 <div class="swiper-wrapper">
                     <?php foreach ( $merk_ids as $merk_id ) :
-                        $logo         = get_field( 'merk_slider_logo', $merk_id );
+                        $logo         = get_field( 'merk_slider_logo', $merk_id ) && ! empty( get_field( 'merk_slider_logo', $merk_id )['url'] ) ? get_field( 'merk_slider_logo', $merk_id ) : get_field( 'merk_logo', $merk_id );
                         $achtergrond  = get_field( 'merk_achtergrond', $merk_id );
                         $externe_link = get_field( 'merk_externe_link', $merk_id );
 
