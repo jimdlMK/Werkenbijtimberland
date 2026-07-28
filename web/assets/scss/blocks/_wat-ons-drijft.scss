@@ -2,6 +2,7 @@
     &__intro {
         margin-bottom: 32px;
         width: 45%;
+        margin-left: 150px;
     }
 
     &__title {
@@ -62,6 +63,7 @@
     .mk-wod {
         &__intro {
             width: 100%;
+            margin-left: 0;
         }
         &__grid {
             grid-template-columns: repeat(2, 1fr);
@@ -74,6 +76,7 @@
 
         &__intro {
             width: 100%;
+            margin-left: 0;
         }
         &__title {
             font-size: 28px;

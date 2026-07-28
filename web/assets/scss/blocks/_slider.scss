@@ -203,8 +203,8 @@
     &__progressbar {
         position: relative;
         margin-top: 24px;
-        height: 4px;
-        background: rgba(0, 0, 0, 0.1);
+        height: 8px !important;
+        background: #ffff;
         border-radius: 2px;
         overflow: hidden;
 
