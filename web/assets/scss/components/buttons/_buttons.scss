@@ -1,0 +1,73 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: $font-family-standard-font;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+    // Algemene shadow hover/focus voor elke button
+    &:hover,
+    &:focus-visible {
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    &:active {
+        transform: translateY(1px);
+    }
+
+    // Target het SVG-element (de pijl uit je template part) direct
+    svg {
+        display: inline-flex;
+        width: 16px;
+        height: auto; // Of 15px, afhankelijk van je SVG
+        flex-shrink: 0;
+        transition: transform 0.2s ease;
+    }
+
+    // Schuif de SVG opzij op hover/focus
+    &:hover svg,
+    &:focus-visible svg {
+        transform: translateX(4px);
+    }
+}
+
+// Primary: grote blauwe CTA
+.btn-primary {
+    @extend .btn;
+    padding: 16px 24px;
+    background: $color-blue;
+    color: $color-heading-light;
+    border-radius: $custom-radius-lg;
+    box-shadow: $custom-shadow-button;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+// Secondary (naam aangepast naar jouw HTML): link met pijl
+.mk-hero__cta-secondary {
+    @extend .btn;
+    padding: 17px 19px;
+    background: $color-secondary;
+    color: $color-text-light;
+    border-radius: $custom-radius-pill;
+    box-shadow: $custom-shadow-button;
+    font-size: $font-size-normal;
+    font-weight: 700;
+    line-height: 1.425;
+}
+
+// Secondary (koper): generieke variant voor gebruik buiten de hero
+.btn-secondary {
+    @extend .btn;
+    padding: 16px 24px;
+    background: $color-secondary;
+    color: $color-text-light;
+    border-radius: $custom-radius-lg;
+    box-shadow: $custom-shadow-button;
+    font-size: 1.25rem;
+    font-weight: 700;
+}

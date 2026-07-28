@@ -1,0 +1,51 @@
+{
+    "key": "group_block_merken_grid",
+    "title": "Block: Merken grid",
+    "fields": [
+        {
+            "key": "field_mg_merken",
+            "label": "Merken",
+            "name": "mg_merken",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Sleep om de volgorde te bepalen.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "merk"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": 0,
+            "max": 0,
+            "return_format": "id"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/merken-grid"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1785232188
+}

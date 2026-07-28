@@ -1,0 +1,32 @@
+// Container: content-breedte komt uit theme.json (settings.layout.contentSize)
+.container {
+    width: 100%;
+    max-width: $layout-content-size;
+    margin-inline: auto;
+    padding-inline: 24px;
+}
+
+.container--wide {
+    max-width: $layout-wide-size;
+}
+
+// 12-koloms grid, gutter uit theme.json (settings.custom.grid.gutter)
+.grid {
+    display: grid;
+    grid-template-columns: repeat($custom-grid-columns, 1fr);
+    gap: $custom-grid-gutter;
+}
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        grid-column: span $i;
+    }
+}
+
+@include mq-down(md) {
+    // Mobile-first: op smalle schermen vallen kolommen standaard terug op volle breedte,
+    // tenzij een block bewust .col-mobile-* meekrijgt.
+    [class^="col-"]:not([class*="col-mobile-"]) {
+        grid-column: span $custom-grid-columns;
+    }
+}

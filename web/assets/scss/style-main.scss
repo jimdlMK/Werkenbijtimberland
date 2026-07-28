@@ -1,0 +1,44 @@
+/* ===== VENDOR ===== */
+@import "vendor/swiper-bundle";
+@import "vendor/fancybox";
+
+/* ===== THEME ===== */
+@import "theme/_theme-vars.scss";
+@import "theme/_breakpoints.scss";
+@import "theme/_theme.scss";
+
+/* ===== LAYOUT ===== */
+@import "layout/_grid.scss";
+@import "layout/_guttenberg.scss";
+@import "layout/_header.scss";
+@import "layout/_footer.scss";
+
+
+/* ===== TEMPLATE PARTS ===== */
+    @import "template-parts/_404.scss";
+
+/* ===== COMPONENTS ===== */
+    /* === MENU === */
+    @import "components/menu/_header-menu.scss";
+    @import "components/menu/_footer-menu.scss";
+    @import "components/menu/_mobile-menu.scss";
+    /* === CONTACT === */
+    @import "components/contact/_contact-info.scss";
+    @import "components/contact/_opening-hours.scss";
+    @import "components/contact/_socials.scss";
+    /* === FORM === */
+    @import "components/form/_form.scss";
+    /* === BUTTONS === */
+    @import "components/buttons/_buttons.scss";
+    /* === CARDS === */
+    @import "components/cards/_card.scss";
+
+/* ===== BLOCKS ===== */
+    @import "blocks/_hero.scss";
+    @import "blocks/_wat-ons-drijft.scss";
+    @import "blocks/_titel-tekst.scss";
+    @import "blocks/_merken-grid.scss";
+    @import "blocks/_slider.scss";
+    @import "blocks/_mk-loop.scss";
+    @import "blocks/_image-slider.scss";
+    @import "blocks/_mk-breadcrumbs.scss";

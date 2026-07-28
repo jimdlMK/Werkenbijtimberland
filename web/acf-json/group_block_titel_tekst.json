@@ -1,0 +1,296 @@
+{
+    "key": "group_block_titel_tekst",
+    "title": "Block: Titel + tekst",
+    "fields": [
+        {
+            "key": "field_tt_layout",
+            "label": "Layout",
+            "name": "tt_layout",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "simpel": "Simpel (titel + tekst)",
+                "media-onder": "Media onder de tekst (afbeelding/video)",
+                "2-koloms": "2 kolommen (tekst + afbeelding naast elkaar)"
+            },
+            "default_value": "simpel",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_tt_achtergrond",
+            "label": "Achtergrondkleur",
+            "name": "tt_achtergrond",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "geen": "Geen (transparant)",
+                "wit": "Wit",
+                "beige": "Beige",
+                "grijsblauw": "Grijsblauw",
+                "lichtblauw": "Lichtblauw",
+                "blauw": "Blauw (donker)"
+            },
+            "default_value": "geen",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_tt_tag",
+            "label": "Titel-tag",
+            "name": "tt_tag",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "h1": "H1",
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_tt_title",
+            "label": "Titel",
+            "name": "tt_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "75",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_tt_text",
+            "label": "Tekst",
+            "name": "tt_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_tt_cta_type",
+            "label": "Call-to-action",
+            "name": "tt_cta_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "geen": "Geen",
+                "knop-primary": "Knop (primary blauw)",
+                "knop-secondary": "Knop (secondary koper)",
+                "link": "Losse link (met pijl)"
+            },
+            "default_value": "geen",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_tt_cta",
+            "label": "Link",
+            "name": "tt_cta",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_tt_cta_type",
+                        "operator": "!=",
+                        "value": "geen"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "66",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_tt_media_afbeelding",
+            "label": "Afbeelding",
+            "name": "tt_media_afbeelding",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Wordt ook als fallback/thumbnail gebruikt wanneer je hieronder een Vimeo-video invult.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_tt_layout",
+                        "operator": "==",
+                        "value": "media-onder"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_tt_media_vimeo_id",
+            "label": "Vimeo video-ID",
+            "name": "tt_media_vimeo_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optioneel. Alleen het ID uit de Vimeo-URL, bijv. 123456789.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_tt_layout",
+                        "operator": "==",
+                        "value": "media-onder"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_tt_kolom_afbeelding",
+            "label": "Afbeelding (rechterkolom)",
+            "name": "tt_kolom_afbeelding",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_tt_layout",
+                        "operator": "==",
+                        "value": "2-koloms"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/titel-tekst"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1785247810
+}

@@ -1,0 +1,29 @@
+// Mobile-first breakpoints. Gebruik: @include mq(md) { ... }
+$breakpoints: (
+    xs: 375px,
+    sm: 576px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+    xxl: 1400px,
+);
+
+@mixin mq($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    } @else {
+        @warn "Onbekend breakpoint: '#{$breakpoint}'. Beschikbaar: #{map-keys($breakpoints)}.";
+    }
+}
+
+@mixin mq-down($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media screen and (max-width: (map-get($breakpoints, $breakpoint) - 1px)) {
+            @content;
+        }
+    } @else {
+        @warn "Onbekend breakpoint: '#{$breakpoint}'. Beschikbaar: #{map-keys($breakpoints)}.";
+    }
+}

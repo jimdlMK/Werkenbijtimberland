@@ -1,0 +1,217 @@
+.mk-header {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    &__inner {
+        max-width: $layout-wide-size;
+        width: 90%;
+        margin-inline: auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+
+        img {
+            height: 82px;
+            width: auto;
+        }
+    }
+
+    &__nav-area {
+        display: flex;
+        align-items: flex-end;
+        gap: 20px;
+    }
+
+    // Topmenu + hoofdmenu gestapeld, samen rechts uitgelijnd zodat het
+    // topmenu exact boven de menu-pill valt (niet boven de jobalert-knop).
+    &__nav-col {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+    }
+
+    // Topmenu: LinkedIn + VFC + TIMBERLAND, wit op hero, blauw zonder hero
+    &__topmenu {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: $color-heading-light;
+
+        &__social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        &__vfc,
+        &__timberland {
+            font-size: $font-size-small;
+            font-weight: 700;
+            line-height: normal;
+            color: inherit;
+            letter-spacing: 0.02em;
+        }
+    }
+
+    &__bottom-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    // Jobalert-pill
+    &__jobalert {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        height: 50px;
+        padding: 0 20px;
+        border-radius: $custom-radius-md;
+        background: $color-blue-light;
+        box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.17);
+        text-decoration: none;
+        flex-shrink: 0;
+        box-sizing: border-box;
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: scale(1.04);
+        }
+
+        &__icon {
+            display: flex;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            transform-origin: 50% 0%;
+            animation: jobalert-shake 3s ease-in-out infinite;
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &__label {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: $color-blue;
+            white-space: nowrap;
+        }
+    }
+
+    .open-mobile-menu {
+        display: none;
+        position: relative;
+        width: 25px;
+        height: 18px;
+        cursor: pointer;
+        flex-shrink: 0;
+
+        .lineone,
+        .linetwo,
+        .linethree {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: $color-blue;
+        }
+
+        .lineone {
+            top: 0;
+        }
+
+        .linetwo {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .linethree {
+            bottom: 0;
+        }
+    }
+
+    // Op vervolgpagina's (geen donkere hero-foto) is wit onleesbaar: topmenu wordt blauw.
+    &.mk-header--on-light {
+        .mk-header__topmenu {
+            color: $color-blue;
+        }
+    }
+}
+@keyframes jobalert-shake {
+    /* 0% tot 70% is de pauze (ruststand) */
+    0%, 70% {
+        transform: rotate(0deg);
+    }
+    /* Vanaf 70% begint het langzamere schudden */
+    74% {
+        transform: rotate(-20deg);
+    }
+    78% {
+        transform: rotate(18deg);
+    }
+    82% {
+        transform: rotate(-14deg);
+    }
+    86% {
+        transform: rotate(10deg);
+    }
+    90% {
+        transform: rotate(-6deg);
+    }
+    94% {
+        transform: rotate(4deg);
+    }
+    97% {
+        transform: rotate(-2deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@include mq-down(lg) {
+    .mk-header {
+        &__nav-col {
+            align-items: flex-end;
+        }
+
+        &__topmenu {
+            &__vfc {
+                display: none;
+            }
+        }
+
+        &__jobalert {
+            &__label {
+                display: none;
+            }
+        }
+
+        .open-mobile-menu {
+            display: block;
+        }
+    }
+
+    .mk-nav-main {
+        display: none;
+    }
+}

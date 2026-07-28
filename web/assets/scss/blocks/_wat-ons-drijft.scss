@@ -1,0 +1,87 @@
+.mk-wod {
+    &__intro {
+        margin-bottom: 32px;
+        width: 45%;
+    }
+
+    &__title {
+        color: $color-heading-dark;
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 41px;
+        margin: 0 0 12px;
+    }
+
+    &__text {
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    &__card {
+        padding: 24px;
+        border-radius: $custom-radius-sm;
+        background: $color-text-light;
+        box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.17);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__media {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        &__title {
+            width: 100%;
+            color: $color-heading-dark;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 24px;
+            text-align: left;
+            margin: 0;
+        }
+    }
+}
+
+@include mq-down(lg) {
+    .mk-wod {
+        &__intro {
+            width: 100%;
+        }
+        &__grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@include mq-down(sm) {
+    .mk-wod {
+
+        &__intro {
+            width: 100%;
+        }
+        &__title {
+            font-size: 28px;
+            line-height: 32px;
+        }
+
+        &__grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}

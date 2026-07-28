@@ -1,0 +1,394 @@
+{
+    "key": "group_block_slider",
+    "title": "Block: Slider",
+    "fields": [
+        {
+            "key": "field_sl_type",
+            "label": "Type slider",
+            "name": "sl_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "gallerij": "Gallerij",
+                "merken": "Merken"
+            },
+            "default_value": "gallerij",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_sl_background",
+            "label": "Achtergrondkleur",
+            "name": "sl_background",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "wit": "Wit",
+                "beige": "Beige",
+                "grijsblauw": "Grijsblauw",
+                "lichtblauw": "Lichtblauw",
+                "blauw": "Blauw (donker)"
+            },
+            "default_value": "wit",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_sl_intro_tab",
+            "label": "Intro",
+            "name": "sl_intro_tab",
+            "aria-label": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_sl_intro_layout",
+            "label": "Intro layout",
+            "name": "sl_intro_layout",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "links-rechts": "Titel/tekst links, CTA's rechts",
+                "gecentreerd": "Titel/tekst/CTA's onder elkaar, gecentreerd",
+                "geen": "Geen intro"
+            },
+            "default_value": "links-rechts",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_sl_intro_ratio",
+            "label": "Kolom-verhouding",
+            "name": "sl_intro_ratio",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_sl_intro_layout",
+                        "operator": "==",
+                        "value": "links-rechts"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "60-40": "60 / 40",
+                "50-50": "50 / 50",
+                "40-60": "40 / 60"
+            },
+            "default_value": "60-40",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_sl_title",
+            "label": "Titel",
+            "name": "sl_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_sl_intro_layout",
+                        "operator": "!=",
+                        "value": "geen"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_sl_text",
+            "label": "Tekst",
+            "name": "sl_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_sl_intro_layout",
+                        "operator": "!=",
+                        "value": "geen"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_sl_cta_type",
+            "label": "Call-to-action",
+            "name": "sl_cta_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_sl_intro_layout",
+                        "operator": "!=",
+                        "value": "geen"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "geen": "Geen",
+                "knop-koper": "Knop (koper)",
+                "knop-primary": "Knop (primary blauw)",
+                "links": "2 externe links"
+            },
+            "default_value": "geen",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_sl_cta_button",
+            "label": "Knop",
+            "name": "sl_cta_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_sl_cta_type",
+                        "operator": "==",
+                        "value": "knop-koper"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_sl_cta_type",
+                        "operator": "==",
+                        "value": "knop-primary"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_sl_cta_link_1",
+            "label": "Link 1",
+            "name": "sl_cta_link_1",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_sl_cta_type",
+                        "operator": "==",
+                        "value": "links"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_sl_cta_link_2",
+            "label": "Link 2",
+            "name": "sl_cta_link_2",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_sl_cta_type",
+                        "operator": "==",
+                        "value": "links"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_sl_content_tab",
+            "label": "Inhoud",
+            "name": "sl_content_tab",
+            "aria-label": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_sl_gallerij_items",
+            "label": "Afbeeldingen",
+            "name": "sl_gallerij_items",
+            "aria-label": "",
+            "type": "gallery",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_sl_type",
+                        "operator": "==",
+                        "value": "gallerij"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min": 0,
+            "max": 0,
+            "insert": "append",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_sl_merken",
+            "label": "Merken",
+            "name": "sl_merken",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Sleep om de volgorde te bepalen.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_sl_type",
+                        "operator": "==",
+                        "value": "merken"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "merk"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": 0,
+            "max": 0,
+            "return_format": "id"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/slider"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1785232188
+}

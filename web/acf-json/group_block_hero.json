@@ -1,0 +1,122 @@
+{
+    "key": "group_block_hero",
+    "title": "Block: Hero",
+    "fields": [
+        {
+            "key": "field_hero_image",
+            "label": "Achtergrond afbeelding",
+            "name": "hero_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Wordt altijd als fallback/poster gebruikt. Verplicht.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_hero_vimeo_id",
+            "label": "Vimeo video-ID",
+            "name": "hero_vimeo_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optioneel. Alleen het ID (bv. 76979871), niet de volledige URL. Video speelt automatisch, gemuted en in een loop. Zonder Vimeo-ID wordt de afbeelding getoond.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "bv. 76979871",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_hero_title",
+            "label": "Titel",
+            "name": "hero_title",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Gebruik Enter voor een handmatige regelafbreking.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_hero_cta_primary",
+            "label": "Knop 1 (primary)",
+            "name": "hero_cta_primary",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_hero_cta_secondary",
+            "label": "Knop 2 (secondary)",
+            "name": "hero_cta_secondary",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/hero"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1743000000
+}

@@ -1,0 +1,140 @@
+.mk-footer {
+    background: $color-blue;
+    padding: 48px 0 32px;
+
+    &__container {
+        max-width: $layout-content-size;
+        width: $layout-maxwidth;
+        margin: auto;
+
+        &__inner {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            grid-template-areas:
+                "logo menus side"
+                "legal legal legal";
+            align-items: start;
+            column-gap: 40px;
+            row-gap: 32px;
+        }
+    }
+
+    &__logo {
+        grid-area: logo;
+
+        img {
+            width: 103px;
+            height: 103px;
+            border-radius: 50%;
+            object-fit: contain;
+        }
+    }
+
+    &__menus {
+        grid-area: menus;
+        display: flex;
+        gap: 40px;
+        justify-content: space-evenly;
+    }
+
+    &__side {
+        grid-area: side;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+    }
+
+    &__social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            width: 23px;
+            height: 23px;
+        }
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 4px;
+
+        &__item {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            color: $color-heading-light;
+            text-decoration: none;
+            font-size: $font-size-normal;
+            font-weight: 500;
+            line-height: 21px;
+            transition: opacity 0.2s ease;
+
+            svg {
+                width: 11px;
+                height: 10px;
+                transition: transform 0.2s ease;
+            }
+
+            &:hover {
+                opacity: 0.75;
+
+                svg {
+                    transform: translateX(3px);
+                }
+            }
+        }
+    }
+
+    &__legal {
+        grid-area: legal;
+        color: $color-heading-light;
+        font-size: $font-size-small;
+        font-weight: 400;
+        line-height: 16px;
+        display: flex;
+        justify-content: center;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &__divider {
+            margin: 0 6px;
+            opacity: 0.6;
+        }
+    }
+}
+
+@include mq-down(lg) {
+    .mk-footer {
+        &__container__inner {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "logo"
+                "menus"
+                "side"
+                "legal";
+        }
+
+        &__menus {
+            gap: 24px;
+        }
+
+        &__side {
+            align-items: flex-start;
+        }
+
+        &__links {
+            align-items: flex-start;
+        }
+    }
+}
