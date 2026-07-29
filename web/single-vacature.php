@@ -4,7 +4,7 @@
  */
 
 // Pas dit aan zodra het echte Gravity Forms-formulier is aangemaakt.
-$mediakanjers_gf_form_id = 1;
+$mediakanjers_gf_form_id = 3;
 
 get_header();
 
