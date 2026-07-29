@@ -49,6 +49,48 @@ jQuery(document).ready(function ($) {
         });
     });
 
+    $('.swiper[data-slider-type="sectoren"]').each(function () {
+        var $swiper = $(this);
+        var sliderId = $swiper.attr('id');
+        var $progressbar = $('[data-progressbar-for="' + sliderId + '"]');
+
+        new Swiper(this, {
+            slidesPerView: 'auto',
+            spaceBetween: 20,
+            speed: 600,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: $progressbar.length ? $progressbar[0] : null,
+                type: 'progressbar',
+            },
+        });
+    });
+
+    $('.swiper[data-slider-type="vacatures"]').each(function () {
+        var $swiper = $(this);
+        var sliderId = $swiper.attr('id');
+        var $dots = $('[data-dots-for="' + sliderId + '"]');
+
+        new Swiper(this, {
+            slidesPerView: 1,
+            speed: 600,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: $dots.length ? $dots[0] : null,
+                type: 'bullets',
+                clickable: true,
+            },
+        });
+    });
+
     if (typeof Fancybox !== 'undefined') {
         Fancybox.bind('[data-fancybox="mk-gallerij"]', {});
     }

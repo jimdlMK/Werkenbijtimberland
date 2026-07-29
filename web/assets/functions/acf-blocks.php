@@ -48,6 +48,20 @@ function mediakanjers_register_acf_blocks() {
             'icon'        => 'images-alt2',
             'keywords'    => array( 'slider', 'carousel', 'gallerij', 'merken' ),
         ),
+        array(
+            'name'        => 'sectoren',
+            'title'       => __( 'Sectoren', 'mediakanjers' ),
+            'description' => __( 'Slider met vacature-sectoren, linkt door naar het gefilterde vacature-overzicht.', 'mediakanjers' ),
+            'icon'        => 'category',
+            'keywords'    => array( 'sectoren', 'categorieen', 'vacatures', 'slider' ),
+        ),
+        array(
+            'name'        => 'vacatures',
+            'title'       => __( 'Vacatures', 'mediakanjers' ),
+            'description' => __( 'Slider met de nieuwste vacatures, afbeelding + informatie.', 'mediakanjers' ),
+            'icon'        => 'businessman',
+            'keywords'    => array( 'vacatures', 'jobs', 'slider' ),
+        ),
     );
 
     foreach ( $blocks as $block ) {

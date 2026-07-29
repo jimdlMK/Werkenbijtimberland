@@ -1,0 +1,105 @@
+.mk-vacature-card {
+    display: block;
+    position: relative;
+    width: 574px;
+    max-width: 100%;
+    height: 519px;
+    border-radius: $custom-radius-sm;
+    overflow: hidden;
+    text-decoration: none;
+    background: $color-blue-grey;
+
+    &__media {
+        position: absolute;
+        inset: 0;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__footer {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        padding: 20px 24px;
+        border-radius: 13px;
+        background: $color-text-light;
+    }
+
+    &__footer__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 8px;
+
+        svg {
+            flex-shrink: 0;
+            width: 14px;
+            height: 13px;
+        }
+    }
+
+    &__title {
+        color: $color-heading-dark;
+        font-family: $font-family-standard-font;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 33px;
+        margin: 0;
+    }
+
+    &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px 14px;
+        font-family: $font-family-standard-font;
+        font-size: $font-size-small;
+        font-weight: 500;
+        color: $color-heading-dark;
+
+        &__item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+
+            svg,
+            img {
+                width: 14px;
+                height: 14px;
+            }
+
+            svg path {
+                fill: $color-heading-dark;
+            }
+        }
+
+        &__item--functie {
+            color: $color-secondary;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 22.8px;
+
+            svg path {
+                fill: $color-secondary;
+            }
+        }
+    }
+
+    &:hover &__title {
+        text-decoration: underline;
+    }
+}
+
+@include mq-down(sm) {
+    .mk-vacature-card {
+        height: auto;
+        aspect-ratio: 574 / 519;
+    }
+}

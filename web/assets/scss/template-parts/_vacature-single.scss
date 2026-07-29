@@ -1,0 +1,628 @@
+// ===== HEADER =====
+.mk-vac-header {
+    padding-top: 32px;
+    padding-bottom: 48px;
+    background: $color-heading-light;
+
+    @include mq(md) {
+        padding-bottom: 72px;
+    }
+
+    &__breadcrumb {
+        font-size: $font-size-small;
+        color: $color-text;
+        margin-bottom: 24px;
+
+        a {
+            color: $color-blue;
+            text-decoration: none;
+        }
+    }
+
+    &__badge {
+        display: inline-block;
+        padding: 6px 16px;
+        margin-bottom: 16px;
+        border-radius: $custom-radius-pill;
+        background: $color-secondary;
+        color: $color-text-light;
+        font-size: $font-size-small;
+        font-weight: 700;
+    }
+
+    &__title {
+        color: $color-heading-dark;
+        font-size: $font-size-h1;
+        font-weight: $font-weight-h1;
+        line-height: $line-height-h1;
+        margin: 0 0 16px;
+    }
+
+    &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 24px;
+        margin-bottom: 20px;
+        font-family: $font-family-standard-font;
+        font-size: $font-size-normal;
+        font-weight: 500;
+        color: $color-heading-dark;
+
+        &__item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+
+            svg,
+            img {
+                width: 16px;
+                height: 16px;
+            }
+
+            svg path {
+                fill: $color-heading-dark;
+            }
+
+            &--functie {
+                color: $color-secondary;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 22.8px;
+
+                svg path {
+                    fill: $color-secondary;
+                }
+            }
+        }
+    }
+
+    &__intro {
+        max-width: 720px;
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+        margin-bottom: 24px;
+
+        p:not(:last-child) {
+            margin-bottom: 12px;
+        }
+    }
+
+    &__media {
+        margin-top: 32px;
+        border-radius: $custom-radius-sm;
+        overflow: hidden;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+
+            @include mq(md) {
+                height: 767px;
+            }
+        }
+    }
+}
+
+// ===== VF Corporation =====
+.mk-vac-vf {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    margin-bottom: 48px;
+    background: $color-primary;
+    overflow: hidden;
+
+    @include mq(md) {
+        padding-top: 72px;
+        padding-bottom: 72px;
+        margin-bottom: 72px;
+    }
+
+    @include mq(lg) {
+        margin-bottom: 96px;
+    }
+
+    &__title {
+        color: $color-heading-light;
+        font-family: $font-family-standard-font;
+        font-size: $font-size-h2;
+        font-weight: $font-weight-h2;
+        line-height: $line-height-h2;
+        margin: 0 0 12px;
+    }
+
+    &__text {
+        max-width: 720px;
+        color: $color-heading-light;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+        margin-bottom: 32px;
+
+        p:not(:last-child) {
+            margin-bottom: 12px;
+        }
+    }
+}
+
+.mk-merken-ticker {
+    width: 100%;
+    overflow: hidden;
+
+    &__track {
+        display: flex;
+        width: max-content;
+        animation: mk-merken-ticker-scroll 30s linear infinite;
+    }
+
+    &__group {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        padding: 0 32px;
+
+        img {
+            max-height: 32px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+    }
+}
+
+@keyframes mk-merken-ticker-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+// ===== Generieke content-sectie =====
+.mk-vac-sectie {
+    &--centered {
+        text-align: center;
+
+        .mk-vac-sectie__text {
+            max-width: 720px;
+            margin-inline: auto;
+        }
+    }
+
+    &__eyebrow {
+        display: block;
+        color: $color-secondary;
+        font-family: $font-family-standard-font;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 22.8px;
+        margin-bottom: 8px;
+    }
+
+    &__title {
+        color: $color-heading-dark;
+        font-size: $font-size-h2;
+        font-weight: $font-weight-h2;
+        line-height: $line-height-h2;
+        margin: 0 0 16px;
+    }
+
+    &__text {
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+
+        p:not(:last-child) {
+            margin-bottom: 12px;
+        }
+    }
+
+    &__cta {
+        margin-top: 24px;
+    }
+
+    &--media__grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        @include mq(md) {
+            flex-direction: row;
+            align-items: center;
+            gap: 48px;
+        }
+    }
+
+    &--media__content {
+        @include mq(md) {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    &--media__media {
+        border-radius: $custom-radius-sm;
+        overflow: hidden;
+
+        @include mq(md) {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+// ===== Wat vragen wij / Wat bieden wij =====
+.mk-vac-vraag-bod {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @include mq(md) {
+        flex-direction: row;
+        gap: 48px;
+    }
+
+    &__col {
+        @include mq(md) {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+}
+
+// ===== Kijkje op de afdeling =====
+.mk-vac-afdeling {
+    padding-top: 48px;
+    margin-bottom: 48px;
+    background: $color-primary;
+
+    @include mq(md) {
+        padding-top: 72px;
+        margin-bottom: 72px;
+    }
+
+    @include mq(lg) {
+        padding-top: 96px;
+        margin-bottom: 96px;
+    }
+
+    &__intro {
+        text-align: center;
+        margin-bottom: 32px;
+
+        .mk-vac-sectie__title,
+        .mk-vac-sectie__text {
+            color: $color-heading-light;
+        }
+
+        .mk-vac-sectie__text {
+            max-width: 720px;
+            margin-inline: auto;
+        }
+    }
+
+    &__media {
+        position: relative;
+        width: 937px;
+        max-width: 100%;
+        aspect-ratio: 55 / 28;
+        margin-inline: auto;
+        border-radius: $custom-radius-sm;
+        overflow: hidden;
+
+        &__image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &__video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+
+            iframe {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                height: 100%;
+                min-width: 100%;
+                min-height: 100%;
+                transform: translate(-50%, -50%);
+
+                @supports (aspect-ratio: 16 / 9) {
+                    width: max(100%, calc(100vh * (16 / 9)));
+                    height: max(100%, calc(100vw * (9 / 16)));
+                }
+            }
+        }
+    }
+
+    &__media[data-hero-vimeo-id] &__media__image {
+        opacity: 0;
+    }
+
+    &__watch-video {
+        position: absolute;
+        right: 24px;
+        bottom: 24px;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 20px;
+        border: 0;
+        border-radius: 50px;
+        background: rgba(217, 217, 217, 0.2);
+        color: $color-heading-light;
+        cursor: pointer;
+        font-family: $font-family-standard-font;
+        font-size: $font-size-normal;
+        font-weight: 500;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background: rgba(217, 217, 217, 0.35);
+        }
+
+        &__icon {
+            display: flex;
+            width: 14px;
+            height: 16px;
+            flex-shrink: 0;
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+@include mq-down(md) {
+    .mk-vac-afdeling {
+        &__media__video {
+            display: none;
+        }
+
+        &__media[data-hero-vimeo-id] &__media__image {
+            opacity: 1;
+        }
+
+        &__watch-video {
+            display: none;
+        }
+    }
+}
+
+// ===== Sollicitatieprocedure + contact CTA =====
+.mk-vac-procedure {
+    &__grid {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        justify-content: center;
+
+        @include mq(md) {
+            flex-direction: row;
+            gap: 48px;
+            align-items: center;
+        }
+    }
+
+    &__col {
+        @include mq(md) {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        &--contact {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__stappen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__stap {
+        width: 100%;
+
+        &__card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 24px;
+            border-radius: $custom-radius-sm;
+            background: $color-text-light;
+            box-shadow: $custom-shadow-card;
+        }
+
+        &__icoon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        &__title {
+            color: $color-heading-dark;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 24px;
+            margin: 0 0 4px;
+        }
+
+        &__text {
+            color: $color-text;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22.8px;
+            margin: 0;
+        }
+    }
+
+    &__arrow {
+        display: flex;
+        justify-content: center;
+        padding: 8px 0;
+
+        svg {
+            width: 14px;
+            height: 20px;
+            transform: rotate(90deg);
+        }
+    }
+}
+
+// ===== Contact CTA =====
+.mk-vac-contact {
+    width: 100%;
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 32px;
+        border-radius: $custom-radius-sm;
+        background: $color-blue-light;
+
+        @include mq(sm) {
+            flex-direction: row;
+            text-align: left;
+        }
+    }
+
+    &__media {
+        flex-shrink: 0;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__title {
+        color: $color-heading-dark;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28px;
+        margin: 0 0 8px;
+    }
+
+    &__intro {
+        color: $color-text;
+        font-size: 16px;
+        margin: 0 0 8px;
+    }
+
+    &__naam {
+        color: $color-heading-dark;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 0 4px;
+    }
+
+    &__functie {
+        margin-left: 8px;
+        color: $color-text;
+        font-weight: 400;
+    }
+
+    &__detail {
+        margin: 0;
+
+        a {
+            color: $color-blue;
+            text-decoration: underline;
+        }
+    }
+}
+
+// ===== Sollicitatieformulier =====
+.mk-vac-formulier {
+    &__intro {
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    &__title {
+        color: $color-heading-light;
+        font-size: $font-size-h2;
+        font-weight: $font-weight-h2;
+        line-height: $line-height-h2;
+        margin: 0 0 8px;
+    }
+
+    &__subtitel {
+        color: $color-text-light;
+        font-size: 16px;
+        margin: 0;
+    }
+
+    &__bg {
+        width: 60%;
+        margin: 0 auto;
+        padding: 40px 0;
+        background: #4B8AFF;
+
+        @include mq(md) {
+            padding: 64px 0;
+        }
+    }
+
+    &__form {
+        max-width: 720px;
+        margin-inline: auto;
+    }
+}
+
+@include mq-down(sm) {
+    .mk-vac-header {
+        &__title {
+            font-size: 32px;
+            line-height: 36px;
+        }
+    }
+
+    .mk-vac-sectie__title {
+        font-size: 28px;
+        line-height: 32px;
+    }
+}

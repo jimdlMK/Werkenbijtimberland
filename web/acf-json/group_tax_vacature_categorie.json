@@ -1,0 +1,50 @@
+{
+    "key": "group_tax_vacature_categorie",
+    "title": "Sector gegevens",
+    "fields": [
+        {
+            "key": "field_sector_afbeelding",
+            "label": "Afbeelding",
+            "name": "sector_afbeelding",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Wordt gebruikt in het sectoren-blok (o.a. op de homepage).",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "vacature_categorie"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1785312000
+}

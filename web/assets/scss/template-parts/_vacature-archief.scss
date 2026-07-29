@@ -1,0 +1,246 @@
+.mk-vacature-archief {
+    padding-top: 32px;
+    padding-bottom: 48px;
+
+    @include mq(md) {
+        padding-bottom: 72px;
+    }
+
+    &__breadcrumb {
+        font-size: $font-size-small;
+        color: $color-text;
+        margin-bottom: 16px;
+
+        a {
+            color: $color-blue;
+            text-decoration: none;
+        }
+    }
+
+    &__title {
+        color: $color-heading-dark;
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 52px;
+        margin: 0 0 12px;
+    }
+
+    &__intro {
+        max-width: 640px;
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+        margin: 0 0 32px;
+    }
+
+    &__filters {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 24px;
+
+        @include mq(md) {
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+        }
+
+        &__label {
+            font-size: $font-size-normal;
+            font-weight: 700;
+            color: $color-heading-dark;
+            white-space: nowrap;
+        }
+
+        &__pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+    }
+
+    &__pill {
+        padding: 8px 18px;
+        border-radius: 43px;
+        border: 1px solid #D9D9D9;
+        background: $color-text-light;
+        color: $color-blue;
+        font-family: $font-family-standard-font;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 22.8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+
+        &.is-active,
+        &:hover {
+            background: $color-blue;
+            border-color: $color-blue;
+            color: $color-text-light;
+        }
+    }
+
+    &__count {
+        font-size: $font-size-small;
+        color: $color-text;
+        margin: 0 0 20px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 32px;
+
+        @include mq(md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__empty {
+        color: $color-text;
+    }
+
+    &__load-more {
+        display: flex;
+        justify-content: center;
+
+        &__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: $color-blue;
+            font-size: $font-size-normal;
+            font-weight: 500;
+            cursor: pointer;
+
+            svg {
+                width: 14px;
+                height: 13px;
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
+
+// ===== Open sollicitatie =====
+.mk-open-sollicitatie {
+    background: $color-text-light;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Mobiel: 1 kolom */
+        align-items: center;
+        gap: 32px;
+
+        @include mq(md) {
+            grid-template-columns: repeat(2, 1fr); /* Desktop: 2 gelijke kolommen (50/50) */
+            gap: 64px;
+        }
+    }
+
+    &__media {
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover; /* Optioneel: zorgt dat de afbeelding mooi de ruimte vult als de verhoudingen anders zijn */
+        }
+    }
+
+    &__content {
+        width: 100%;
+    }
+
+    &__title {
+        color: $color-heading-dark;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 40px;
+        margin: 0 0 16px;
+    }
+
+    &__text {
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+        margin-bottom: 24px;
+
+        p:not(:last-child) {
+            margin-bottom: 12px;
+        }
+    }
+}
+
+// ===== Job alert / stages rijen =====
+.mk-vacature-cta-rijen {
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+
+        @include mq(md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+.mk-vacature-cta-rij {
+    padding: 32px;
+    border-radius: $custom-radius-sm;
+    background: $color-heading-light;
+
+    &--blauw {
+        background: $color-blue-light;
+    }
+
+    &__title {
+        color: $color-heading-dark;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28px;
+        margin: 0 0 12px;
+    }
+
+    &__text {
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+        margin-bottom: 20px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        @include mq(sm) {
+            flex-direction: row;
+        }
+
+        input {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: $custom-radius-pill;
+            border: 1px solid $color-blue-grey;
+            font-size: $font-size-normal;
+            font-family: $font-family-standard-font;
+        }
+    }
+}
+
+@include mq-down(sm) {
+    .mk-vacature-archief {
+        &__title {
+            font-size: 32px;
+            line-height: 36px;
+        }
+    }
+}

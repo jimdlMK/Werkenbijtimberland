@@ -49,6 +49,11 @@ function mediakanjers_enqueue_assets() {
         file_exists( $theme_path . $script_path ) ? filemtime( $theme_path . $script_path ) : null,
         true
     );
+
+    wp_localize_script( 'mediakanjers-scripts', 'mediakanjersVacatures', array(
+        'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+        'nonce'   => wp_create_nonce( 'mediakanjers_vacatures' ),
+    ) );
 }
 add_action( 'wp_enqueue_scripts', 'mediakanjers_enqueue_assets' );
 

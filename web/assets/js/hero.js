@@ -2,9 +2,9 @@ jQuery(document).ready(function ($) {
     // Achtergrondvideo: iframe pas injecteren op desktop/tablet, zodat
     // mobiel nooit een Vimeo-embed laadt (data/performance).
     function loadHeroBackgroundVideo() {
-        $('.mk-hero[data-hero-vimeo-id], .mk-titel-tekst__media-onder[data-hero-vimeo-id]').each(function () {
+        $('.mk-hero[data-hero-vimeo-id], .mk-titel-tekst__media-onder[data-hero-vimeo-id], .mk-vac-afdeling__media[data-hero-vimeo-id]').each(function () {
             var $hero = $(this);
-            var $target = $hero.find('.mk-hero__media__video, .mk-titel-tekst__media-onder__video');
+            var $target = $hero.find('.mk-hero__media__video, .mk-titel-tekst__media-onder__video, .mk-vac-afdeling__media__video');
 
             if (!$target.length || $target.find('iframe').length) {
                 return;

@@ -1,0 +1,50 @@
+{
+    "key": "group_options_vacatures",
+    "title": "Vacatures instellingen",
+    "fields": [
+        {
+            "key": "field_vacopt_vf_titel",
+            "label": "VF Corporation - Titel",
+            "name": "vacopt_vf_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "VF Corporation"
+        },
+        {
+            "key": "field_vacopt_vf_tekst",
+            "label": "VF Corporation - Tekst",
+            "name": "vacopt_vf_tekst",
+            "type": "wysiwyg",
+            "instructions": "Wordt getoond op de single-vacature pagina, boven de doorlopende merken-slider.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "mediakanjers-vacatures-instellingen"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1785320000
+}

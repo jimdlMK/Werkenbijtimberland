@@ -1,0 +1,54 @@
+{
+    "key": "group_block_sectoren",
+    "title": "Block: Sectoren",
+    "fields": [
+        {
+            "key": "field_sec_title",
+            "label": "Titel",
+            "name": "sec_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "Ontdek onze verschillende sectoren"
+        },
+        {
+            "key": "field_sec_sectoren",
+            "label": "Sectoren",
+            "name": "sec_sectoren",
+            "type": "taxonomy",
+            "instructions": "Leeg laten om automatisch alle sectoren te tonen.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "taxonomy": "vacature_categorie",
+            "field_type": "multi_select",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/sectoren"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1785312000
+}

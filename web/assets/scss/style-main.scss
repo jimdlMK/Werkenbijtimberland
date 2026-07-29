@@ -16,6 +16,9 @@
 
 /* ===== TEMPLATE PARTS ===== */
     @import "template-parts/_404.scss";
+    @import "template-parts/_vacature-card.scss";
+    @import "template-parts/_vacature-archief.scss";
+    @import "template-parts/_vacature-single.scss";
 
 /* ===== COMPONENTS ===== */
     /* === MENU === */
@@ -39,6 +42,8 @@
     @import "blocks/_titel-tekst.scss";
     @import "blocks/_merken-grid.scss";
     @import "blocks/_slider.scss";
+    @import "blocks/_sectoren.scss";
+    @import "blocks/_vacatures-blok.scss";
     @import "blocks/_mk-loop.scss";
     @import "blocks/_image-slider.scss";
     @import "blocks/_mk-breadcrumbs.scss";

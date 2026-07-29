@@ -122,7 +122,7 @@
       ]
     },
     "layout": {
-      "contentSize": "1400px",
+      "contentSize": "1320px",
       "wideSize": "1550px",
       "maxwidth": "90%",
       "blockSpacing": "clamp(2rem, calc(1.4rem + 3vw), 4rem)"

@@ -44,9 +44,14 @@ class Mediakanjers_Nav_Badge_Walker extends Walker_Nav_Menu {
 }
 
 /**
- * Placeholder tellerfunctie voor de nav-badges.
- * TODO: vervangen door een echte count_posts() zodra de vacature/stage CPT's bestaan.
+ * Tellerfunctie voor de nav-badges.
  */
 function mediakanjers_get_nav_badge_count( $slug ) {
+    if ( 'vacatures' === $slug ) {
+        $counts = wp_count_posts( 'vacature' );
+        return $counts && isset( $counts->publish ) ? (int) $counts->publish : 0;
+    }
+
+    // TODO: vervangen door een echte count_posts() zodra het stage CPT bestaat.
     return 0;
 }

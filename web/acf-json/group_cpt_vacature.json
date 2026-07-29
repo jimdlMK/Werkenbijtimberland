@@ -1,0 +1,381 @@
+{
+    "key": "group_cpt_vacature",
+    "title": "Vacature gegevens",
+    "fields": [
+        {
+            "key": "field_vac_tab_algemeen",
+            "label": "Algemeen",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_vac_functie",
+            "label": "Functie",
+            "name": "vac_functie",
+            "type": "text",
+            "instructions": "Korte functie-omschrijving, bijv. “HR en management”.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_vac_uren",
+            "label": "Uren",
+            "name": "vac_uren",
+            "type": "text",
+            "instructions": "Bijv. 32-40",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "25", "class": "", "id": "" }
+        },
+        {
+            "key": "field_vac_locatie",
+            "label": "Locatie",
+            "name": "vac_locatie",
+            "type": "text",
+            "instructions": "Bijv. Almelo",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "25", "class": "", "id": "" }
+        },
+        {
+            "key": "field_vac_salaris",
+            "label": "Salarisindicatie",
+            "name": "vac_salaris",
+            "type": "text",
+            "instructions": "Optioneel, bijv. €2.500 - €3.200 per maand",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_vac_thumbnail",
+            "label": "Thumbnail afbeelding",
+            "name": "vac_thumbnail",
+            "type": "image",
+            "instructions": "Gebruikt op vacature-cards, in het vacature-blok en bovenaan de single-vacature pagina.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "return_format": "array",
+            "library": "all",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_vac_intro",
+            "label": "Intro tekst",
+            "name": "vac_intro",
+            "type": "textarea",
+            "instructions": "Korte introductietekst, o.a. gebruikt in het vacature-blok en bovenaan de single-pagina.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "rows": 3,
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_vac_tab_content",
+            "label": "Content",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_vac_jouw_rol",
+            "label": "Jouw rol",
+            "name": "vac_jouw_rol",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_vac_wat_ga_je_doen_tekst",
+            "label": "Wat ga je doen (tekst)",
+            "name": "vac_wat_ga_je_doen_tekst",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_vac_wat_ga_je_doen_afbeelding",
+            "label": "Wat ga je doen (afbeelding)",
+            "name": "vac_wat_ga_je_doen_afbeelding",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "return_format": "array",
+            "library": "all",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_vac_wat_vragen_wij",
+            "label": "Wat vragen wij jou",
+            "name": "vac_wat_vragen_wij",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_vac_wat_bieden_wij",
+            "label": "Wat bieden wij jou",
+            "name": "vac_wat_bieden_wij",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_vac_wat_bieden_wij_cta",
+            "label": "Knop",
+            "name": "vac_wat_bieden_wij_cta",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_vac_tab_afdeling",
+            "label": "Kijkje op de afdeling",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_vac_afdeling_titel",
+            "label": "Titel",
+            "name": "vac_afdeling_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" }
+        },
+        {
+            "key": "field_vac_afdeling_tekst",
+            "label": "Tekst",
+            "name": "vac_afdeling_tekst",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_vac_afdeling_afbeelding",
+            "label": "Afbeelding",
+            "name": "vac_afdeling_afbeelding",
+            "type": "image",
+            "instructions": "Wordt ook als fallback/thumbnail gebruikt wanneer je hieronder een Vimeo-video invult.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "return_format": "array",
+            "library": "all",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_vac_afdeling_vimeo_id",
+            "label": "Vimeo video-ID",
+            "name": "vac_afdeling_vimeo_id",
+            "type": "text",
+            "instructions": "Optioneel. Alleen het ID uit de Vimeo-URL, bijv. 123456789.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_vac_tab_procedure",
+            "label": "Sollicitatieprocedure",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_vac_procedure_stappen",
+            "label": "Stappen",
+            "name": "vac_procedure_stappen",
+            "type": "repeater",
+            "instructions": "Elke stap toont een icoon met titel/tekst ernaast. Tussen de stappen wordt automatisch een pijl-naar-beneden getoond (behalve na de laatste stap).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "layout": "block",
+            "button_label": "Stap toevoegen",
+            "min": 0,
+            "max": 0,
+            "sub_fields": [
+                {
+                    "key": "field_vac_procedure_stap_icoon",
+                    "label": "Icoon",
+                    "name": "icoon",
+                    "type": "image",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "25", "class": "", "id": "" },
+                    "return_format": "array",
+                    "library": "all",
+                    "preview_size": "thumbnail"
+                },
+                {
+                    "key": "field_vac_procedure_stap_titel",
+                    "label": "Titel",
+                    "name": "titel",
+                    "type": "text",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "75", "class": "", "id": "" }
+                },
+                {
+                    "key": "field_vac_procedure_stap_tekst",
+                    "label": "Tekst",
+                    "name": "tekst",
+                    "type": "textarea",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "rows": 2,
+                    "new_lines": "wpautop"
+                }
+            ]
+        },
+        {
+            "key": "field_vac_tab_contact",
+            "label": "Contact",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_vac_contact_naam",
+            "label": "Naam",
+            "name": "vac_contact_naam",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_vac_contact_functie",
+            "label": "Functie",
+            "name": "vac_contact_functie",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_vac_contact_telefoon",
+            "label": "Telefoonnummer",
+            "name": "vac_contact_telefoon",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_vac_contact_email",
+            "label": "E-mailadres",
+            "name": "vac_contact_email",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_vac_contact_afbeelding",
+            "label": "Afbeelding contactpersoon",
+            "name": "vac_contact_afbeelding",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "return_format": "array",
+            "library": "all",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_vac_tab_formulier",
+            "label": "Sollicitatieformulier",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_vac_formulier_titel",
+            "label": "Titel",
+            "name": "vac_formulier_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "default_value": "Solliciteer direct",
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_vac_formulier_subtitel",
+            "label": "Subtitel",
+            "name": "vac_formulier_subtitel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "vacature"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1785312000
+}
