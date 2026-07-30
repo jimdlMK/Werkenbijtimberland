@@ -52,6 +52,38 @@ img {
     }
 }
 
+// Schaalbare padding-top voor blocks met een optionele intro (titel/tekst/
+// CTA) boven bijvoorbeeld een slider: hoe meer intro-elementen getoond
+// worden, hoe meer ademruimte. Alleen toepassen als er ook echt intro-
+// content is — een block zonder intro gebruikt uitsluitend .mk-block-spacing.
+$mk-intro-spacing: (
+    s: (mobile: 32px, md: 48px, lg: 64px),
+    m: (mobile: 40px, md: 60px, lg: 80px),
+    l: (mobile: 48px, md: 72px, lg: 96px),
+);
+
+@mixin mk-intro-spacing($tier) {
+    $sizes: map-get($mk-intro-spacing, $tier);
+
+    padding-top: map-get($sizes, mobile);
+
+    @include mq(md) {
+        padding-top: map-get($sizes, md);
+    }
+
+    @include mq(lg) {
+        padding-top: map-get($sizes, lg);
+    }
+}
+
+.mk-intro-spacing {
+    @each $tier, $sizes in $mk-intro-spacing {
+        &--#{$tier} {
+            @include mk-intro-spacing($tier);
+        }
+    }
+}
+
 // THEME //
 #main-content {
     overflow: hidden;

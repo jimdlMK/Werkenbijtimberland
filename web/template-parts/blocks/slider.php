@@ -24,16 +24,28 @@ if ( ( 'gallerij' === $type && ! $gallerij_items ) || ( 'merken' === $type && ! 
     return;
 }
 
-$slider_id     = 'slider-' . $block['id'];
-$show_intro    = 'geen' !== $intro_layout;
-$wrapper_class = 'mk-slider mk-block-spacing mk-slider--bg-' . $background . ' mk-slider--' . $type . ' mk-slider--edge-' . $edge;
+$slider_id      = 'slider-' . $block['id'];
+$show_intro     = 'geen' !== $intro_layout;
+$has_intro_content = $show_intro && ( $title || $text || 'geen' !== $cta_type );
+
+// Padding boven de slider schaalt mee met het aantal intro-elementen dat
+// daadwerkelijk getoond wordt (titel/tekst/CTA) — hoe meer content erboven
+// staat, hoe meer ademruimte nodig is.
+$intro_element_count = (int) (bool) $title + (int) (bool) $text + (int) ( 'geen' !== $cta_type );
+$intro_size          = 0 === $intro_element_count ? '' : ( $intro_element_count >= 3 ? 'l' : ( 2 === $intro_element_count ? 'm' : 's' ) );
+
+$wrapper_class  = 'mk-slider mk-block-spacing mk-slider--bg-' . $background . ' mk-slider--' . $type . ' mk-slider--edge-' . $edge;
+
+if ( $has_intro_content ) {
+    $wrapper_class .= ' mk-intro-spacing mk-intro-spacing--' . $intro_size;
+}
 
 if ( ! empty( $block['className'] ) ) {
     $wrapper_class .= ' ' . $block['className'];
 }
 ?>
 <section class="<?php echo esc_attr( $wrapper_class ); ?>">
-    <?php if ( $show_intro && ( $title || $text || 'geen' !== $cta_type ) ) : ?>
+    <?php if ( $has_intro_content ) : ?>
     <div class="container">
         <div class="mk-slider__intro mk-slider__intro--<?php echo esc_attr( $intro_layout ); ?><?php echo 'links-rechts' === $intro_layout ? ' mk-slider__intro--ratio-' . esc_attr( $intro_ratio ) : ''; ?>">
             <div class="mk-slider__intro__text-col">

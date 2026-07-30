@@ -1,13 +1,6 @@
 .mk-slider {
-    padding-top: 48px;
-
-    @include mq(md) {
-        padding-top: 72px;
-    }
-
-    @include mq(lg) {
-        padding-top: 96px;
-    }
+    // Ademruimte bovenaan (alleen wanneer er intro-content is) komt via de
+    // gedeelde .mk-intro-spacing--{s|m|l} utility, zie theme/_theme.scss.
 
     // Achtergrondkleur-varianten
     &--bg-wit {

@@ -30,6 +30,10 @@ $archive_url   = get_post_type_archive_link( 'vacature' );
 $slider_id     = 'sectoren-' . $block['id'];
 $wrapper_class = 'mk-sectoren mk-block-spacing mk-sectoren--edge-' . $edge;
 
+if ( $title ) {
+    $wrapper_class .= ' mk-intro-spacing mk-intro-spacing--s';
+}
+
 if ( ! empty( $block['className'] ) ) {
     $wrapper_class .= ' ' . $block['className'];
 }

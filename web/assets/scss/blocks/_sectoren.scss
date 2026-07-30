@@ -1,13 +1,6 @@
 .mk-sectoren {
-    padding-top: 48px;
-
-    @include mq(md) {
-        padding-top: 72px;
-    }
-
-    @include mq(lg) {
-        padding-top: 96px;
-    }
+    // Ademruimte bovenaan (alleen bij een titel) komt via de gedeelde
+    // .mk-intro-spacing--s utility, zie theme/_theme.scss.
 
     &__title {
         color: $color-heading-dark;

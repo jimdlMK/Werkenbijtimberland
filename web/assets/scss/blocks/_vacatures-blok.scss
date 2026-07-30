@@ -1,14 +1,4 @@
 .mk-vacatures-blok {
-    padding-top: 48px;
-
-    @include mq(md) {
-        padding-top: 72px;
-    }
-
-    @include mq(lg) {
-        padding-top: 96px;
-    }
-
     &__viewport {
         width: 100%;
         overflow: hidden;
