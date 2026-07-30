@@ -10,6 +10,19 @@ $sectoren = get_terms( array(
 
 $actieve_sector = isset( $_GET['sector'] ) ? sanitize_text_field( wp_unslash( $_GET['sector'] ) ) : '';
 
+$archief_intro = get_field( 'vacopt_intro', 'option' ) ?: 'Werken bij Timberland is jezelf, samen met je collega\'s dagelijks inzetten voor de verbetering en groei van onze organisatie.';
+
+$os_titel = get_field( 'vacopt_os_titel', 'option' ) ?: 'Open sollicitatie';
+$os_tekst = get_field( 'vacopt_os_tekst', 'option' ) ?: '<p>Staat jouw droombaan er nog niet tussen? Solliciteer dan open en laat ons weten wat jij zoekt. We nemen graag contact met je op zodra er een passende vacature beschikbaar is.</p>';
+$os_cta   = get_field( 'vacopt_os_cta', 'option' );
+
+$ja_titel = get_field( 'vacopt_ja_titel', 'option' ) ?: 'Nieuwe vacatures als eerste in je mailbox?';
+$ja_tekst = get_field( 'vacopt_ja_tekst', 'option' ) ?: 'Sta jouw vacature er nog niet tussen? Geen zorgen, we groeien snel! Maak een job alert aan en ontvang de nieuwste vacatures bij Timberland Europe B.V. direct in je mailbox. Afmelden kan op elk moment.';
+
+$stages_titel = get_field( 'vacopt_stages_titel', 'option' ) ?: 'Stages & afstuderen';
+$stages_tekst = get_field( 'vacopt_stages_tekst', 'option' ) ?: 'Op zoek naar een leerzame stage of afstudeerplek? Bekijk alle stagemogelijkheden bij Timberland en ontdek waar jij het verschil kunt maken.';
+$stages_cta   = get_field( 'vacopt_stages_cta', 'option' );
+
 $initial_query = new WP_Query( array(
     'post_type'      => 'vacature',
     'posts_per_page' => 12,
@@ -36,7 +49,7 @@ get_header();
             </nav>
 
             <h1 class="mk-vacature-archief__title">Vacatures</h1>
-            <p class="mk-vacature-archief__intro">Werken bij Timberland is jezelf, samen met je collega's dagelijks inzetten voor de verbetering en groei van onze organisatie.</p>
+            <div class="mk-vacature-archief__intro"><?php echo wp_kses_post( $archief_intro ); ?></div>
 
             <?php if ( $sectoren && ! is_wp_error( $sectoren ) ) : ?>
                 <div class="mk-vacature-archief__filters">
@@ -80,14 +93,19 @@ get_header();
                 <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/' . rawurlencode( 'CV 2.png' ) ); ?>" alt="">
             </div>
             <div class="mk-open-sollicitatie__content">
-                <h2 class="mk-open-sollicitatie__title">Open sollicitatie</h2>
-                <div class="mk-open-sollicitatie__text">
-                    <p>Staat jouw droombaan er nog niet tussen? Solliciteer dan open en laat ons weten wat jij zoekt. We nemen graag contact met je op zodra er een passende vacature is.</p>
-                </div>
-                <a class="btn-primary" href="#">
-                    Open sollicitatie versturen
-                    <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'white' ) ); ?>
-                </a>
+                <h2 class="mk-open-sollicitatie__title"><?php echo esc_html( $os_titel ); ?></h2>
+                <div class="mk-open-sollicitatie__text"><?php echo wp_kses_post( $os_tekst ); ?></div>
+                <?php if ( $os_cta && ! empty( $os_cta['url'] ) ) : ?>
+                    <a class="btn-primary" href="<?php echo esc_url( $os_cta['url'] ); ?>" target="<?php echo esc_attr( $os_cta['target'] ?: '_self' ); ?>">
+                        <?php echo esc_html( $os_cta['title'] ?: 'Open sollicitatie versturen' ); ?>
+                        <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'white' ) ); ?>
+                    </a>
+                <?php else : ?>
+                    <a class="btn-primary" href="#">
+                        Open sollicitatie versturen
+                        <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'white' ) ); ?>
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </section>
@@ -95,8 +113,8 @@ get_header();
     <section class="mk-vacature-cta-rijen mk-block-spacing">
         <div class="container mk-vacature-cta-rijen__grid">
             <div class="mk-vacature-cta-rij">
-                <h3 class="mk-vacature-cta-rij__title">Nieuwe vacatures als eerste in je mailbox?</h3>
-                <p class="mk-vacature-cta-rij__text">Sta jouw vacature er nog niet tussen? Geen zorgen, we groeien snel! Maak een job alert aan en ontvang de nieuwste vacatures bij Timberland Europe B.V. direct in je mailbox. Afmelden kan op elk moment.</p>
+                <h3 class="mk-vacature-cta-rij__title"><?php echo esc_html( $ja_titel ); ?></h3>
+                <div class="mk-vacature-cta-rij__text"><?php echo wp_kses_post( $ja_tekst ); ?></div>
                 <form class="mk-vacature-cta-rij__form">
                     <input type="email" placeholder="Jouw e-mailadres" required>
                     <button type="submit" class="btn-primary">
@@ -106,12 +124,19 @@ get_header();
                 </form>
             </div>
             <div class="mk-vacature-cta-rij mk-vacature-cta-rij--blauw">
-                <h3 class="mk-vacature-cta-rij__title">Stages &amp; afstuderen</h3>
-                <p class="mk-vacature-cta-rij__text">Op zoek naar een leerzame stage of afstudeerplek? Bekijk alle stagemogelijkheden bij Timberland en ontdek waar jij het verschil kunt maken.</p>
-                <a class="btn-secondary" href="#">
-                    Bekijk alle stages
-                    <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'white' ) ); ?>
-                </a>
+                <h3 class="mk-vacature-cta-rij__title"><?php echo esc_html( $stages_titel ); ?></h3>
+                <div class="mk-vacature-cta-rij__text"><?php echo wp_kses_post( $stages_tekst ); ?></div>
+                <?php if ( $stages_cta && ! empty( $stages_cta['url'] ) ) : ?>
+                    <a class="btn-secondary" href="<?php echo esc_url( $stages_cta['url'] ); ?>" target="<?php echo esc_attr( $stages_cta['target'] ?: '_self' ); ?>">
+                        <?php echo esc_html( $stages_cta['title'] ?: 'Bekijk alle stages' ); ?>
+                        <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'white' ) ); ?>
+                    </a>
+                <?php else : ?>
+                    <a class="btn-secondary" href="#">
+                        Bekijk alle stages
+                        <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'white' ) ); ?>
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </section>

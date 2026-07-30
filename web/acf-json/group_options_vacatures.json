@@ -3,6 +3,142 @@
     "title": "Vacatures instellingen",
     "fields": [
         {
+            "key": "field_vacopt_tab_overzicht",
+            "label": "Overzichtpagina",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_vacopt_intro",
+            "label": "Intro tekst",
+            "name": "vacopt_intro",
+            "type": "textarea",
+            "instructions": "Tekst onder de titel ‘Vacatures’ op de vacature-overzichtpagina.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "Werken bij Timberland is jezelf, samen met je collega's dagelijks inzetten voor de verbetering en groei van onze organisatie.",
+            "rows": 2,
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_vacopt_tab_open_sollicitatie",
+            "label": "Open sollicitatie",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_vacopt_os_titel",
+            "label": "Titel",
+            "name": "vacopt_os_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Open sollicitatie"
+        },
+        {
+            "key": "field_vacopt_os_tekst",
+            "label": "Tekst",
+            "name": "vacopt_os_tekst",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_vacopt_os_cta",
+            "label": "Knop",
+            "name": "vacopt_os_cta",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_vacopt_tab_cta_rijen",
+            "label": "Job alert & stages",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_vacopt_ja_titel",
+            "label": "Job alert - Titel",
+            "name": "vacopt_ja_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Nieuwe vacatures als eerste in je mailbox?"
+        },
+        {
+            "key": "field_vacopt_ja_tekst",
+            "label": "Job alert - Tekst",
+            "name": "vacopt_ja_tekst",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "Sta jouw vacature er nog niet tussen? Geen zorgen, we groeien snel! Maak een job alert aan en ontvang de nieuwste vacatures bij Timberland Europe B.V. direct in je mailbox. Afmelden kan op elk moment.",
+            "rows": 3,
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_vacopt_stages_titel",
+            "label": "Stages - Titel",
+            "name": "vacopt_stages_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Stages & afstuderen"
+        },
+        {
+            "key": "field_vacopt_stages_tekst",
+            "label": "Stages - Tekst",
+            "name": "vacopt_stages_tekst",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "Op zoek naar een leerzame stage of afstudeerplek? Bekijk alle stagemogelijkheden bij Timberland en ontdek waar jij het verschil kunt maken.",
+            "rows": 3,
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_vacopt_stages_cta",
+            "label": "Stages - Knop",
+            "name": "vacopt_stages_cta",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_vacopt_tab_vf",
+            "label": "VF Corporation",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
             "key": "field_vacopt_vf_titel",
             "label": "VF Corporation - Titel",
             "name": "vacopt_vf_titel",
@@ -46,5 +182,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1785320000
+    "modified": 1785440000
 }

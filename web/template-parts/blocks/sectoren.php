@@ -7,6 +7,7 @@
 
 $title       = get_field( 'sec_title' );
 $sector_ids  = get_field( 'sec_sectoren' );
+$edge        = get_field( 'sec_edge' ) ?: 'vol';
 
 if ( $sector_ids ) {
     $terms = get_terms( array(
@@ -27,7 +28,7 @@ if ( is_wp_error( $terms ) || ! $terms ) {
 
 $archive_url   = get_post_type_archive_link( 'vacature' );
 $slider_id     = 'sectoren-' . $block['id'];
-$wrapper_class = 'mk-sectoren mk-block-spacing';
+$wrapper_class = 'mk-sectoren mk-block-spacing mk-sectoren--edge-' . $edge;
 
 if ( ! empty( $block['className'] ) ) {
     $wrapper_class .= ' ' . $block['className'];
@@ -41,7 +42,7 @@ if ( ! empty( $block['className'] ) ) {
     </div>
 
     <div class="mk-sectoren__viewport">
-        <div class="swiper" id="<?php echo esc_attr( $slider_id ); ?>" data-slider-type="sectoren">
+        <div class="swiper" id="<?php echo esc_attr( $slider_id ); ?>" data-slider-type="sectoren" data-slider-edge="<?php echo esc_attr( $edge ); ?>"<?php echo 'rechts' === $edge ? ' dir="rtl"' : ''; ?>>
             <div class="swiper-wrapper">
                 <?php foreach ( $terms as $term ) :
                     $afbeelding = get_field( 'sector_afbeelding', $term );
@@ -49,7 +50,7 @@ if ( ! empty( $block['className'] ) ) {
                     $filter_url = $archive_url ? add_query_arg( 'sector', $term->slug, $archive_url ) : '#';
                 ?>
                     <div class="swiper-slide">
-                        <a class="mk-sectoren__card" href="<?php echo esc_url( $filter_url ); ?>">
+                        <a class="mk-sectoren__card" href="<?php echo esc_url( $filter_url ); ?>" dir="ltr">
                             <?php if ( $afbeelding ) : ?>
                                 <img class="mk-sectoren__card__image" src="<?php echo esc_url( $afbeelding['url'] ); ?>" alt="<?php echo esc_attr( $afbeelding['alt'] ?: $term->name ); ?>">
                             <?php endif; ?>

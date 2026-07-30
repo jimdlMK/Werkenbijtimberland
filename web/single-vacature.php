@@ -143,7 +143,10 @@ while ( have_posts() ) :
         <?php endif; ?>
 
         <?php if ( $wat_vragen_wij || $wat_bieden_wij ) : ?>
-            <section class="mk-vac-sectie mk-block-spacing">
+            <section class="mk-vac-sectie mk-vac-vraag-bod-sectie mk-block-spacing">
+                <div class="container mk-vac-vraag-bod-sectie__media">
+                    <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/single-vacature-persons.png' ); ?>" alt="">
+                </div>
                 <div class="container mk-vac-vraag-bod">
                     <?php if ( $wat_vragen_wij ) : ?>
                         <div class="mk-vac-vraag-bod__col">

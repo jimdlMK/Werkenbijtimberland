@@ -32,6 +32,14 @@
         font-weight: 400;
         line-height: 22.8px;
         margin: 0 0 32px;
+
+        p {
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 12px;
+            }
+        }
     }
 
     &__filters {
@@ -129,6 +137,16 @@
 
 // ===== Open sollicitatie =====
 .mk-open-sollicitatie {
+    padding-top: 48px;
+    background: $color-text-light;
+
+    @include mq(md) {
+        padding-top: 72px;
+    }
+
+    @include mq(lg) {
+        padding-top: 96px;
+    }
 
     &__grid {
         display: grid;
@@ -179,10 +197,12 @@
 
 // ===== Job alert / stages rijen =====
 .mk-vacature-cta-rijen {
+    background: $color-text-light;
+
     &__grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 40px;
 
         @include mq(md) {
             grid-template-columns: repeat(2, 1fr);
@@ -192,8 +212,9 @@
 
 .mk-vacature-cta-rij {
     padding: 32px;
-    border-radius: $custom-radius-sm;
-    background: $color-heading-light;
+    border-radius: 5px;
+    background: #F2F2F2;
+    box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.25);
 
     &--blauw {
         background: $color-blue-light;
@@ -213,6 +234,14 @@
         font-weight: 400;
         line-height: 22.8px;
         margin-bottom: 20px;
+
+        p {
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 12px;
+            }
+        }
     }
 
     &__form {

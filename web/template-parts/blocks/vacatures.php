@@ -19,8 +19,9 @@ if ( ! $vacatures ) {
     return;
 }
 
+$edge          = get_field( 'vacs_edge' ) ?: 'vol';
 $slider_id     = 'vacatures-' . $block['id'];
-$wrapper_class = 'mk-vacatures-blok mk-block-spacing';
+$wrapper_class = 'mk-vacatures-blok mk-block-spacing mk-vacatures-blok--edge-' . $edge;
 
 if ( ! empty( $block['className'] ) ) {
     $wrapper_class .= ' ' . $block['className'];
@@ -28,7 +29,7 @@ if ( ! empty( $block['className'] ) ) {
 ?>
 <section class="<?php echo esc_attr( $wrapper_class ); ?>">
     <div class="mk-vacatures-blok__viewport">
-        <div class="swiper" id="<?php echo esc_attr( $slider_id ); ?>" data-slider-type="vacatures">
+        <div class="swiper" id="<?php echo esc_attr( $slider_id ); ?>" data-slider-type="vacatures" data-slider-edge="<?php echo esc_attr( $edge ); ?>"<?php echo 'rechts' === $edge ? ' dir="rtl"' : ''; ?>>
             <div class="swiper-wrapper">
                 <?php foreach ( $vacatures as $vacature ) :
                     $functie   = get_field( 'vac_functie', $vacature->ID );
@@ -39,7 +40,7 @@ if ( ! empty( $block['className'] ) ) {
                     $permalink = get_permalink( $vacature );
                 ?>
                     <div class="swiper-slide">
-                        <div class="mk-vacatures-blok__slide">
+                        <div class="mk-vacatures-blok__slide" dir="ltr">
                             <div class="mk-vacatures-blok__slide__media">
                                 <?php if ( $thumbnail ) : ?>
                                     <img src="<?php echo esc_url( $thumbnail['url'] ); ?>" alt="<?php echo esc_attr( $thumbnail['alt'] ?: $vacature->post_title ); ?>">

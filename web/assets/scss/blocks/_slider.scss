@@ -145,6 +145,9 @@
         }
     }
 
+    // GALLERIJ "vol" (standaard): ongewijzigd legacy-gedrag — dit was al de
+    // bestaande situatie vóór de breedte-optie bestond (eerste slide start
+    // op de containerrand, maar niet hard geclipt). Blijft zo voor "vol".
     &--gallerij &__viewport .swiper {
         padding-left: 24px;
 
@@ -155,6 +158,36 @@
 
     &--merken &__viewport .swiper-slide {
         width: auto;
+    }
+
+    // "links"/"rechts" (gallerij én merken, wint van bovenstaande gallerij-
+    // regel door latere bronvolgorde): .swiper krijgt zelf een harde
+    // width/margin-grens + overflow:hidden, zodat er nooit slide-inhoud
+    // over de afgesneden rand heen zichtbaar is (i.p.v. de padding-illusie
+    // die met overflow:visible nog steeds liet doorschijnen). De open kant
+    // bleedt gewoon door tot de vensterrand.
+    &--edge-links &__viewport .swiper {
+        margin-left: 24px;
+        padding-left: 0;
+        width: calc(100% - 24px);
+        overflow: hidden;
+
+        @include mq(md) {
+            margin-left: max(24px, calc((100vw - #{$layout-content-size}) / 2 + 24px));
+            width: calc(100% - max(24px, calc((100vw - #{$layout-content-size}) / 2 + 24px)));
+        }
+    }
+
+    &--edge-rechts &__viewport .swiper {
+        margin-right: 24px;
+        padding-right: 0;
+        width: calc(100% - 24px);
+        overflow: hidden;
+
+        @include mq(md) {
+            margin-right: max(24px, calc((100vw - #{$layout-content-size}) / 2 + 24px));
+            width: calc(100% - max(24px, calc((100vw - #{$layout-content-size}) / 2 + 24px)));
+        }
     }
 
     &__gallery-slide {

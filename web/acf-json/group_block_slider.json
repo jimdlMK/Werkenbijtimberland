@@ -29,6 +29,33 @@
             "placeholder": ""
         },
         {
+            "key": "field_sl_edge",
+            "label": "Breedte slider",
+            "name": "sl_edge",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Bepaalt hoe de slider (gallerij/merken) uitloopt buiten het scherm.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "vol": "Volledige breedte (standaard)",
+                "links": "Links afgesneden (stopt bij content, rechts loopt door)",
+                "rechts": "Rechts afgesneden (stopt bij content, links loopt door)"
+            },
+            "default_value": "vol",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_sl_background",
             "label": "Achtergrondkleur",
             "name": "sl_background",
@@ -390,5 +417,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1785232188
+    "modified": 1785404392
 }

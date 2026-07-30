@@ -18,6 +18,36 @@
         }
     }
 
+    // ===== Breedte-varianten =====
+    // "vol" (standaard): geen inset nodig, bleedt aan beide kanten volledig.
+
+    // "links"/"rechts": .swiper krijgt zelf een harde width/margin-grens +
+    // overflow:hidden, zodat er nooit slide-inhoud over de afgesneden rand
+    // heen zichtbaar is (i.p.v. een padding-illusie met overflow:visible
+    // die de slide er toch overheen liet schijnen). De open kant bleedt
+    // gewoon door tot de vensterrand.
+    &--edge-links &__viewport .swiper {
+        margin-left: 24px;
+        width: calc(100% - 24px);
+        overflow: hidden;
+
+        @include mq(md) {
+            margin-left: max(24px, calc((100vw - #{$layout-content-size}) / 2 + 24px));
+            width: calc(100% - max(24px, calc((100vw - #{$layout-content-size}) / 2 + 24px)));
+        }
+    }
+
+    &--edge-rechts &__viewport .swiper {
+        margin-right: 24px;
+        width: calc(100% - 24px);
+        overflow: hidden;
+
+        @include mq(md) {
+            margin-right: max(24px, calc((100vw - #{$layout-content-size}) / 2 + 24px));
+            width: calc(100% - max(24px, calc((100vw - #{$layout-content-size}) / 2 + 24px)));
+        }
+    }
+
     &__slide {
         display: flex;
         flex-direction: column;

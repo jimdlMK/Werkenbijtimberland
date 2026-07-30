@@ -1,40 +1,11 @@
 {
-    "key": "group_block_sectoren",
-    "title": "Block: Sectoren",
+    "key": "group_block_vacatures",
+    "title": "Block: Vacatures",
     "fields": [
         {
-            "key": "field_sec_title",
-            "label": "Titel",
-            "name": "sec_title",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": { "width": "", "class": "", "id": "" },
-            "default_value": "Ontdek onze verschillende sectoren"
-        },
-        {
-            "key": "field_sec_sectoren",
-            "label": "Sectoren",
-            "name": "sec_sectoren",
-            "type": "taxonomy",
-            "instructions": "Leeg laten om automatisch alle sectoren te tonen.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": { "width": "", "class": "", "id": "" },
-            "taxonomy": "vacature_categorie",
-            "field_type": "multi_select",
-            "add_term": 0,
-            "save_terms": 0,
-            "load_terms": 0,
-            "return_format": "id",
-            "multiple": 0,
-            "allow_null": 1
-        },
-        {
-            "key": "field_sec_edge",
+            "key": "field_vacs_edge",
             "label": "Breedte slider",
-            "name": "sec_edge",
+            "name": "vacs_edge",
             "type": "select",
             "instructions": "Bepaalt hoe de slider uitloopt buiten het scherm.",
             "required": 0,
@@ -59,7 +30,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf/sectoren"
+                "value": "acf/vacatures"
             }
         ]
     ],

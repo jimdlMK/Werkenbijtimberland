@@ -23,16 +23,48 @@
 
         .swiper {
             overflow: visible;
-            padding-left: 24px;
-
-            @include mq(md) {
-                padding-left: max(24px, calc((100vw - #{$layout-content-size}) / 2 + 24px));
-            }
         }
 
         .swiper-slide {
             width: 574px;
             max-width: 85vw;
+        }
+    }
+
+    // ===== Breedte-varianten =====
+    // "vol" (standaard): ongewijzigd legacy-gedrag, niet hard geclipt.
+    &--edge-vol &__viewport .swiper {
+        padding-left: 24px;
+
+        @include mq(md) {
+            padding-left: max(24px, calc((100vw - #{$layout-content-size}) / 2 + 24px));
+        }
+    }
+
+    // "links"/"rechts": .swiper krijgt zelf een harde width/margin-grens +
+    // overflow:hidden, zodat er nooit slide-inhoud over de afgesneden rand
+    // heen zichtbaar is (i.p.v. een padding-illusie met overflow:visible
+    // die de slides er toch overheen liet schijnen). De open kant bleedt
+    // gewoon door tot de vensterrand.
+    &--edge-links &__viewport .swiper {
+        margin-left: 24px;
+        width: calc(100% - 24px);
+        overflow: hidden;
+
+        @include mq(md) {
+            margin-left: max(24px, calc((100vw - #{$layout-content-size}) / 2 + 24px));
+            width: calc(100% - max(24px, calc((100vw - #{$layout-content-size}) / 2 + 24px)));
+        }
+    }
+
+    &--edge-rechts &__viewport .swiper {
+        margin-right: 24px;
+        width: calc(100% - 24px);
+        overflow: hidden;
+
+        @include mq(md) {
+            margin-right: max(24px, calc((100vw - #{$layout-content-size}) / 2 + 24px));
+            width: calc(100% - max(24px, calc((100vw - #{$layout-content-size}) / 2 + 24px)));
         }
     }
 

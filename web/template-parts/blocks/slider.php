@@ -6,6 +6,7 @@
  */
 
 $type          = get_field( 'sl_type' ) ?: 'gallerij';
+$edge          = get_field( 'sl_edge' ) ?: 'vol';
 $background    = get_field( 'sl_background' ) ?: 'wit';
 $intro_layout  = get_field( 'sl_intro_layout' ) ?: 'links-rechts';
 $intro_ratio   = get_field( 'sl_intro_ratio' ) ?: '60-40';
@@ -25,7 +26,7 @@ if ( ( 'gallerij' === $type && ! $gallerij_items ) || ( 'merken' === $type && ! 
 
 $slider_id     = 'slider-' . $block['id'];
 $show_intro    = 'geen' !== $intro_layout;
-$wrapper_class = 'mk-slider mk-block-spacing mk-slider--bg-' . $background . ' mk-slider--' . $type;
+$wrapper_class = 'mk-slider mk-block-spacing mk-slider--bg-' . $background . ' mk-slider--' . $type . ' mk-slider--edge-' . $edge;
 
 if ( ! empty( $block['className'] ) ) {
     $wrapper_class .= ' ' . $block['className'];
@@ -82,10 +83,10 @@ if ( ! empty( $block['className'] ) ) {
 
     <?php if ( 'gallerij' === $type ) : ?>
         <div class="mk-slider__viewport">
-            <div class="swiper" id="<?php echo esc_attr( $slider_id ); ?>" data-slider-type="gallerij">
+            <div class="swiper" id="<?php echo esc_attr( $slider_id ); ?>" data-slider-type="gallerij" data-slider-edge="<?php echo esc_attr( $edge ); ?>"<?php echo 'rechts' === $edge ? ' dir="rtl"' : ''; ?>>
                 <div class="swiper-wrapper">
                     <?php foreach ( $gallerij_items as $image ) : ?>
-                        <div class="swiper-slide mk-slider__gallery-slide">
+                        <div class="swiper-slide mk-slider__gallery-slide" dir="ltr">
                             <a href="<?php echo esc_url( $image['url'] ); ?>" data-fancybox="mk-gallerij" data-caption="<?php echo esc_attr( $image['alt'] ); ?>">
                                 <img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>">
                             </a>
@@ -96,7 +97,7 @@ if ( ! empty( $block['className'] ) ) {
         </div>
     <?php else : ?>
         <div class="mk-slider__viewport">
-            <div class="swiper" id="<?php echo esc_attr( $slider_id ); ?>" data-slider-type="merken">
+            <div class="swiper" id="<?php echo esc_attr( $slider_id ); ?>" data-slider-type="merken" data-slider-edge="<?php echo esc_attr( $edge ); ?>"<?php echo 'rechts' === $edge ? ' dir="rtl"' : ''; ?>>
                 <div class="swiper-wrapper">
                     <?php foreach ( $merk_ids as $merk_id ) :
                         $logo         = get_field( 'merk_slider_logo', $merk_id ) && ! empty( get_field( 'merk_slider_logo', $merk_id )['url'] ) ? get_field( 'merk_slider_logo', $merk_id ) : get_field( 'merk_logo', $merk_id );
@@ -110,7 +111,7 @@ if ( ! empty( $block['className'] ) ) {
                         $link_url = $externe_link && ! empty( $externe_link['url'] ) ? $externe_link['url'] : '';
                         $tag      = $link_url ? 'a' : 'div';
                     ?>
-                        <div class="swiper-slide">
+                        <div class="swiper-slide" dir="ltr">
                             <<?php echo esc_html( $tag ); ?>
                                 class="mk-slider__brand-slide"
                                 <?php if ( $link_url ) : ?>

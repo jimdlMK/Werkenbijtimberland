@@ -270,6 +270,35 @@
 }
 
 // ===== Wat vragen wij / Wat bieden wij =====
+.mk-vac-vraag-bod-sectie {
+    padding-top: 48px;
+    background: $color-text-light;
+
+    @include mq(md) {
+        padding-top: 72px;
+    }
+
+    @include mq(lg) {
+        padding-top: 96px;
+    }
+
+    &__media {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 32px;
+
+        img {
+            width: 864px;
+            max-width: 100%;
+            height: auto;
+
+            @include mq(md) {
+                height: 375px;
+            }
+        }
+    }
+}
+
 .mk-vac-vraag-bod {
     display: flex;
     flex-direction: column;

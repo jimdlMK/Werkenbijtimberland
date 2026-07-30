@@ -3,11 +3,20 @@ jQuery(document).ready(function ($) {
         return;
     }
 
+    // Bij "links"/"rechts" afgesneden mag de slider nooit voorbij de
+    // afgesneden rand schuiven: loop (oneindig doorlopen via klonen) staat
+    // dan uit, rewind zorgt dat hij na de laatste slide terugspringt naar
+    // het begin — slide-index 0 blijft zo de harde grens aan de afgesneden
+    // kant, alleen de open kant kan slides onthullen.
     $('.swiper[data-slider-type="gallerij"]').each(function () {
+        var $swiper = $(this);
+        var edge = $swiper.data('slider-edge') || 'vol';
+
         new Swiper(this, {
             slidesPerView: 1.2,
             spaceBetween: 20,
-            loop: true,
+            loop: 'vol' === edge,
+            rewind: 'vol' !== edge,
             speed: 600,
             autoplay: {
                 delay: 3000,
@@ -31,13 +40,15 @@ jQuery(document).ready(function ($) {
         var $swiper = $(this);
         var sliderId = $swiper.attr('id');
         var $progressbar = $('[data-progressbar-for="' + sliderId + '"]');
+        var edge = $swiper.data('slider-edge') || 'vol';
 
         new Swiper(this, {
             slidesPerView: 'auto',
             spaceBetween: 20,
             speed: 600,
-            loop: true,
-            centeredSlides: true,
+            loop: 'vol' === edge,
+            rewind: 'vol' !== edge,
+            centeredSlides: 'vol' === edge,
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
@@ -53,12 +64,14 @@ jQuery(document).ready(function ($) {
         var $swiper = $(this);
         var sliderId = $swiper.attr('id');
         var $progressbar = $('[data-progressbar-for="' + sliderId + '"]');
+        var edge = $swiper.data('slider-edge') || 'vol';
 
         new Swiper(this, {
             slidesPerView: 'auto',
             spaceBetween: 20,
             speed: 600,
-            loop: true,
+            loop: 'vol' === edge,
+            rewind: 'vol' !== edge,
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
@@ -74,11 +87,13 @@ jQuery(document).ready(function ($) {
         var $swiper = $(this);
         var sliderId = $swiper.attr('id');
         var $dots = $('[data-dots-for="' + sliderId + '"]');
+        var edge = $swiper.data('slider-edge') || 'vol';
 
         new Swiper(this, {
             slidesPerView: 1,
             speed: 600,
-            loop: true,
+            loop: 'vol' === edge,
+            rewind: 'vol' !== edge,
             autoplay: {
                 delay: 4000,
                 disableOnInteraction: false,
