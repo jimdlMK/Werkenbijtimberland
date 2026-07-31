@@ -1,0 +1,187 @@
+.mk-mailerlite {
+    background: #F2F2F2;
+    padding: 48px 0;
+    &__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 931px;
+        max-width: 100%;
+        gap: 24px;
+        padding: 32px;
+        margin: 0 auto;
+        border-radius: 5px;
+        background: #F2F2F2;
+        box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+
+        @include mq(md) {
+            flex-direction: row;
+            align-items: flex-end;
+            gap: 40px;
+        }
+    }
+
+    &__media {
+        flex-shrink: 0;
+        width: 160px;
+
+        @include mq(md) {
+            width: 250px;
+            margin-bottom: -32px;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__content {
+        width: 100%;
+
+        @include mq(md) {
+            align-self: center;
+        }
+    }
+
+    &__title {
+        color: $color-heading-dark;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28px;
+        margin: 0 0 12px;
+    }
+
+    &__text {
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+        margin-bottom: 20px;
+
+        p {
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 12px;
+            }
+        }
+    }
+
+    // ===== MailerLite-plugin output (vaste markup vanuit de plugin zelf) =====
+    &__form {
+        .mailerlite-form-title {
+            display: none; // titel komt al uit ml_titel hierboven
+        }
+
+        .mailerlite-form-description {
+            display: none; // tekst komt al uit ml_tekst hierboven
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            @include mq(sm) {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        .mailerlite-form-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+
+            @include mq(sm) {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .mailerlite-form-field {
+            flex: 1;
+
+            label {
+                display: none;
+            }
+
+            input {
+                width: 100%;
+                padding: 14px 20px;
+                border-radius: $custom-radius-pill;
+                border: 1px solid $color-blue-grey;
+                font-size: $font-size-normal;
+                font-family: $font-family-standard-font;
+
+                &:focus {
+                    outline: none;
+                    border-color: $color-blue;
+                }
+            }
+        }
+
+        .mailerlite-form-error {
+            display: block;
+            margin-top: 4px;
+            color: $color-secondary;
+            font-size: $font-size-small;
+        }
+
+        .mailerlite-subscribe-button-container {
+            flex-shrink: 0;
+        }
+
+        .mailerlite-subscribe-submit {
+            @extend .btn-primary;
+            width: 100%;
+
+            @include mq(sm) {
+                width: auto;
+                white-space: nowrap;
+            }
+        }
+
+        .mailerlite-form-loader {
+            display: none;
+            color: $color-text;
+            font-size: $font-size-small;
+
+            &[style*="display: block"] {
+                display: block !important;
+            }
+        }
+
+        .mailerlite-form-response {
+            display: none;
+
+            h4 {
+                color: $color-heading-dark;
+                font-size: $font-size-normal;
+                font-weight: 600;
+                margin: 0;
+            }
+
+            &[style*="display: block"] {
+                display: block !important;
+            }
+        }
+    }
+}
+
+@include mq-down(sm) {
+    .mk-mailerlite {
+        &__card {
+            text-align: center;
+        }
+
+        &__title {
+            font-size: 22px;
+            line-height: 26px;
+        }
+    }
+}

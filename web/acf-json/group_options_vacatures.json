@@ -97,6 +97,30 @@
             "new_lines": "wpautop"
         },
         {
+            "key": "field_vacopt_ja_afbeelding",
+            "label": "Job alert - Illustratie (popup)",
+            "name": "vacopt_ja_afbeelding",
+            "type": "image",
+            "instructions": "Wordt getoond in de job alert-popup die opent via het jobalert-knopje in de header.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "return_format": "array",
+            "library": "all",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_vacopt_ja_form_id",
+            "label": "Job alert - MailerLite formulier-ID (popup)",
+            "name": "vacopt_ja_form_id",
+            "type": "number",
+            "instructions": "Het ID uit de shortcode [mailerlite_form form_id=X].",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": 1
+        },
+        {
             "key": "field_vacopt_stages_titel",
             "label": "Stages - Titel",
             "name": "vacopt_stages_titel",
@@ -182,5 +206,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1785440000
+    "modified": 1785480621
 }

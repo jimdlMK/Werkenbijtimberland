@@ -1,0 +1,39 @@
+.mk-stage-formulier {
+    &__intro {
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    &__title {
+        color: $color-heading-light;
+        font-size: $font-size-h2;
+        font-weight: $font-weight-h2;
+        line-height: $line-height-h2;
+        margin: 0 0 8px;
+    }
+
+    &__subtitel {
+        color: $color-text-light;
+        font-size: 16px;
+
+        p:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+
+    &__bg {
+        width: 60%;
+        margin: 0 auto;
+        padding: 40px 0;
+        background: #4B8AFF;
+
+        @include mq(md) {
+            padding: 64px 0;
+        }
+    }
+
+    &__form {
+        max-width: 720px;
+        margin-inline: auto;
+    }
+}

@@ -138,6 +138,12 @@
         }
     }
 
+    // Gallerij-slides hebben wisselende hoogtes (verticaal/liggend) — laat
+    // ze verticaal gecentreerd t.o.v. elkaar staan i.p.v. bovenaan uitgelijnd.
+    &--gallerij &__viewport .swiper-wrapper {
+        align-items: center;
+    }
+
     // GALLERIJ "vol" (standaard): ongewijzigd legacy-gedrag — dit was al de
     // bestaande situatie vóór de breedte-optie bestond (eerste slide start
     // op de containerrand, maar niet hard geclipt). Blijft zo voor "vol".
@@ -183,15 +189,39 @@
         }
     }
 
+    // Om en om verticaal/liggend, elk met een eigen vaste maat (Figma) —
+    // dat geeft de rij een speelser, minder uniform ritme. Breedte volgt
+    // de eigen maat i.p.v. gelijk getrokken te worden.
+    &--gallerij &__viewport .swiper-slide {
+        width: auto;
+    }
+
     &__gallery-slide {
-        aspect-ratio: 4 / 5;
         border-radius: $custom-radius-sm;
         overflow: hidden;
+
+        &--verticaal {
+            width: 389px;
+            height: 504px;
+            max-width: 70vw;
+        }
+
+        &--liggend {
+            width: 392px;
+            height: 342px;
+            max-width: 70vw;
+        }
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+    }
+
+    @include mq-down(sm) {
+        &__gallery-slide {
+            height: 320px;
         }
     }
 

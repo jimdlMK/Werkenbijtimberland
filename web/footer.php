@@ -10,6 +10,9 @@
 			<!-- Mobile menu -->
 			<?php get_template_part('template-parts/header/nav-mobile'); ?>
 
+			<!-- Job alert popup -->
+			<?php get_template_part('template-parts/header/jobalert-popup'); ?>
+
 			<!-- Scroll to top -->
 			<button type="button" class="mk-scroll-top" aria-label="Scroll naar boven">
 				<?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'white' ) ); ?>

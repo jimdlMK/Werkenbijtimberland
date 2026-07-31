@@ -1,0 +1,73 @@
+{
+    "key": "group_block_mailerlite",
+    "title": "Block: Mailerlite mailbox",
+    "fields": [
+        {
+            "key": "field_ml_afbeelding",
+            "label": "Illustratie",
+            "name": "ml_afbeelding",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "return_format": "array",
+            "library": "all",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_ml_titel",
+            "label": "Titel",
+            "name": "ml_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "Nieuwe vacatures als eerste in je mailbox?"
+        },
+        {
+            "key": "field_ml_tekst",
+            "label": "Tekst",
+            "name": "ml_tekst",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "Sta jouw vacature er nog niet tussen? Geen zorgen, we groeien snel! Maak een job alert aan en ontvang de nieuwste vacatures direct in je mailbox. Afmelden kan op elk moment.",
+            "rows": 3,
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_ml_form_id",
+            "label": "MailerLite formulier-ID",
+            "name": "ml_form_id",
+            "type": "number",
+            "instructions": "Het ID uit de shortcode [mailerlite_form form_id=X].",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/mailerlite"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1785460000
+}

@@ -52,6 +52,10 @@ function mediakanjers_get_nav_badge_count( $slug ) {
         return $counts && isset( $counts->publish ) ? (int) $counts->publish : 0;
     }
 
-    // TODO: vervangen door een echte count_posts() zodra het stage CPT bestaat.
+    if ( 'stages' === $slug ) {
+        $mogelijkheden = function_exists( 'get_field' ) ? get_field( 'stageopt_mogelijkheden', 'option' ) : null;
+        return $mogelijkheden ? count( $mogelijkheden ) : 0;
+    }
+
     return 0;
 }

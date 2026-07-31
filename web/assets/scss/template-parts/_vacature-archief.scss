@@ -112,7 +112,17 @@
 
     &__load-more {
         display: flex;
+        align-items: center;
         justify-content: center;
+        gap: 24px;
+
+        &::before,
+        &::after {
+            content: "";
+            flex: 1 1 auto;
+            height: 1px;
+            background: $color-blue-light;
+        }
 
         &__btn {
             display: inline-flex;

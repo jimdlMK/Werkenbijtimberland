@@ -97,8 +97,11 @@ if ( ! empty( $block['className'] ) ) {
         <div class="mk-slider__viewport">
             <div class="swiper" id="<?php echo esc_attr( $slider_id ); ?>" data-slider-type="gallerij" data-slider-edge="<?php echo esc_attr( $edge ); ?>"<?php echo 'rechts' === $edge ? ' dir="rtl"' : ''; ?>>
                 <div class="swiper-wrapper">
-                    <?php foreach ( $gallerij_items as $image ) : ?>
-                        <div class="swiper-slide mk-slider__gallery-slide" dir="ltr">
+                    <?php foreach ( $gallerij_items as $index => $image ) :
+                        // Om en om verticaal/liggend, alleen voor de gallerij-variant.
+                        $formaat = 0 === $index % 2 ? 'verticaal' : 'liggend';
+                    ?>
+                        <div class="swiper-slide mk-slider__gallery-slide mk-slider__gallery-slide--<?php echo esc_attr( $formaat ); ?>" dir="ltr">
                             <a href="<?php echo esc_url( $image['url'] ); ?>" data-fancybox="mk-gallerij" data-caption="<?php echo esc_attr( $image['alt'] ); ?>">
                                 <img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>">
                             </a>

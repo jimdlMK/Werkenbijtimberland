@@ -1,0 +1,155 @@
+// ===== Stage: Mogelijkheden (intro) =====
+.mk-stage-mogelijkheden-intro {
+    &__title {
+        color: $color-heading-dark;
+        font-size: $font-size-h2;
+        font-weight: $font-weight-h2;
+        line-height: $line-height-h2;
+        margin: 0 0 16px;
+    }
+
+    &__text {
+        max-width: 720px;
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+
+        p:not(:last-child) {
+            margin-bottom: 12px;
+        }
+    }
+}
+
+// ===== Stage: Mogelijkheden dropdown =====
+.mk-stage-dropdown {
+    &__grid {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        @include mq(md) {
+            flex-direction: row;
+            gap: 48px;
+        }
+    }
+
+    &__intro {
+        @include mq(md) {
+            flex: 0 0 40%;
+            max-width: 40%;
+        }
+    }
+
+    &__title {
+        color: $color-heading-dark;
+        font-size: $font-size-h2;
+        font-weight: $font-weight-h2;
+        line-height: $line-height-h2;
+        margin: 0 0 16px;
+    }
+
+    &__text {
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+
+        p:not(:last-child) {
+            margin-bottom: 12px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        @include mq(md) {
+            flex: 0 0 60%;
+            max-width: 60%;
+        }
+    }
+
+    &__item {
+        background: $color-heading-light;
+        border-radius: $custom-radius-sm;
+        overflow: hidden;
+    }
+
+    &__toggle {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 20px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        text-align: left;
+
+        &__title {
+            color: $color-heading-dark;
+            font-family: $font-family-standard-font;
+            font-size: 16px;
+            font-weight: 700;
+        }
+    }
+
+    &__arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: transform 0.25s ease;
+
+        svg {
+            width: 14px;
+            height: 13px;
+            transform: rotate(90deg);
+        }
+    }
+
+    &__item.is-open &__arrow {
+        transform: rotate(180deg);
+    }
+
+    &__panel {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.3s ease;
+    }
+
+    &__item.is-open &__panel {
+        grid-template-rows: 1fr;
+    }
+
+    &__panel__inner {
+        overflow: hidden;
+        padding: 0 20px;
+    }
+
+    &__item.is-open &__panel__inner {
+        padding: 0 20px 20px;
+    }
+
+    &__panel__text {
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+
+        p:not(:last-child) {
+            margin-bottom: 12px;
+        }
+    }
+}
+
+@include mq-down(sm) {
+    .mk-stage-mogelijkheden-intro__title,
+    .mk-stage-dropdown__title {
+        font-size: 28px;
+        line-height: 32px;
+    }
+}

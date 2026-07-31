@@ -13,25 +13,17 @@ jQuery(document).ready(function ($) {
         var edge = $swiper.data('slider-edge') || 'vol';
 
         new Swiper(this, {
-            slidesPerView: 1.2,
-            spaceBetween: 20,
+            // Slides wisselen om en om verticaal/liggend (zie slider.php)
+            // en hebben dus elk hun eigen breedte — 'auto' laat elke
+            // slide zijn eigen CSS-breedte behouden i.p.v. gelijk te trekken.
+            slidesPerView: 'auto',
+            spaceBetween: 40,
             loop: 'vol' === edge,
             rewind: 'vol' !== edge,
             speed: 600,
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
-            },
-            breakpoints: {
-                576: {
-                    slidesPerView: 2,
-                },
-                768: {
-                    slidesPerView: 3,
-                },
-                1024: {
-                    slidesPerView: 4,
-                },
             },
         });
     });
@@ -94,6 +86,28 @@ jQuery(document).ready(function ($) {
             speed: 600,
             loop: 'vol' === edge,
             rewind: 'vol' !== edge,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: $dots.length ? $dots[0] : null,
+                type: 'bullets',
+                clickable: true,
+            },
+        });
+    });
+
+    $('.swiper[data-slider-type="stage-reviews"]').each(function () {
+        var $swiper = $(this);
+        var sliderId = $swiper.attr('id');
+        var $dots = $('[data-dots-for="' + sliderId + '"]');
+
+        new Swiper(this, {
+            slidesPerView: 'auto',
+            spaceBetween: 20,
+            speed: 600,
+            loop: true,
             autoplay: {
                 delay: 4000,
                 disableOnInteraction: false,

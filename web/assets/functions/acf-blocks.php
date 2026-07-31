@@ -62,6 +62,48 @@ function mediakanjers_register_acf_blocks() {
             'icon'        => 'businessman',
             'keywords'    => array( 'vacatures', 'jobs', 'slider' ),
         ),
+        array(
+            'name'        => 'stage-mogelijkheden-intro',
+            'title'       => __( 'Stage: Mogelijkheden', 'mediakanjers' ),
+            'description' => __( 'Intro-sectie ("Talent inzetten...") vanuit de Stage instellingen.', 'mediakanjers' ),
+            'icon'        => 'lightbulb',
+            'keywords'    => array( 'stage', 'mogelijkheden', 'intro' ),
+        ),
+        array(
+            'name'        => 'stage-mogelijkheden-dropdown',
+            'title'       => __( 'Stage: Mogelijkheden dropdown', 'mediakanjers' ),
+            'description' => __( 'Titel + tekst met een uitklapbare lijst van stagemogelijkheden.', 'mediakanjers' ),
+            'icon'        => 'menu-alt',
+            'keywords'    => array( 'stage', 'mogelijkheden', 'accordion', 'dropdown' ),
+        ),
+        array(
+            'name'        => 'stage-verwachten-bieden',
+            'title'       => __( 'Stage: Verwachten & bieden', 'mediakanjers' ),
+            'description' => __( 'Grijsblauwe sectie met "Wat verwachten wij" en "Wat bieden wij" naast elkaar.', 'mediakanjers' ),
+            'icon'        => 'yes-alt',
+            'keywords'    => array( 'stage', 'verwachten', 'bieden' ),
+        ),
+        array(
+            'name'        => 'stage-reviews',
+            'title'       => __( 'Stage: Reviews', 'mediakanjers' ),
+            'description' => __( 'Slider met reviews van (oud-)stagiaires.', 'mediakanjers' ),
+            'icon'        => 'testimonial',
+            'keywords'    => array( 'stage', 'reviews', 'slider' ),
+        ),
+        array(
+            'name'        => 'stage-formulier',
+            'title'       => __( 'Stage: Sollicitatieformulier', 'mediakanjers' ),
+            'description' => __( 'Blauw vlak met titel, subtitel en het Gravity Forms sollicitatieformulier.', 'mediakanjers' ),
+            'icon'        => 'feedback',
+            'keywords'    => array( 'stage', 'formulier', 'solliciteren' ),
+        ),
+        array(
+            'name'        => 'mailerlite',
+            'title'       => __( 'Mailerlite mailbox', 'mediakanjers' ),
+            'description' => __( 'Illustratie + titel/tekst met een MailerLite-aanmeldformulier.', 'mediakanjers' ),
+            'icon'        => 'email-alt',
+            'keywords'    => array( 'mailerlite', 'nieuwsbrief', 'mailbox', 'aanmelden' ),
+        ),
     );
 
     foreach ( $blocks as $block ) {

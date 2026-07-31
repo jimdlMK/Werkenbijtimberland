@@ -1,0 +1,79 @@
+.mk-stage-vraag-bod {
+    background: $color-blue-grey;
+
+    &__grid {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        @include mq(md) {
+            flex-direction: row;
+            gap: 48px;
+        }
+    }
+
+    &__col {
+        @include mq(md) {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    &__title {
+        color: $color-heading-dark;
+        font-size: $font-size-h3;
+        font-weight: $font-weight-h3;
+        line-height: $line-height-h3;
+        margin: 0 0 16px;
+    }
+
+    // Vinkjes-checklist: de redacteur typt de losse punten als een
+    // bullet-list (<ul><li>) in de wysiwyg-editor, hier omgezet naar
+    // vinkjes i.p.v. bolletjes.
+    &__checklist {
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        li {
+            position: relative;
+            padding-left: 32px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 4px;
+                width: 21px;
+                height: 15px;
+                background-image: url('../../assets/images/icons/checkmark (2).svg');
+                background-repeat: no-repeat;
+                background-position: left center;
+                background-size: contain;
+            }
+        }
+
+        p:not(:last-child) {
+            margin-bottom: 12px;
+        }
+    }
+}
+
+@include mq-down(sm) {
+    .mk-stage-vraag-bod {
+        &__title {
+            font-size: 24px;
+            line-height: 28px;
+        }
+    }
+}

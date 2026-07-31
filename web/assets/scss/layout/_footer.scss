@@ -6,49 +6,50 @@
         max-width: $layout-content-size;
         width: $layout-maxwidth;
         margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
 
         &__inner {
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            grid-template-areas:
-                "logo menus side"
-                "legal legal legal";
-            align-items: start;
-            column-gap: 40px;
-            row-gap: 32px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
         }
     }
 
     &__logo {
-        grid-area: logo;
+        flex-shrink: 0;
 
         img {
-            width: 103px;
-            height: 103px;
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
             object-fit: contain;
         }
     }
 
     &__menus {
-        grid-area: menus;
+        flex: 1 1 auto;
         display: flex;
-        gap: 40px;
-        justify-content: space-evenly;
+        justify-content: center;
+        gap: 64px;
     }
 
     &__side {
-        grid-area: side;
+        flex-shrink: 0;
         display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 12px;
+        align-items: flex-start;
+        gap: 40px;
     }
 
     &__social {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        margin-top: 2px;
 
         svg {
             width: 23px;
@@ -59,7 +60,7 @@
     &__links {
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        align-items: flex-start;
         gap: 4px;
 
         &__item {
@@ -90,7 +91,9 @@
     }
 
     &__legal {
-        grid-area: legal;
+        // Zelfde inspringing als het logo + tussenruimte, zodat dit precies
+        // onder de menu's begint i.p.v. onder de linkerrand van de footer.
+        margin-left: 50px;
         color: $color-heading-light;
         font-size: $font-size-small;
         font-weight: 400;
@@ -117,24 +120,27 @@
 @include mq-down(lg) {
     .mk-footer {
         &__container__inner {
-            grid-template-columns: 1fr;
-            grid-template-areas:
-                "logo"
-                "menus"
-                "side"
-                "legal";
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
         }
 
         &__menus {
+            flex-direction: column;
             gap: 24px;
         }
 
         &__side {
             align-items: flex-start;
+            flex-direction: column;
         }
 
         &__links {
             align-items: flex-start;
+        }
+
+        &__legal {
+            margin-left: 0;
         }
     }
 }

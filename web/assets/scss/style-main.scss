@@ -37,6 +37,8 @@
     @import "components/cards/_card.scss";
     /* === SCROLL TOP === */
     @import "components/scroll-top/_scroll-top.scss";
+    /* === JOBALERT POPUP === */
+    @import "components/jobalert-popup/_jobalert-popup.scss";
 
 /* ===== BLOCKS ===== */
     @import "blocks/_hero.scss";
@@ -46,6 +48,11 @@
     @import "blocks/_slider.scss";
     @import "blocks/_sectoren.scss";
     @import "blocks/_vacatures-blok.scss";
+    @import "blocks/_stage-mogelijkheden.scss";
+    @import "blocks/_stage-vraag-bod.scss";
+    @import "blocks/_stage-reviews.scss";
+    @import "blocks/_stage-formulier.scss";
+    @import "blocks/_mailerlite.scss";
     @import "blocks/_mk-loop.scss";
     @import "blocks/_image-slider.scss";
     @import "blocks/_mk-breadcrumbs.scss";

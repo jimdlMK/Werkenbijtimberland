@@ -41,7 +41,7 @@ $header_logo      = $subpagina_logo ?: get_field( 'logo', 'option' );
             </div>
 
             <div class="mk-header__bottom-row">
-                <a class="mk-header__jobalert" href="/vacatures">
+                <button type="button" class="mk-header__jobalert" data-jobalert-open aria-haspopup="dialog" aria-controls="mk-jobalert-popup">
                     <span class="mk-header__jobalert__icon">
                         <?php
                         $bell_icon = get_stylesheet_directory() . '/assets/images/icons/bell.svg';
@@ -51,7 +51,7 @@ $header_logo      = $subpagina_logo ?: get_field( 'logo', 'option' );
                         ?>
                     </span>
                     <span class="mk-header__jobalert__label">Jobalert</span>
-                </a>
+                </button>
 
                 <div class="open-mobile-menu">
                     <span class="lineone"></span>

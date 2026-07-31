@@ -1,0 +1,259 @@
+{
+    "key": "group_options_stage",
+    "title": "Stage instellingen",
+    "fields": [
+        {
+            "key": "field_stageopt_tab_mogelijkheden",
+            "label": "Mogelijkheden",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_stageopt_mog_titel",
+            "label": "Titel",
+            "name": "stageopt_mog_titel",
+            "type": "text",
+            "instructions": "Gebruikt door zowel het Mogelijkheden-blok als het Stage-mogelijkheden dropdown-blok.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "Waar kun jij jouw talent inzetten?"
+        },
+        {
+            "key": "field_stageopt_mog_tekst",
+            "label": "Tekst",
+            "name": "stageopt_mog_tekst",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_stageopt_mogelijkheden",
+            "label": "Stagemogelijkheden",
+            "name": "stageopt_mogelijkheden",
+            "type": "repeater",
+            "instructions": "Elke rij is 1 stagemogelijkheid (bijv. een afdeling). Wordt getoond in het dropdown-blok en meegeteld in de Stages-badge in het menu.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "layout": "block",
+            "button_label": "Mogelijkheid toevoegen",
+            "min": 0,
+            "max": 0,
+            "sub_fields": [
+                {
+                    "key": "field_stageopt_mog_item_titel",
+                    "label": "Titel",
+                    "name": "titel",
+                    "type": "text",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "", "class": "", "id": "" }
+                },
+                {
+                    "key": "field_stageopt_mog_item_inhoud",
+                    "label": "Inhoud",
+                    "name": "inhoud",
+                    "type": "wysiwyg",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "tabs": "visual",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 0
+                }
+            ]
+        },
+        {
+            "key": "field_stageopt_tab_verwachten_bieden",
+            "label": "Verwachten & bieden",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_stageopt_vw_titel",
+            "label": "Wat verwachten wij - Titel",
+            "name": "stageopt_vw_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Wat verwachten wij van jou?"
+        },
+        {
+            "key": "field_stageopt_vw_tekst",
+            "label": "Wat verwachten wij - Tekst",
+            "name": "stageopt_vw_tekst",
+            "type": "wysiwyg",
+            "instructions": "Gebruik een bullet-list (•) voor de losse punten — deze worden als vinkjes getoond.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_stageopt_wb_titel",
+            "label": "Wat bieden wij - Titel",
+            "name": "stageopt_wb_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Wat bieden wij jou?"
+        },
+        {
+            "key": "field_stageopt_wb_tekst",
+            "label": "Wat bieden wij - Tekst",
+            "name": "stageopt_wb_tekst",
+            "type": "wysiwyg",
+            "instructions": "Gebruik een bullet-list (•) voor de losse punten — deze worden als vinkjes getoond.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_stageopt_tab_reviews",
+            "label": "Reviews",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_stageopt_reviews",
+            "label": "Reviews",
+            "name": "stageopt_reviews",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "layout": "block",
+            "button_label": "Review toevoegen",
+            "min": 0,
+            "max": 0,
+            "sub_fields": [
+                {
+                    "key": "field_stageopt_review_foto",
+                    "label": "Foto",
+                    "name": "foto",
+                    "type": "image",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "25", "class": "", "id": "" },
+                    "return_format": "array",
+                    "library": "all",
+                    "preview_size": "thumbnail"
+                },
+                {
+                    "key": "field_stageopt_review_naam",
+                    "label": "Naam",
+                    "name": "naam",
+                    "type": "text",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "25", "class": "", "id": "" }
+                },
+                {
+                    "key": "field_stageopt_review_rol",
+                    "label": "Rol",
+                    "name": "rol",
+                    "type": "text",
+                    "instructions": "Bijv. 'Oud-stagiaire'",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "50", "class": "", "id": "" },
+                    "default_value": "Oud-stagiaire"
+                },
+                {
+                    "key": "field_stageopt_review_tekst",
+                    "label": "Reviewtekst",
+                    "name": "tekst",
+                    "type": "textarea",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "rows": 3,
+                    "new_lines": "wpautop"
+                }
+            ]
+        },
+        {
+            "key": "field_stageopt_tab_formulier",
+            "label": "Sollicitatieformulier",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_stageopt_form_titel",
+            "label": "Titel",
+            "name": "stageopt_form_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "Wil je bij ons stage lopen?"
+        },
+        {
+            "key": "field_stageopt_form_subtitel",
+            "label": "Subtitel",
+            "name": "stageopt_form_subtitel",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "rows": 2,
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_stageopt_form_id",
+            "label": "Gravity Forms formulier-ID",
+            "name": "stageopt_form_id",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": 3
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "mediakanjers-stage-instellingen"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1785450000
+}
