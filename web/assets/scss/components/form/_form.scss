@@ -59,8 +59,59 @@
             &.is-filled .gfield_label {
                 top: 12px;
                 font-size: 12px;
-                line-height: normal; 
+                line-height: normal;
                 transition: 0.3s;
+            }
+
+            &:has(.ginput_container_fileupload) .gfield_label {
+                position: static;
+                display: block;
+                margin-bottom: 8px;
+                color: #717171;
+                font-size: 14px;
+                font-weight: 400;
+            }
+
+            .ginput_container_fileupload {
+                margin-top: 0;
+            }
+
+            .gform_fileupload_multifile {
+                border-radius: 10px;
+                border: 1px solid #D3D3D3;
+                background: #FFF;
+                padding: 16px;
+            }
+
+            .gform_drop_area {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .gform_drop_instructions {
+                display: none;
+            }
+
+            .gform_button_select_files {
+                width: 100%;
+                padding: 14px 20px;
+                border: 1px solid #D3D3D3;
+                border-radius: 6px;
+                background: transparent;
+                color: $color-heading-dark;
+                font-family: "Strichpunkt Sans";
+                font-size: 14px;
+                font-weight: 700;
+                cursor: pointer;
+                transition: 0.2s ease;
+
+                &:hover,
+                &:focus-visible {
+                    border-color: $color-blue;
+                    outline: none;
+                }
             }
         }
     }

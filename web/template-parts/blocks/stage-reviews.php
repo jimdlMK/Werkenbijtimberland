@@ -40,15 +40,17 @@ if ( ! empty( $block['className'] ) ) {
                                 </div>
                             <?php endif; ?>
 
-                            <?php if ( $tekst ) : ?>
-                                <div class="mk-stage-reviews__card__text"><?php echo wp_kses_post( wpautop( $tekst ) ); ?></div>
-                            <?php endif; ?>
-
-                            <div class="mk-stage-reviews__card__footer">
-                                <span class="mk-stage-reviews__card__naam"><?php echo esc_html( $naam ); ?></span>
-                                <?php if ( $rol ) : ?>
-                                    <span class="mk-stage-reviews__card__rol"><?php echo esc_html( $rol ); ?></span>
+                            <div class="mk-stage-reviews__card__content">
+                                <?php if ( $tekst ) : ?>
+                                    <div class="mk-stage-reviews__card__text"><?php echo wp_kses_post( wpautop( $tekst ) ); ?></div>
                                 <?php endif; ?>
+
+                                <div class="mk-stage-reviews__card__footer">
+                                    <span class="mk-stage-reviews__card__naam"><?php echo esc_html( $naam ); ?></span>
+                                    <?php if ( $rol ) : ?>
+                                        <span class="mk-stage-reviews__card__rol"><?php echo esc_html( $rol ); ?></span>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         </div>
                     </div>

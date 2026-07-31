@@ -1,0 +1,182 @@
+{
+    "key": "group_block_contact",
+    "title": "Block: Contact",
+    "fields": [
+        {
+            "key": "field_contact_tab_content",
+            "label": "Inhoud",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_contact_titel",
+            "label": "Titel",
+            "name": "contact_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "Kom je er niet uit? Wij helpen je graag"
+        },
+        {
+            "key": "field_contact_tekst",
+            "label": "Tekst",
+            "name": "contact_tekst",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "rows": 3,
+            "new_lines": "wpautop",
+            "default_value": "Heb je een vraag over een vacature, je sollicitatie of gewoon iets anders? Stuur ons een bericht en we reageren binnen 1 werkdag."
+        },
+        {
+            "key": "field_contact_tab_gegevens",
+            "label": "Contactgegevens",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_contact_adres_titel",
+            "label": "Adres - Titel",
+            "name": "contact_adres_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "default_value": "Bezoekadres"
+        },
+        {
+            "key": "field_contact_adres_tekst",
+            "label": "Adres - Tekst",
+            "name": "contact_adres_tekst",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "rows": 3,
+            "new_lines": "br",
+            "default_value": "Timberland Europe B.V.\nLogistiekweg 12\n5466 AB Veghel"
+        },
+        {
+            "key": "field_contact_telefoon_titel",
+            "label": "Telefoon - Titel",
+            "name": "contact_telefoon_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "default_value": "Telefonisch"
+        },
+        {
+            "key": "field_contact_telefoon",
+            "label": "Telefoonnummer",
+            "name": "contact_telefoon",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "default_value": "+31 (0)413 123 456"
+        },
+        {
+            "key": "field_contact_email_titel",
+            "label": "E-mail - Titel",
+            "name": "contact_email_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "34", "class": "", "id": "" },
+            "default_value": "E-mail"
+        },
+        {
+            "key": "field_contact_email",
+            "label": "E-mailadres",
+            "name": "contact_email",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "34", "class": "", "id": "" },
+            "default_value": "werkenbij@timberland.com"
+        },
+        {
+            "key": "field_contact_uren_titel",
+            "label": "Bereikbaarheid - Titel",
+            "name": "contact_uren_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "32", "class": "", "id": "" },
+            "default_value": "Bereikbaarheid"
+        },
+        {
+            "key": "field_contact_uren_tekst",
+            "label": "Bereikbaarheid - Tekst",
+            "name": "contact_uren_tekst",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "32", "class": "", "id": "" },
+            "default_value": "Ma t/m vr, 08:30 - 17:00 uur"
+        },
+        {
+            "key": "field_contact_tab_formulier",
+            "label": "Formulier",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_contact_form_titel",
+            "label": "Formulier - Titel",
+            "name": "contact_form_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "Stuur ons een bericht"
+        },
+        {
+            "key": "field_contact_form_id",
+            "label": "Gravity Forms formulier-ID",
+            "name": "contact_form_id",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/contact"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1785470000
+}
