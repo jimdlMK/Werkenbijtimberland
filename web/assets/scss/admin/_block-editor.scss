@@ -1,0 +1,87 @@
+// Bredere, overzichtelijkere ACF-velden in het block-instellingenpaneel
+// (rechterzijbalk) van de Gutenberg-editor. Alleen actief in de editor,
+// heeft geen effect op de front-end.
+
+.interface-interface-skeleton__sidebar {
+    width: 500px !important;
+
+    .interface-complementary-area {
+        width: 500px !important;
+    }
+}
+
+.block-editor-block-inspector {
+    .acf-fields {
+        > .acf-field {
+            padding: 20px 16px;
+        }
+    }
+
+    // Labels en instructies wat meer lucht/duidelijkheid
+    .acf-label {
+        margin-bottom: 8px;
+
+        label {
+            font-size: 13px;
+            font-weight: 600;
+        }
+    }
+
+    .acf-input {
+        font-size: 13px;
+    }
+
+    // Tabs: duidelijkere, grotere klikzones
+    .acf-tab-wrap {
+        .acf-tab-button {
+            padding: 10px 14px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    }
+
+    // Repeaters: rijen als losse kaartjes zodat losse items duidelijk zijn
+    .acf-repeater {
+        .acf-table {
+            > tbody > tr.acf-row {
+                margin-bottom: 12px;
+                border: 1px solid #dcdcde;
+                border-radius: 6px;
+                overflow: hidden;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                > td.acf-fields {
+                    padding: 4px 0;
+                }
+            }
+        }
+
+        .acf-row-handle.remove {
+            width: 32px;
+        }
+    }
+
+    // WYSIWYG: meer werkruimte
+    .acf-editor-wrap {
+        iframe,
+        textarea {
+            min-height: 220px;
+        }
+    }
+
+    // Image/gallery previews iets groter, prettiger klikbaar
+    .acf-image-uploader {
+        .image-wrap img {
+            max-height: 160px;
+            width: auto;
+        }
+    }
+
+    // Textareas standaard iets hoger dan de Gutenberg-default
+    textarea.acf-input {
+        min-height: 90px;
+    }
+}

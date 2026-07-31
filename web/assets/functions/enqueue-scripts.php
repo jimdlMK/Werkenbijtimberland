@@ -110,3 +110,23 @@ function mediakanjers_editor_assets() {
     add_editor_style( 'dist/css/style-main.css' );
 }
 add_action( 'admin_init', 'mediakanjers_editor_assets' );
+
+/**
+ * Admin-CSS voor de block editor zelf (buiten de content-iframe): maakt het
+ * ACF-instellingenpaneel in de zijbalk breder en de velden overzichtelijker,
+ * zodat blocks met veel/complexe velden (repeaters, WYSIWYG, tabs) prettig
+ * invulbaar blijven. Heeft geen effect op de front-end.
+ */
+function mediakanjers_block_editor_assets() {
+    $theme_uri  = get_stylesheet_directory_uri();
+    $theme_path = get_stylesheet_directory();
+    $style_path = '/dist/css/style-admin.css';
+
+    wp_enqueue_style(
+        'mediakanjers-block-editor',
+        $theme_uri . $style_path,
+        array(),
+        file_exists( $theme_path . $style_path ) ? filemtime( $theme_path . $style_path ) : null
+    );
+}
+add_action( 'enqueue_block_editor_assets', 'mediakanjers_block_editor_assets' );
