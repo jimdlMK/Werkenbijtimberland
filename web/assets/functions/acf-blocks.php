@@ -104,6 +104,13 @@ function mediakanjers_register_acf_blocks() {
             'icon'        => 'email-alt',
             'keywords'    => array( 'mailerlite', 'nieuwsbrief', 'mailbox', 'aanmelden' ),
         ),
+        array(
+            'name'        => 'nieuws-contact',
+            'title'       => __( 'Nieuws + contactformulier', 'mediakanjers' ),
+            'description' => __( 'Laatste nieuwsbericht naast een Gravity Forms contactformulier.', 'mediakanjers' ),
+            'icon'        => 'megaphone',
+            'keywords'    => array( 'nieuws', 'contact', 'formulier' ),
+        ),
     );
 
     foreach ( $blocks as $block ) {

@@ -29,15 +29,15 @@
         gap: 32px;
 
         @include mq(md) {
-            flex-direction: row;
+            flex-direction: column;
             gap: 48px;
         }
     }
 
     &__intro {
         @include mq(md) {
-            flex: 0 0 40%;
-            max-width: 40%;
+            flex: 0 0 60%;
+            max-width: 60%;
         }
     }
 
@@ -61,18 +61,19 @@
     }
 
     &__list {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr; // 1 kolom op mobiel
         gap: 12px;
 
         @include mq(md) {
             flex: 0 0 60%;
-            max-width: 60%;
+            grid-template-columns: repeat(2, 1fr); // 2 kolommen naast elkaar vanaf md
+            gap: 16px; // Optioneel: iets grotere tussenruimte op desktop
         }
     }
 
     &__item {
-        background: $color-heading-light;
+        background: #ffff;
         border-radius: $custom-radius-sm;
         overflow: hidden;
     }

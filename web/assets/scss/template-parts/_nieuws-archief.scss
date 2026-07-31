@@ -1,0 +1,159 @@
+.mk-nieuws-archief {
+    padding-top: 32px;
+    padding-bottom: 48px;
+
+    @include mq(md) {
+        padding-bottom: 72px;
+    }
+
+    &__breadcrumb {
+        font-size: $font-size-small;
+        color: $color-text;
+        margin-bottom: 16px;
+
+        a {
+            color: $color-blue;
+            text-decoration: none;
+        }
+    }
+
+    &__title {
+        color: $color-heading-dark;
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 52px;
+        margin: 0 0 12px;
+    }
+
+    &__intro {
+        max-width: 640px;
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+        margin: 0 0 32px;
+
+        p {
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 12px;
+            }
+        }
+    }
+
+    &__filters {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 24px;
+
+        @include mq(md) {
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+        }
+
+        &__label {
+            font-size: $font-size-normal;
+            font-weight: 700;
+            color: $color-heading-dark;
+            white-space: nowrap;
+        }
+
+        &__pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+    }
+
+    &__pill {
+        padding: 8px 18px;
+        border-radius: 43px;
+        border: 1px solid #D9D9D9;
+        background: $color-text-light;
+        color: $color-blue;
+        font-family: $font-family-standard-font;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 22.8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+
+        &.is-active,
+        &:hover {
+            background: $color-blue;
+            border-color: $color-blue;
+            color: $color-text-light;
+        }
+    }
+
+    &__count {
+        font-size: $font-size-small;
+        color: $color-text;
+        margin: 0 0 20px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 32px;
+
+        @include mq(sm) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mq(lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &__empty {
+        color: $color-text;
+    }
+
+    &__load-more {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+
+        &::before,
+        &::after {
+            content: "";
+            flex: 1 1 auto;
+            height: 1px;
+            background: $color-blue-light;
+        }
+
+        &__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: $color-blue;
+            font-size: $font-size-normal;
+            font-weight: 500;
+            cursor: pointer;
+
+            svg {
+                width: 14px;
+                height: 13px;
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
+
+@include mq-down(sm) {
+    .mk-nieuws-archief {
+        &__title {
+            font-size: 32px;
+            line-height: 36px;
+        }
+    }
+}

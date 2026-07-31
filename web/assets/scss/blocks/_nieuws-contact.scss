@@ -1,0 +1,82 @@
+.mk-nieuws-contact {
+    background: #f2f2f2;
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+
+        @include mq(md) {
+            grid-template-columns: 1fr 1fr;
+            gap: 140px;
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 40px;
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        color: $color-heading-dark;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 36px;
+        margin: 0;
+    }
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        color: $color-secondary;
+        font-size: $font-size-normal;
+        font-weight: 700;
+        text-decoration: none;
+
+        svg {
+            width: 14px;
+            height: 13px;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__contact-tekst {
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+        margin-bottom: 24px;
+
+        p {
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 12px;
+            }
+        }
+    }
+
+    &__empty {
+        color: $color-text;
+    }
+
+    .mk-nieuws-card {
+        max-width: 380px;
+    }
+}
+
+@include mq-down(sm) {
+    .mk-nieuws-contact {
+        &__title {
+            font-size: 26px;
+            line-height: 30px;
+        }
+    }
+}

@@ -7,6 +7,8 @@
     require get_stylesheet_directory() . '/assets/functions/vacature-ajax.php';
     require get_stylesheet_directory() . '/assets/functions/vacature-instellingen.php';
     require get_stylesheet_directory() . '/assets/functions/stage-instellingen.php';
+    require get_stylesheet_directory() . '/assets/functions/nieuws-instellingen.php';
+    require get_stylesheet_directory() . '/assets/functions/nieuws-ajax.php';
     require get_stylesheet_directory() . '/assets/functions/class-nav-badge-walker.php';
     require get_stylesheet_directory() . '/assets/functions/acf-blocks.php';
 ?>

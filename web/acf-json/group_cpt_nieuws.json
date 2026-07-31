@@ -1,0 +1,50 @@
+{
+    "key": "group_cpt_nieuws",
+    "title": "Nieuwsbericht",
+    "fields": [
+        {
+            "key": "field_nieuws_intro",
+            "label": "Introtekst",
+            "name": "nieuws_intro",
+            "type": "textarea",
+            "instructions": "Korte introtekst, gebruikt op de nieuws-cards en het nieuwsblok.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "rows": 3,
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_nieuws_thumbnail",
+            "label": "Thumbnail afbeelding",
+            "name": "nieuws_thumbnail",
+            "type": "image",
+            "instructions": "Gebruikt op de nieuws-cards en de single nieuwspagina.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "return_format": "array",
+            "library": "all",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "nieuws"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1785450000
+}

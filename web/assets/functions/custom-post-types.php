@@ -59,6 +59,51 @@
     add_action( 'init', 'mediakanjers_cpt_vacatures' );
 
     /**
+     * CPT: Nieuws
+     */
+    function mediakanjers_cpt_nieuws() {
+        register_post_type( 'nieuws', array(
+            'public'       => true,
+            'has_archive'  => 'nieuws',
+            'label'        => 'Nieuws',
+            'labels'       => array(
+                'name'          => 'Nieuws',
+                'singular_name' => 'Nieuwsbericht',
+                'add_new_item'  => 'Nieuw nieuwsbericht toevoegen',
+                'edit_item'     => 'Nieuwsbericht bewerken',
+                'all_items'     => 'Alle nieuwsberichten',
+            ),
+            'supports'     => array( 'title', 'editor' ),
+            'show_in_rest' => false,
+            'menu_icon'    => 'dashicons-media-document',
+            'rewrite'      => array( 'slug' => 'nieuws' ),
+        ) );
+    }
+    add_action( 'init', 'mediakanjers_cpt_nieuws' );
+
+    /**
+     * Taxonomy: Nieuwscategorieën
+     */
+    function mediakanjers_tax_nieuws_categorie() {
+        register_taxonomy( 'nieuws_categorie', array( 'nieuws' ), array(
+            'public'            => true,
+            'hierarchical'      => true,
+            'show_in_rest'      => true,
+            'label'             => 'Nieuwscategorieën',
+            'labels'            => array(
+                'name'          => 'Nieuwscategorieën',
+                'singular_name' => 'Nieuwscategorie',
+                'add_new_item'  => 'Nieuwe categorie toevoegen',
+                'edit_item'     => 'Categorie bewerken',
+                'all_items'     => 'Alle categorieën',
+            ),
+            'show_admin_column' => true,
+            'rewrite'           => array( 'slug' => 'nieuws-categorie' ),
+        ) );
+    }
+    add_action( 'init', 'mediakanjers_tax_nieuws_categorie' );
+
+    /**
      * Taxonomy: Vacature categorieën (sectoren)
      */
     function mediakanjers_tax_vacature_categorie() {

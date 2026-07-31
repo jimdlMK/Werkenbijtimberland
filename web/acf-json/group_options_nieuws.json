@@ -1,0 +1,120 @@
+{
+    "key": "group_options_nieuws",
+    "title": "Nieuws instellingen",
+    "fields": [
+        {
+            "key": "field_nieuwsopt_tab_archief",
+            "label": "Archiefpagina",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_nieuwsopt_archief_intro",
+            "label": "Introtekst",
+            "name": "nieuwsopt_archief_intro",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_nieuwsopt_tab_blok",
+            "label": "Nieuws + contact blok",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_nieuwsopt_blok_titel",
+            "label": "Titel",
+            "name": "nieuwsopt_blok_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Laatste nieuws"
+        },
+        {
+            "key": "field_nieuwsopt_blok_link_tekst",
+            "label": "Link tekst",
+            "name": "nieuwsopt_blok_link_tekst",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "25", "class": "", "id": "" },
+            "default_value": "Bekijk alles"
+        },
+        {
+            "key": "field_nieuwsopt_blok_link_url",
+            "label": "Link URL",
+            "name": "nieuwsopt_blok_link_url",
+            "type": "url",
+            "instructions": "Laat leeg om automatisch naar het nieuwsoverzicht te linken.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "25", "class": "", "id": "" }
+        },
+        {
+            "key": "field_nieuwsopt_contact_titel",
+            "label": "Contactformulier - Titel",
+            "name": "nieuwsopt_contact_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Heb je vragen of opmerkingen?"
+        },
+        {
+            "key": "field_nieuwsopt_contact_tekst",
+            "label": "Contactformulier - Tekst",
+            "name": "nieuwsopt_contact_tekst",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "rows": 2,
+            "new_lines": "wpautop",
+            "default_value": "Neem contact op met ons team en we reageren zo snel mogelijk."
+        },
+        {
+            "key": "field_nieuwsopt_contact_form_id",
+            "label": "Gravity Forms formulier-ID",
+            "name": "nieuwsopt_contact_form_id",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "mediakanjers-nieuws-instellingen"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1785450000
+}

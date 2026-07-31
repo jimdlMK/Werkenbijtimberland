@@ -54,6 +54,11 @@ function mediakanjers_enqueue_assets() {
         'ajaxUrl' => admin_url( 'admin-ajax.php' ),
         'nonce'   => wp_create_nonce( 'mediakanjers_vacatures' ),
     ) );
+
+    wp_localize_script( 'mediakanjers-scripts', 'mediakanjersNieuws', array(
+        'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+        'nonce'   => wp_create_nonce( 'mediakanjers_nieuws' ),
+    ) );
 }
 add_action( 'wp_enqueue_scripts', 'mediakanjers_enqueue_assets' );
 

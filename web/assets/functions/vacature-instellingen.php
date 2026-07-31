@@ -13,7 +13,7 @@ function mediakanjers_vacatures_options_page() {
         'page_title'  => 'Vacatures instellingen',
         'menu_title'  => 'Vacatures instellingen',
         'menu_slug'   => 'mediakanjers-vacatures-instellingen',
-        'parent_slug' => 'Mediakanjers',
+        'parent_slug' => 'mediakanjers-instellingen',
     ) );
 }
 add_action( 'acf/init', 'mediakanjers_vacatures_options_page' );
