@@ -270,6 +270,22 @@
     }
 }
 
+@include mq-down(md) {
+    .mk-slider {
+        // Op mobiel altijd de volledige breedte tonen, ook als het blok is
+        // ingesteld op "links"/"rechts" (edge-to-edge crop is een
+        // desktop-only effect).
+        &--edge-links &__viewport .swiper,
+        &--edge-rechts &__viewport .swiper {
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 24px;
+            width: 100%;
+            overflow: visible;
+        }
+    }
+}
+
 @include mq-down(sm) {
     .mk-slider {
         &__title {

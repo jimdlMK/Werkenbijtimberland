@@ -279,3 +279,51 @@
         }
     }
 }
+
+@include mq-down(sm) {
+    .mk-jobalert-popup {
+        padding: 12px;
+
+        &__dialog {
+            max-height: 85vh;
+            border-radius: $custom-radius-sm;
+        }
+
+        &__close {
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+        }
+
+        &__media {
+            max-height: 120px;
+
+            img {
+                max-width: 140px;
+                margin-top: 16px;
+            }
+        }
+
+        &__content {
+            padding: 28px 20px;
+        }
+
+        &__badge {
+            padding: 5px 12px;
+            margin-bottom: 12px;
+            font-size: 11px;
+        }
+
+        &__title {
+            font-size: 22px;
+            line-height: 26px;
+            margin-bottom: 8px;
+        }
+
+        &__text {
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+    }
+}

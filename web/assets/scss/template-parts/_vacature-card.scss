@@ -99,6 +99,7 @@
 
 @include mq-down(sm) {
     .mk-vacature-card {
+        width: 100%;
         height: auto;
         aspect-ratio: 574 / 519;
     }
