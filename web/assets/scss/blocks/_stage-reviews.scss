@@ -99,6 +99,23 @@
         }
     }
 
+    @include mq-down(md) {
+        &__viewport .swiper {
+            padding-left: 0 !important;
+            width: 100% !important;
+        }
+
+        &__viewport .swiper-slide {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin-right: 0 !important;
+        }
+
+        &__card {
+            width: 100%;
+        }
+    }
+
     &__dots {
         position: relative;
         display: flex;

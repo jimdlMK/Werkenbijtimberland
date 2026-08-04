@@ -272,16 +272,28 @@
 
 @include mq-down(md) {
     .mk-slider {
-        // Op mobiel altijd de volledige breedte tonen, ook als het blok is
-        // ingesteld op "links"/"rechts" (edge-to-edge crop is een
-        // desktop-only effect).
-        &--edge-links &__viewport .swiper,
-        &--edge-rechts &__viewport .swiper {
-            margin-left: 0;
-            margin-right: 0;
-            padding-left: 24px;
-            width: 100%;
+        // Op mobiel is er geen links/rechts-afsnijding meer: elke variant
+        // (vol, links, rechts, gallerij, merken) toont de slide op volle
+        // schermbreedte, zonder marge/padding/crop.
+        &__viewport .swiper {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            width: 100% !important;
             overflow: visible;
+        }
+
+        &__viewport .swiper-slide {
+            width: 100% !important;
+        }
+
+        &__gallery-slide,
+        &__gallery-slide--verticaal,
+        &__gallery-slide--liggend,
+        &__brand-slide {
+            width: 100%;
+            max-width: 100%;
         }
     }
 }
