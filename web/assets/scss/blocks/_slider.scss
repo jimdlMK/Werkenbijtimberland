@@ -273,19 +273,20 @@
 @include mq-down(md) {
     .mk-slider {
         // Op mobiel is er geen links/rechts-afsnijding meer: elke variant
-        // (vol, links, rechts, gallerij, merken) toont de slide op volle
-        // schermbreedte, zonder marge/padding/crop.
+        // (vol, links, rechts, gallerij, merken) toont de slide gecentreerd
+        // op ~90% breedte, met evenveel ruimte aan beide kanten (i.p.v. een
+        // harde crop tegen één schermrand).
         &__viewport .swiper {
             margin-left: 0 !important;
             margin-right: 0 !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
+            padding-left: 5% !important;
+            padding-right: 5% !important;
             width: 100% !important;
             overflow: visible;
         }
 
         &__viewport .swiper-slide {
-            width: 100% !important;
+            width: 90% !important;
         }
 
         &__gallery-slide,

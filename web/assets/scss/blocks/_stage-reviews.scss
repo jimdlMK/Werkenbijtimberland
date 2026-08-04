@@ -101,14 +101,15 @@
 
     @include mq-down(md) {
         &__viewport .swiper {
-            padding-left: 0 !important;
+            padding-left: 5% !important;
+            padding-right: 5% !important;
             width: 100% !important;
         }
 
         &__viewport .swiper-slide {
-            width: 100% !important;
-            max-width: 100% !important;
-            margin-right: 0 !important;
+            width: 90% !important;
+            max-width: 90% !important;
+            margin-right: 16px !important;
         }
 
         &__card {

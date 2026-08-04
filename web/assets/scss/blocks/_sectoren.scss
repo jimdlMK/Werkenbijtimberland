@@ -133,19 +133,21 @@
 
 @include mq-down(md) {
     .mk-sectoren {
-        // Op mobiel is er geen links/rechts-afsnijding meer: altijd volle
-        // schermbreedte, zonder marge/padding/crop.
+        // Op mobiel is er geen links/rechts-afsnijding meer: de slide staat
+        // altijd gecentreerd op ~90% breedte, met evenveel ruimte aan beide
+        // kanten (i.p.v. een harde crop tegen één schermrand).
         &__viewport .swiper {
             margin-left: 0 !important;
             margin-right: 0 !important;
-            padding-left: 0 !important;
+            padding-left: 5% !important;
+            padding-right: 5% !important;
             width: 100% !important;
             overflow: visible;
         }
 
         &__viewport .swiper-slide {
-            width: 100% !important;
-            max-width: 100% !important;
+            width: 90% !important;
+            max-width: 90% !important;
         }
 
         &__card {

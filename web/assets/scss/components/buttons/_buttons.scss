@@ -38,36 +38,48 @@
 // Primary: grote blauwe CTA
 .btn-primary {
     @extend .btn;
-    padding: 16px 24px;
+    padding: 8px 18px;
     background: $color-blue;
     color: $color-heading-light;
     border-radius: $custom-radius-lg;
     box-shadow: $custom-shadow-button;
-    font-size: 1.25rem;
+    font-size: clamp(16px, 3.5vw, 1.25rem);
     font-weight: 700;
+
+    @include mq(sm) {
+        padding: 16px 24px;
+    }
 }
 
 // Secondary (naam aangepast naar jouw HTML): link met pijl
 .mk-hero__cta-secondary {
     @extend .btn;
-    padding: 17px 19px;
+    padding: 8px 14px;
     background: $color-secondary;
     color: $color-text-light;
     border-radius: $custom-radius-pill;
     box-shadow: $custom-shadow-button;
-    font-size: $font-size-normal;
+    font-size: clamp(14px, 3vw, $font-size-normal);
     font-weight: 700;
     line-height: 1.425;
+
+    @include mq(sm) {
+        padding: 17px 19px;
+    }
 }
 
 // Secondary (koper): generieke variant voor gebruik buiten de hero
 .btn-secondary {
     @extend .btn;
-    padding: 16px 24px;
+    padding: 8px 18px;
     background: $color-secondary;
     color: $color-text-light;
     border-radius: $custom-radius-lg;
     box-shadow: $custom-shadow-button;
-    font-size: 1.25rem;
+    font-size: clamp(16px, 3.5vw, 1.25rem);
     font-weight: 700;
+
+    @include mq(sm) {
+        padding: 16px 24px;
+    }
 }
