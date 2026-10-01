@@ -113,9 +113,9 @@
         width: 36px;
         height: 36px;
         border-radius: 50%;
-        background: rgba($color-secondary, 0.12);
-        color: $color-secondary;
-        transition: transform 0.3s ease, background 0.2s ease, color 0.2s ease;
+        background: $color-primary;
+        color: $color-text-light;
+        transition: transform 0.3s ease, background 0.2s ease;
 
         svg {
             width: 18px;
@@ -123,15 +123,9 @@
         }
     }
 
-    // Zelfde accent als de sluitknop van de job alert-popup:
-    // zacht in rust, vol rood-oranje bij hover/open.
-    &__toggle:hover &__icon,
+    // Dicht: donkerblauw, open: rood-oranje (accent van de job alert-popup).
     &__item.is-open &__icon {
         background: $color-secondary;
-        color: $color-text-light;
-    }
-
-    &__item.is-open &__icon {
         transform: rotate(180deg);
     }
 
