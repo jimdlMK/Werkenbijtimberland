@@ -216,61 +216,6 @@
             "wrapper": { "width": "50", "class": "", "id": "" }
         },
         {
-            "key": "field_vac_tab_procedure",
-            "label": "Sollicitatieprocedure",
-            "name": "",
-            "type": "tab",
-            "placement": "top"
-        },
-        {
-            "key": "field_vac_procedure_stappen",
-            "label": "Stappen",
-            "name": "vac_procedure_stappen",
-            "type": "repeater",
-            "instructions": "Elke stap toont een icoon met titel/tekst ernaast. Tussen de stappen wordt automatisch een pijl-naar-beneden getoond (behalve na de laatste stap).",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": { "width": "", "class": "", "id": "" },
-            "layout": "block",
-            "button_label": "Stap toevoegen",
-            "min": 0,
-            "max": 0,
-            "sub_fields": [
-                {
-                    "key": "field_vac_procedure_stap_icoon",
-                    "label": "Icoon",
-                    "name": "icoon",
-                    "type": "image",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": { "width": "25", "class": "", "id": "" },
-                    "return_format": "array",
-                    "library": "all",
-                    "preview_size": "thumbnail"
-                },
-                {
-                    "key": "field_vac_procedure_stap_titel",
-                    "label": "Titel",
-                    "name": "titel",
-                    "type": "text",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": { "width": "75", "class": "", "id": "" }
-                },
-                {
-                    "key": "field_vac_procedure_stap_tekst",
-                    "label": "Tekst",
-                    "name": "tekst",
-                    "type": "textarea",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": { "width": "", "class": "", "id": "" },
-                    "rows": 2,
-                    "new_lines": "wpautop"
-                }
-            ]
-        },
-        {
             "key": "field_vac_tab_contact",
             "label": "Contact",
             "name": "",
@@ -377,5 +322,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1785312000
+    "modified": 1790877600
 }

@@ -35,7 +35,7 @@ while ( have_posts() ) :
     $afdeling_vimeo_id   = get_field( 'vac_afdeling_vimeo_id', $vacature_id );
     $afdeling_heeft_video = ! empty( $afdeling_vimeo_id );
 
-    $procedure_stappen = get_field( 'vac_procedure_stappen', $vacature_id );
+    $procedure_stappen = get_field( 'vacopt_procedure_stappen', 'option' );
 
     $contact_naam       = get_field( 'vac_contact_naam', $vacature_id );
     $contact_functie    = get_field( 'vac_contact_functie', $vacature_id );
@@ -235,7 +235,7 @@ while ( have_posts() ) :
                                                     <h3 class="mk-vac-procedure__stap__title"><?php echo esc_html( $stap['titel'] ); ?></h3>
                                                 <?php endif; ?>
                                                 <?php if ( ! empty( $stap['tekst'] ) ) : ?>
-                                                    <p class="mk-vac-procedure__stap__text"><?php echo esc_html( $stap['tekst'] ); ?></p>
+                                                    <p class="mk-vac-procedure__stap__text"><?php echo wp_kses_post( $stap['tekst'] ); ?></p>
                                                 <?php endif; ?>
                                             </div>
                                         </div>
