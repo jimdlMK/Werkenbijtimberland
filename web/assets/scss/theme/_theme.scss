@@ -105,3 +105,19 @@ $mk-intro-spacing: (
         display: none;
     }
 }
+
+// Tweekleurige achtergrond (Pagina-instellingen): bovenste helft van het
+// scherm wit, onderste helft grijsblauw. Een vaste laag i.p.v.
+// background-attachment: fixed, want dat negeert iOS Safari.
+body.mk-bg-tweekleurig {
+    background: transparent;
+
+    &::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(to bottom, $color-text-light 50%, $color-blue-grey 50%);
+        pointer-events: none;
+    }
+}

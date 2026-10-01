@@ -1,0 +1,45 @@
+{
+    "key": "group_page_instellingen",
+    "title": "Pagina-instellingen",
+    "fields": [
+        {
+            "key": "field_page_bg_tweekleurig",
+            "label": "Tweekleurige achtergrond",
+            "name": "page_bg_tweekleurig",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Bovenste helft van het scherm wit, onderste helft grijsblauw. De achtergrond staat stil en de inhoud scrolt eroverheen.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Aan",
+            "ui_off_text": "Uit"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1790884800
+}
