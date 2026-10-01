@@ -106,18 +106,23 @@ $mk-intro-spacing: (
     }
 }
 
-// Tweekleurige achtergrond (Pagina-instellingen): bovenste helft van het
-// scherm wit, onderste helft grijsblauw. Een vaste laag i.p.v.
-// background-attachment: fixed, want dat negeert iOS Safari.
+// Tweekleurige achtergrond (Pagina-instellingen): bovenaan een wit vlak met
+// een vaste hoogte vanaf de bovenkant van de pagina, daaronder grijsblauw tot
+// de footer. De hoogte hangt niet af van de paginalengte, dus uitklappen of
+// extra content verschuift de grens niet. --mk-bg-split komt uit de pagina-optie.
 body.mk-bg-tweekleurig {
-    background: transparent;
+    position: relative;
+    background: $color-blue-grey;
 
     &::before {
         content: '';
-        position: fixed;
-        inset: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--mk-bg-split, 50vh);
         z-index: -1;
-        background: linear-gradient(to bottom, $color-text-light 50%, $color-blue-grey 50%);
+        background: $color-text-light;
         pointer-events: none;
     }
 }

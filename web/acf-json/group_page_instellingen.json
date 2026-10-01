@@ -8,7 +8,7 @@
             "name": "page_bg_tweekleurig",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "Bovenste helft van het scherm wit, onderste helft grijsblauw. De achtergrond staat stil en de inhoud scrolt eroverheen.",
+            "instructions": "Bovenaan wit, daaronder grijsblauw tot de footer. De kleurgrens scrolt mee met de pagina.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -21,6 +21,36 @@
             "ui": 1,
             "ui_on_text": "Aan",
             "ui_off_text": "Uit"
+        },
+        {
+            "key": "field_page_bg_split",
+            "label": "Hoogte witte deel",
+            "name": "page_bg_split",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "In % van de schermhoogte, gemeten vanaf de bovenkant van de pagina. 50 = halverwege het eerste scherm.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_page_bg_tweekleurig",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 50,
+            "min": 0,
+            "max": 300,
+            "step": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": "%"
         }
     ],
     "location": [
@@ -41,5 +71,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1790884800
+    "modified": 1790888400
 }

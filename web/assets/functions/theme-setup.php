@@ -66,3 +66,19 @@ function mediakanjers_body_classes( $classes ) {
     return $classes;
 }
 add_filter( 'body_class', 'mediakanjers_body_classes' );
+
+/**
+ * Hoogte van het witte vlak bij de tweekleurige achtergrond (in % van de
+ * schermhoogte, vanaf de bovenkant van de pagina).
+ */
+function mediakanjers_bg_split_style() {
+    if ( ! is_page() || ! function_exists( 'get_field' ) || ! get_field( 'page_bg_tweekleurig' ) ) {
+        return;
+    }
+
+    $split = get_field( 'page_bg_split' );
+    $split = ( '' === $split || null === $split ) ? 50 : max( 0, min( 300, (int) $split ) );
+
+    printf( '<style>body.mk-bg-tweekleurig{--mk-bg-split:%dvh}</style>' . "\n", $split );
+}
+add_action( 'wp_head', 'mediakanjers_bg_split_style' );
