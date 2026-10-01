@@ -77,7 +77,7 @@ function mediakanjers_bg_split_style() {
     }
 
     $split = get_field( 'page_bg_split' );
-    $split = ( '' === $split || null === $split ) ? 50 : max( 0, min( 300, (int) $split ) );
+    $split = ( '' === $split || null === $split ) ? 60 : max( 0, min( 300, (int) $split ) );
 
     printf( '<style>body.mk-bg-tweekleurig{--mk-bg-split:%dvh}</style>' . "\n", $split );
 }

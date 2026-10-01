@@ -158,6 +158,91 @@
             "conditional_logic": 0,
             "wrapper": { "width": "", "class": "", "id": "" },
             "default_value": 1
+        },
+        {
+            "key": "field_contact_tab_cta",
+            "label": "Vacature-contact",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_contact_cta_titel",
+            "label": "Titel",
+            "name": "contact_cta_titel",
+            "type": "text",
+            "instructions": "Opvallende contactbalk onder het blok. Wordt alleen getoond als er een naam, telefoonnummer of e-mailadres is ingevuld.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Specifieke vraag over een vacature?"
+        },
+        {
+            "key": "field_contact_cta_intro",
+            "label": "Intro",
+            "name": "contact_cta_intro",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Neem contact op met"
+        },
+        {
+            "key": "field_contact_cta_naam",
+            "label": "Naam",
+            "name": "contact_cta_naam",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Rianne Poorthuis"
+        },
+        {
+            "key": "field_contact_cta_functie",
+            "label": "Functie",
+            "name": "contact_cta_functie",
+            "type": "text",
+            "instructions": "Optioneel, bijv. ‘HR Business Partner’.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_contact_cta_telefoon",
+            "label": "Telefoon",
+            "name": "contact_cta_telefoon",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "0546-547768"
+        },
+        {
+            "key": "field_contact_cta_email",
+            "label": "E-mail",
+            "name": "contact_cta_email",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "HR_almelo@vfc.com"
+        },
+        {
+            "key": "field_contact_cta_foto",
+            "label": "Foto",
+            "name": "contact_cta_foto",
+            "type": "image",
+            "instructions": "Vierkante foto werkt het best, wordt rond weergegeven.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "return_format": "array",
+            "library": "all",
+            "preview_size": "thumbnail"
         }
     ],
     "location": [
@@ -178,5 +263,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1785470000
+    "modified": 1790892000
 }

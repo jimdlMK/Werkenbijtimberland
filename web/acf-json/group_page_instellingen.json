@@ -28,7 +28,7 @@
             "name": "page_bg_split",
             "aria-label": "",
             "type": "number",
-            "instructions": "In % van de schermhoogte, gemeten vanaf de bovenkant van de pagina. 50 = halverwege het eerste scherm.",
+            "instructions": "In % van de schermhoogte, gemeten vanaf de bovenkant van de pagina. Standaard 60.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -44,7 +44,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": 50,
+            "default_value": 60,
             "min": 0,
             "max": 300,
             "step": 1,
