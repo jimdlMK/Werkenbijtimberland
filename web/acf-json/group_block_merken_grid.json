@@ -27,6 +27,36 @@
             "min": 0,
             "max": 0,
             "return_format": "id"
+        },
+        {
+            "key": "field_mg_achtergrond",
+            "label": "Achtergrondkleur",
+            "name": "mg_achtergrond",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "De kleur loopt over de volle breedte achter het grid en groeit mee met de inhoud.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "geen": "Geen (transparant)",
+                "wit": "Wit",
+                "beige": "Beige",
+                "grijsblauw": "Grijsblauw",
+                "lichtblauw": "Lichtblauw",
+                "blauw": "Blauw (donker)"
+            },
+            "default_value": "geen",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -47,5 +77,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1785232188
+    "modified": 1790881200
 }

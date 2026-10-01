@@ -1,4 +1,45 @@
 .mk-merken-grid {
+    // Achtergrondkleur-varianten (zelfde palet als Titel + tekst / Slider).
+    // De kleur zit op de sectie zelf, dus groeit mee als een merk uitklapt.
+    &--bg-geen {
+        background: transparent;
+    }
+
+    &--bg-wit {
+        background: $color-text-light;
+    }
+
+    &--bg-beige,
+    &--bg-grijsblauw,
+    &--bg-lichtblauw,
+    &--bg-blauw {
+        padding-top: 48px;
+
+        @include mq(md) {
+            padding-top: 72px;
+        }
+
+        @include mq(lg) {
+            padding-top: 96px;
+        }
+    }
+
+    &--bg-beige {
+        background: $color-heading-light;
+    }
+
+    &--bg-grijsblauw {
+        background: $color-blue-grey;
+    }
+
+    &--bg-lichtblauw {
+        background: $color-blue-light;
+    }
+
+    &--bg-blauw {
+        background: $color-primary;
+    }
+
     &__grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

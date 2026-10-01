@@ -5,13 +5,14 @@
  * @param array $block The block settings and attributes.
  */
 
-$merk_ids = get_field( 'mg_merken' );
+$merk_ids    = get_field( 'mg_merken' );
+$achtergrond = get_field( 'mg_achtergrond' ) ?: 'geen';
 
 if ( ! $merk_ids ) {
     return;
 }
 
-$wrapper_class = 'mk-merken-grid mk-block-spacing';
+$wrapper_class = 'mk-merken-grid mk-block-spacing mk-merken-grid--bg-' . $achtergrond;
 
 if ( ! empty( $block['className'] ) ) {
     $wrapper_class .= ' ' . $block['className'];
