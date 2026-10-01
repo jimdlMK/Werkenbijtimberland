@@ -118,6 +118,13 @@ function mediakanjers_register_acf_blocks() {
             'icon'        => 'phone',
             'keywords'    => array( 'contact', 'formulier', 'adres' ),
         ),
+        array(
+            'name'        => 'faq',
+            'title'       => __( 'Veelgestelde vragen', 'mediakanjers' ),
+            'description' => __( 'Intro + inklapbare vragen en antwoorden (FAQ).', 'mediakanjers' ),
+            'icon'        => 'editor-help',
+            'keywords'    => array( 'faq', 'vragen', 'veelgestelde', 'accordion' ),
+        ),
     );
 
     foreach ( $blocks as $block ) {

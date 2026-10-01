@@ -1,0 +1,126 @@
+{
+    "key": "group_block_faq",
+    "title": "Block: Veelgestelde vragen",
+    "fields": [
+        {
+            "key": "field_faq_tab_intro",
+            "label": "Intro",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_faq_titel",
+            "label": "Titel",
+            "name": "faq_titel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Veelgestelde vragen"
+        },
+        {
+            "key": "field_faq_subtitel",
+            "label": "Subtitel",
+            "name": "faq_subtitel",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Benieuwd hoe het is om te werken bij VF Corporation?"
+        },
+        {
+            "key": "field_faq_tekst",
+            "label": "Tekst",
+            "name": "faq_tekst",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "rows": 3,
+            "new_lines": "wpautop",
+            "default_value": "Hieronder vind je de antwoorden op de meest gestelde vragen. Staat jouw vraag er niet tussen? Neem gerust contact met ons op!"
+        },
+        {
+            "key": "field_faq_knop",
+            "label": "Knop",
+            "name": "faq_knop",
+            "type": "link",
+            "instructions": "Optioneel, bijv. ‘Neem contact op’ naar de contactpagina.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "return_format": "array"
+        },
+        {
+            "key": "field_faq_tab_vragen",
+            "label": "Vragen",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_faq_vragen",
+            "label": "Vragen",
+            "name": "faq_vragen",
+            "type": "repeater",
+            "instructions": "Elke vraag is inklapbaar. E-mailadressen in het antwoord worden automatisch klikbaar.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "layout": "block",
+            "button_label": "Vraag toevoegen",
+            "collapsed": "field_faq_vraag",
+            "min": 0,
+            "max": 0,
+            "sub_fields": [
+                {
+                    "key": "field_faq_vraag",
+                    "label": "Vraag",
+                    "name": "vraag",
+                    "type": "text",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "parent_repeater": "field_faq_vragen"
+                },
+                {
+                    "key": "field_faq_antwoord",
+                    "label": "Antwoord",
+                    "name": "antwoord",
+                    "type": "wysiwyg",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "", "class": "", "id": "" },
+                    "tabs": "visual",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 0,
+                    "parent_repeater": "field_faq_vragen"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/faq"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1790895600
+}

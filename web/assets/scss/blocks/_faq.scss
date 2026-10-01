@@ -1,0 +1,173 @@
+.mk-faq {
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+
+        @include mq(md) {
+            grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+            gap: 64px;
+            align-items: start;
+        }
+    }
+
+    &__intro {
+        .btn-primary {
+            margin-top: 24px;
+        }
+    }
+
+    &__title {
+        color: $color-heading-dark;
+        font-size: $font-size-h2;
+        font-weight: 700;
+        line-height: 1.1;
+        margin: 0 0 12px;
+    }
+
+    &__subtitel {
+        color: $color-blue;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 26px;
+        margin: 0 0 12px;
+    }
+
+    &__tekst {
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+
+        p {
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 12px;
+            }
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    &__item {
+        border: 1px solid $color-blue-grey;
+        border-radius: 10px;
+        background: $color-text-light;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover {
+            box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        &.is-open {
+            border-color: $color-blue;
+            box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.17);
+        }
+    }
+
+    &__heading {
+        margin: 0;
+    }
+
+    &__toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        width: 100%;
+        padding: 20px 20px 20px 24px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        text-align: left;
+        font-family: $font-family-standard-font;
+
+        &:focus-visible {
+            outline: 2px solid $color-blue;
+            outline-offset: -2px;
+            border-radius: 10px;
+        }
+    }
+
+    &__vraag {
+        color: $color-heading-dark;
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 24px;
+
+        @include mq(md) {
+            font-size: 18px;
+        }
+    }
+
+    &__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: $color-blue-light;
+        color: $color-blue;
+        transition: transform 0.3s ease, background 0.2s ease, color 0.2s ease;
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    &__item.is-open &__icon {
+        background: $color-blue;
+        color: $color-text-light;
+        transform: rotate(180deg);
+    }
+
+    // Soepel open/dicht via grid-rows; visibility zorgt dat links in een
+    // dichtgeklapt antwoord niet met de tab-toets bereikbaar zijn.
+    &__panel {
+        display: grid;
+        grid-template-rows: 0fr;
+        visibility: hidden;
+        transition: grid-template-rows 0.3s ease, visibility 0s linear 0.3s;
+    }
+
+    &__item.is-open &__panel {
+        grid-template-rows: 1fr;
+        visibility: visible;
+        transition: grid-template-rows 0.3s ease, visibility 0s linear 0s;
+    }
+
+    &__panel__inner {
+        overflow: hidden;
+    }
+
+    &__antwoord {
+        padding: 0 24px 24px;
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+
+        p {
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 12px;
+            }
+        }
+
+        a {
+            color: $color-blue;
+            font-weight: 500;
+            text-decoration: underline;
+            overflow-wrap: anywhere;
+        }
+    }
+}
