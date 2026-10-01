@@ -250,6 +250,158 @@
             }
         }
     }
+
+    &__calc {
+        max-width: 600px;
+        margin: 28px auto 0;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        @include mq(sm) {
+            flex-direction: row;
+        }
+
+        .btn-primary {
+            justify-content: center;
+
+            &.is-loading {
+                opacity: 0.6;
+                cursor: wait;
+            }
+        }
+    }
+
+    &__field {
+        position: relative;
+        flex: 1;
+
+        input {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: $custom-radius-pill;
+            border: 1px solid $color-blue-grey;
+            background: $color-text-light;
+            font-size: $font-size-normal;
+            font-family: $font-family-standard-font;
+        }
+    }
+
+    // Visueel verborgen, wel voor screenreaders (placeholder is geen label).
+    &__label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
+
+    &__suggestions {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        right: 0;
+        z-index: 10;
+        margin: 0;
+        padding: 6px 0;
+        list-style: none;
+        text-align: left;
+        border-radius: $custom-radius-sm;
+        background: $color-text-light;
+        box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    &__suggestion {
+        padding: 10px 20px;
+        color: $color-text;
+        font-size: 15px;
+        line-height: 20px;
+        cursor: pointer;
+
+        &:hover,
+        &.is-active {
+            background: $color-blue-light;
+        }
+    }
+
+    &__error {
+        margin: 16px 0 0;
+        color: $color-secondary;
+        font-size: 15px;
+    }
+
+    &__results {
+        margin-top: 28px;
+    }
+
+    &__route {
+        margin: 0 0 16px;
+        color: $color-text;
+        font-size: 15px;
+        line-height: 21px;
+    }
+
+    &__tiles {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+
+        @include mq(sm) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+    }
+
+    &__tile {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 20px;
+        border-radius: $custom-radius-sm;
+        background: $color-text-light;
+        color: $color-primary;
+
+        @include mq(sm) {
+            flex-direction: column;
+            gap: 6px;
+            padding: 20px 12px;
+        }
+
+        &__label {
+            color: $color-text;
+            font-size: 15px;
+        }
+
+        &__value {
+            margin-left: auto;
+            color: $color-heading-dark;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 24px;
+
+            @include mq(sm) {
+                margin-left: 0;
+            }
+        }
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+    }
+
+    &__note {
+        margin: 16px 0 0;
+        color: $color-text;
+        font-size: 13px;
+        line-height: 18px;
+        opacity: 0.75;
+    }
 }
 
 // ===== Job alert / stages rijen =====

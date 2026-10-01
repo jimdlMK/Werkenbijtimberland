@@ -98,6 +98,38 @@
             "delay": 0
         },
         {
+            "key": "field_vacopt_rt_adres",
+            "label": "Reistijd - Bestemmingsadres",
+            "name": "vacopt_rt_adres",
+            "type": "text",
+            "instructions": "Adres waar de reistijd naartoe berekend wordt, bijv. ‘Straatnaam 1, 7600 AA Almelo’.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": ""
+        },
+        {
+            "key": "field_vacopt_rt_bestemming",
+            "label": "Reistijd - Naam bestemming",
+            "name": "vacopt_rt_bestemming",
+            "type": "text",
+            "instructions": "Wordt getoond bij de uitkomst, bijv. ‘Reistijd naar Distribution Center Almelo’.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Distribution Center Almelo"
+        },
+        {
+            "key": "field_vacopt_rt_ors_key",
+            "label": "Reistijd - OpenRouteService API-key",
+            "name": "vacopt_rt_ors_key",
+            "type": "password",
+            "instructions": "Gratis aan te maken via openrouteservice.org (Dashboard → Tokens). Zonder key én bestemmingsadres wordt alleen de titel en tekst getoond.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" }
+        },
+        {
             "key": "field_vacopt_tab_cta_rijen",
             "label": "Job alert & stages",
             "name": "",
@@ -238,5 +270,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1790870400
+    "modified": 1790874000
 }
