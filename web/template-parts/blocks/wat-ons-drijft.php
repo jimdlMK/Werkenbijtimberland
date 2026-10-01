@@ -42,6 +42,10 @@ if ( ! empty( $block['className'] ) ) {
                     <?php if ( ! empty( $item['title'] ) ) : ?>
                         <p class="mk-wod__card__title"><?php echo esc_html( $item['title'] ); ?></p>
                     <?php endif; ?>
+
+                    <?php if ( ! empty( $item['text'] ) ) : ?>
+                        <div class="mk-wod__card__text"><?php echo wp_kses_post( $item['text'] ); ?></div>
+                    <?php endif; ?>
                 </div>
             <?php endforeach; ?>
         </div>
