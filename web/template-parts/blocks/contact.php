@@ -50,31 +50,31 @@ if ( ! empty( $block['className'] ) ) {
             <div class="mk-contact__details">
                 <?php if ( $adres_tekst ) : ?>
                     <div class="mk-contact__detail">
-                        <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'locatie' ) ); ?>
+                        <span class="mk-contact__detail__icon"><?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'locatie-lijn' ) ); ?></span>
                         <div class="mk-contact__detail__content">
                             <?php if ( $adres_titel ) : ?>
                                 <span class="mk-contact__detail__label"><?php echo esc_html( $adres_titel ); ?></span>
                             <?php endif; ?>
-                            <span class="mk-contact__detail__value"><?php echo nl2br( wp_kses_post( $adres_tekst ) ); ?></span>
+                            <span class="mk-contact__detail__value"><?php echo wp_kses_post( $adres_tekst ); ?></span>
                         </div>
                     </div>
                 <?php endif; ?>
 
                 <?php if ( $telefoon ) : ?>
                     <div class="mk-contact__detail">
-                        <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'klok' ) ); ?>
+                        <span class="mk-contact__detail__icon"><?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'telefoon' ) ); ?></span>
                         <div class="mk-contact__detail__content">
                             <?php if ( $telefoon_titel ) : ?>
                                 <span class="mk-contact__detail__label"><?php echo esc_html( $telefoon_titel ); ?></span>
                             <?php endif; ?>
-                            <a class="mk-contact__detail__value" href="tel:<?php echo esc_attr( preg_replace( '/\s+/', '', $telefoon ) ); ?>"><?php echo esc_html( $telefoon ); ?></a>
+                            <a class="mk-contact__detail__value" href="tel:<?php echo esc_attr( preg_replace( array( '/\(0\)/', '/[^\d+]/' ), '', $telefoon ) ); ?>"><?php echo esc_html( $telefoon ); ?></a>
                         </div>
                     </div>
                 <?php endif; ?>
 
                 <?php if ( $email ) : ?>
                     <div class="mk-contact__detail">
-                        <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'sector' ) ); ?>
+                        <span class="mk-contact__detail__icon"><?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'mail' ) ); ?></span>
                         <div class="mk-contact__detail__content">
                             <?php if ( $email_titel ) : ?>
                                 <span class="mk-contact__detail__label"><?php echo esc_html( $email_titel ); ?></span>
@@ -86,7 +86,7 @@ if ( ! empty( $block['className'] ) ) {
 
                 <?php if ( $uren_tekst ) : ?>
                     <div class="mk-contact__detail">
-                        <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'klok' ) ); ?>
+                        <span class="mk-contact__detail__icon"><?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'klok-lijn' ) ); ?></span>
                         <div class="mk-contact__detail__content">
                             <?php if ( $uren_titel ) : ?>
                                 <span class="mk-contact__detail__label"><?php echo esc_html( $uren_titel ); ?></span>
@@ -146,7 +146,7 @@ if ( ! empty( $block['className'] ) ) {
                 <?php if ( $cta_telefoon || $cta_email ) : ?>
                     <div class="mk-contact__cta__actions">
                         <?php if ( $cta_telefoon ) : ?>
-                            <a class="mk-contact__cta__btn" href="tel:<?php echo esc_attr( preg_replace( '/[^\d+]/', '', $cta_telefoon ) ); ?>">
+                            <a class="mk-contact__cta__btn" href="tel:<?php echo esc_attr( preg_replace( array( '/\(0\)/', '/[^\d+]/' ), '', $cta_telefoon ) ); ?>">
                                 <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'telefoon' ) ); ?>
                                 <?php echo esc_html( $cta_telefoon ); ?>
                             </a>

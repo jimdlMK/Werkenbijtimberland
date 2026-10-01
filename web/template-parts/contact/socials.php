@@ -1,6 +1,6 @@
 <div class="social-container">
     <?php global $stream_opts; ?>
-    <h5>Socials</h5>
+    <h5>Volg ons</h5>
     <div class="socials">
         <?php if( have_rows('socials', 'options') ): while ( have_rows('socials', 'options') ) : the_row(); ?>
             <?php $social = get_sub_field('platform'); ?>
