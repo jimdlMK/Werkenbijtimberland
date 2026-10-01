@@ -16,7 +16,10 @@ $os_titel = get_field( 'vacopt_os_titel', 'option' ) ?: 'Open sollicitatie';
 $os_tekst = get_field( 'vacopt_os_tekst', 'option' ) ?: '<p>Staat jouw droombaan er nog niet tussen? Solliciteer dan open en laat ons weten wat jij zoekt. We nemen graag contact met je op zodra er een passende vacature beschikbaar is.</p>';
 $os_cta   = get_field( 'vacopt_os_cta', 'option' );
 
-$ja_titel = get_field( 'vacopt_ja_titel', 'option' ) ?: 'Nieuwe vacatures als eerste in je mailbox?';
+$rt_titel = get_field( 'vacopt_rt_titel', 'option' ) ?: 'Reisafstand naar je nieuwe baan?';
+$rt_tekst = get_field( 'vacopt_rt_tekst', 'option' ) ?: '<p>Wil je weten hoe ver je moet lopen, fietsen of rijden naar je werk?<br>Bereken hieronder je reistijd!</p>';
+
+$ja_titel =get_field( 'vacopt_ja_titel', 'option' ) ?: 'Nieuwe vacatures als eerste in je mailbox?';
 $ja_tekst = get_field( 'vacopt_ja_tekst', 'option' ) ?: 'Sta jouw vacature er nog niet tussen? Geen zorgen, we groeien snel! Maak een job alert aan en ontvang de nieuwste vacatures bij Timberland Europe B.V. direct in je mailbox. Afmelden kan op elk moment.';
 
 $stages_titel = get_field( 'vacopt_stages_titel', 'option' ) ?: 'Stages & afstuderen';
@@ -106,6 +109,15 @@ get_header();
                         <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'white' ) ); ?>
                     </a>
                 <?php endif; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="mk-reistijd mk-block-spacing">
+        <div class="container">
+            <div class="mk-reistijd__box">
+                <h2 class="mk-reistijd__title"><?php echo esc_html( $rt_titel ); ?></h2>
+                <div class="mk-reistijd__text"><?php echo wp_kses_post( $rt_tekst ); ?></div>
             </div>
         </div>
     </section>

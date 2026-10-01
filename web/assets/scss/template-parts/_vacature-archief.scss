@@ -205,6 +205,53 @@
     }
 }
 
+// ===== Reistijd =====
+.mk-reistijd {
+    background: $color-text-light;
+
+    &__box {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 32px;
+        border-radius: 5px;
+        background: #F2F2F2;
+        box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.25);
+        text-align: center;
+
+        @include mq(md) {
+            padding: 48px 64px;
+        }
+    }
+
+    &__title {
+        color: $color-heading-dark;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 32px;
+        margin: 0 0 12px;
+
+        @include mq(md) {
+            font-size: 36px;
+            line-height: 40px;
+        }
+    }
+
+    &__text {
+        color: $color-text;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.8px;
+
+        p {
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 12px;
+            }
+        }
+    }
+}
+
 // ===== Job alert / stages rijen =====
 .mk-vacature-cta-rijen {
     background: $color-text-light;
