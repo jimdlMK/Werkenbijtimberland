@@ -97,6 +97,24 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 16px;
+
+        // Bij 1-2 knoppen telt de groep-wrapper niet mee voor de layout.
+        &__groep {
+            display: contents;
+        }
+
+        // 3 knoppen: primary bovenaan in het midden, de andere twee eronder.
+        &--drie {
+            flex-direction: column;
+
+            .mk-hero__ctas__groep {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+        }
     }
 
     // Knop 2: wit met blauwe pijl
@@ -286,6 +304,11 @@
             .mk-hero__cta-secondary {
                 justify-content: center;
                 width: 100%;
+            }
+
+            &--drie .mk-hero__ctas__groep {
+                flex-direction: column;
+                align-items: stretch;
             }
         }
     }

@@ -77,7 +77,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -93,7 +93,23 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_hero_cta_tertiary",
+            "label": "Knop 3 (secondary)",
+            "name": "hero_cta_tertiary",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Optioneel. Met 3 knoppen staat knop 1 bovenaan in het midden en knoppen 2 en 3 daaronder.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -118,5 +134,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1743000000
+    "modified": 1790899200
 }
