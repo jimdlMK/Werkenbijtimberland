@@ -218,7 +218,7 @@
             "name": "tt_media_vimeo_id",
             "aria-label": "",
             "type": "text",
-            "instructions": "Optioneel. Alleen het ID uit de Vimeo-URL, bijv. 123456789.",
+            "instructions": "Optioneel. Vimeo-ID of de volledige Vimeo-link (ook een share-link van een niet-openbare video, bijv. https://vimeo.com/123456789/abc123def4).",
             "required": 0,
             "conditional_logic": [
                 [
@@ -292,5 +292,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1785247810
+    "modified": 1791763200
 }

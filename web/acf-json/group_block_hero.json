@@ -33,7 +33,7 @@
             "name": "hero_vimeo_id",
             "aria-label": "",
             "type": "text",
-            "instructions": "Optioneel. Alleen het ID (bv. 76979871), niet de volledige URL. Video speelt automatisch, gemuted en in een loop. Zonder Vimeo-ID wordt de afbeelding getoond.",
+            "instructions": "Optioneel. Vimeo-ID of de volledige Vimeo-link (ook een share-link van een niet-openbare video, bijv. https://vimeo.com/123456789/abc123def4). Video speelt automatisch, gemuted en in een loop. Zonder Vimeo-ID wordt de afbeelding getoond.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -134,5 +134,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1790899200
+    "modified": 1791763200
 }
