@@ -58,9 +58,9 @@ $vacature_cards = array();
 $aantal_match   = 0;
 
 foreach ( $alle_vacatures->posts as $vacature ) {
-    $termen   = get_the_terms( $vacature->ID, 'vacature_categorie' );
-    $sectoren = ( $termen && ! is_wp_error( $termen ) ) ? wp_list_pluck( $termen, 'slug' ) : array();
-    $match    = '' === $actieve_sector || in_array( $actieve_sector, $sectoren, true );
+    $termen       = get_the_terms( $vacature->ID, 'vacature_categorie' );
+    $vac_sectoren = ( $termen && ! is_wp_error( $termen ) ) ? wp_list_pluck( $termen, 'slug' ) : array();
+    $match        = '' === $actieve_sector || in_array( $actieve_sector, $vac_sectoren, true );
 
     if ( $match ) {
         $aantal_match++;
@@ -68,7 +68,7 @@ foreach ( $alle_vacatures->posts as $vacature ) {
 
     $vacature_cards[] = array(
         'vacature_id' => $vacature->ID,
-        'sectoren'    => $sectoren,
+        'sectoren'    => $vac_sectoren,
         'verborgen'   => ! $match || $aantal_match > $per_pagina,
     );
 }
