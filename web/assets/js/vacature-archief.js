@@ -1,73 +1,63 @@
 jQuery(document).ready(function ($) {
-    var $filters = $('[data-vacature-filters]');
+    // Alle vacatures staan al in de pagina; filteren en "Bekijk meer" gebeuren
+    // hier direct in de browser, zonder serververzoek.
     var $grid = $('[data-vacature-grid]');
+
+    if (!$grid.length) {
+        return;
+    }
+
+    var $filters = $('[data-vacature-filters]');
+    var $cards = $grid.find('.mk-vacature-card');
     var $count = $('[data-vacature-count]');
+    var $empty = $('[data-vacature-empty]');
     var $loadMoreWrap = $('.mk-vacature-archief__load-more');
-    var $loadMoreBtn = $('[data-vacature-load-more]');
+    var perPagina = parseInt($grid.attr('data-per-pagina'), 10) || 12;
 
-    if (!$filters.length && !$loadMoreBtn.length) {
-        return;
-    }
+    var sector = $grid.attr('data-sector') || 'alle';
+    var zichtbaar = perPagina;
 
-    if (typeof mediakanjersVacatures === 'undefined') {
-        return;
-    }
+    function toon() {
+        var aantal = 0;
 
-    function fetchVacatures(sector, page, append) {
-        return $.post(mediakanjersVacatures.ajaxUrl, {
-            action: 'mediakanjers_vacatures_query',
-            nonce: mediakanjersVacatures.nonce,
-            sector: sector,
-            page: page,
-        }).done(function (response) {
-            if (!response || !response.success) {
-                return;
+        $cards.each(function () {
+            var sectoren = ($(this).attr('data-sectoren') || '').split(' ');
+            var match = sector === 'alle' || sectoren.indexOf(sector) !== -1;
+
+            if (match) {
+                aantal++;
             }
 
-            var data = response.data;
-
-            if (append) {
-                $grid.append(data.html);
-            } else {
-                $grid.html(data.html);
-            }
-
-            $count.text('Resultaten: ' + data.found_posts + ' vacatures');
-
-            if (data.page >= data.max_pages) {
-                $loadMoreWrap.hide();
-            } else {
-                $loadMoreWrap.show();
-                $loadMoreBtn.attr('data-page', data.page);
-                $loadMoreBtn.attr('data-max-pages', data.max_pages);
-            }
+            $(this).toggleClass('is-hidden', !match || aantal > zichtbaar);
         });
+
+        $count.text('Resultaten: ' + aantal + ' vacatures');
+        $empty.toggleClass('is-hidden', aantal > 0);
+        $loadMoreWrap.toggleClass('is-hidden', aantal <= zichtbaar);
     }
 
     $filters.on('click', '[data-sector]', function () {
         var $btn = $(this);
-        var sector = $btn.data('sector');
+
+        sector = $btn.attr('data-sector');
+        zichtbaar = perPagina;
 
         $filters.find('[data-sector]').removeClass('is-active');
         $btn.addClass('is-active');
 
         var url = new URL(window.location.href);
-        if ('alle' === sector) {
+        if (sector === 'alle') {
             url.searchParams.delete('sector');
         } else {
             url.searchParams.set('sector', sector);
         }
         window.history.replaceState({}, '', url);
 
-        $loadMoreBtn.attr('data-sector', 'alle' === sector ? '' : sector);
-        fetchVacatures('alle' === sector ? '' : sector, 1, false);
+        toon();
     });
 
-    $loadMoreBtn.on('click', function () {
-        var $btn = $(this);
-        var nextPage = parseInt($btn.attr('data-page'), 10) + 1;
-        var sector = $btn.attr('data-sector') || '';
-
-        fetchVacatures(sector, nextPage, true);
+    $('[data-vacature-load-more]').on('click', function () {
+        zichtbaar += perPagina;
+        toon();
     });
 });

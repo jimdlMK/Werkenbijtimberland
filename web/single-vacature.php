@@ -27,7 +27,6 @@ while ( have_posts() ) :
 
     $wat_vragen_wij = get_field( 'vac_wat_vragen_wij', $vacature_id );
     $wat_bieden_wij = get_field( 'vac_wat_bieden_wij', $vacature_id );
-    $wat_bieden_cta = get_field( 'vac_wat_bieden_wij_cta', $vacature_id );
 
     $afdeling_titel      = get_field( 'vac_afdeling_titel', $vacature_id );
     $afdeling_tekst      = get_field( 'vac_afdeling_tekst', $vacature_id );
@@ -54,11 +53,18 @@ while ( have_posts() ) :
     <div id="main-content" class="vervolgpagina">
         <section class="mk-vac-header">
             <div class="container">
-                <nav class="mk-vac-header__breadcrumb">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a> &gt;
-                    <a href="<?php echo esc_url( get_post_type_archive_link( 'vacature' ) ); ?>">Vacatures</a> &gt;
-                    <span><?php the_title(); ?></span>
-                </nav>
+                <div class="mk-vac-header__top">
+                    <nav class="mk-vac-header__breadcrumb">
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a> &gt;
+                        <a href="<?php echo esc_url( get_post_type_archive_link( 'vacature' ) ); ?>">Vacatures</a> &gt;
+                        <span><?php the_title(); ?></span>
+                    </nav>
+
+                    <a class="btn-primary mk-vac-header__cta" href="#solliciteren">
+                        Solliciteer direct
+                        <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'white' ) ); ?>
+                    </a>
+                </div>
 
                 <h1 class="mk-vac-header__title"><?php the_title(); ?></h1>
 
@@ -72,7 +78,7 @@ while ( have_posts() ) :
                     <?php if ( $uren ) : ?>
                         <span class="mk-vac-header__meta__item">
                             <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'klok' ) ); ?>
-                            <?php echo esc_html( $uren ); ?> uur
+                            <?php echo esc_html( $uren ); ?>
                         </span>
                     <?php endif; ?>
                     <?php if ( $locatie ) : ?>
@@ -159,12 +165,10 @@ while ( have_posts() ) :
                         <div class="mk-vac-vraag-bod__col">
                             <h2 class="mk-vac-sectie__title">Wat bieden wij jou</h2>
                             <div class="mk-vac-sectie__text"><?php echo wp_kses_post( $wat_bieden_wij ); ?></div>
-                            <?php if ( $wat_bieden_cta && ! empty( $wat_bieden_cta['url'] ) ) : ?>
-                                <a class="btn-primary mk-vac-sectie__cta" href="<?php echo esc_url( $wat_bieden_cta['url'] ); ?>" target="<?php echo esc_attr( $wat_bieden_cta['target'] ?: '_self' ); ?>">
-                                    <?php echo esc_html( $wat_bieden_cta['title'] ); ?>
-                                    <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'white' ) ); ?>
-                                </a>
-                            <?php endif; ?>
+                            <a class="btn-primary mk-vac-sectie__cta" href="#solliciteren">
+                                Solliciteer direct
+                                <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'white' ) ); ?>
+                            </a>
                         </div>
                     <?php endif; ?>
                 </div>

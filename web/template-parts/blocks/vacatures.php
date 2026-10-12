@@ -59,7 +59,7 @@ if ( ! empty( $block['className'] ) ) {
                                     <?php if ( $uren ) : ?>
                                         <span class="mk-vacatures-blok__slide__meta__item">
                                             <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'klok' ) ); ?>
-                                            <?php echo esc_html( $uren ); ?> uur
+                                            <?php echo esc_html( $uren ); ?>
                                         </span>
                                     <?php endif; ?>
                                     <?php if ( $locatie ) : ?>

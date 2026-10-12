@@ -41,20 +41,37 @@ $stages_titel = get_field( 'vacopt_stages_titel', 'option' ) ?: 'Stages & afstud
 $stages_tekst = get_field( 'vacopt_stages_tekst', 'option' ) ?: 'Op zoek naar een leerzame stage of afstudeerplek? Bekijk alle stagemogelijkheden bij Timberland en ontdek waar jij het verschil kunt maken.';
 $stages_cta   = get_field( 'vacopt_stages_cta', 'option' );
 
-$initial_query = new WP_Query( array(
+// Alle vacatures in één keer: filteren en "Bekijk meer" gebeuren direct in de
+// browser (vacature-archief.js), zonder AJAX. De begintoestand (sector uit
+// ?sector= en de eerste $per_pagina resultaten) zetten we hier al goed.
+$per_pagina = 12;
+
+$alle_vacatures = new WP_Query( array(
     'post_type'      => 'vacature',
-    'posts_per_page' => 12,
-    'paged'          => 1,
+    'posts_per_page' => -1,
     'orderby'        => 'date',
     'order'          => 'DESC',
-    'tax_query'      => $actieve_sector ? array(
-        array(
-            'taxonomy' => 'vacature_categorie',
-            'field'    => 'slug',
-            'terms'    => $actieve_sector,
-        ),
-    ) : array(),
+    'no_found_rows'  => true,
 ) );
+
+$vacature_cards = array();
+$aantal_match   = 0;
+
+foreach ( $alle_vacatures->posts as $vacature ) {
+    $termen   = get_the_terms( $vacature->ID, 'vacature_categorie' );
+    $sectoren = ( $termen && ! is_wp_error( $termen ) ) ? wp_list_pluck( $termen, 'slug' ) : array();
+    $match    = '' === $actieve_sector || in_array( $actieve_sector, $sectoren, true );
+
+    if ( $match ) {
+        $aantal_match++;
+    }
+
+    $vacature_cards[] = array(
+        'vacature_id' => $vacature->ID,
+        'sectoren'    => $sectoren,
+        'verborgen'   => ! $match || $aantal_match > $per_pagina,
+    );
+}
 
 get_header();
 ?>
@@ -81,27 +98,22 @@ get_header();
                 </div>
             <?php endif; ?>
 
-            <p class="mk-vacature-archief__count" data-vacature-count>Resultaten: <?php echo (int) $initial_query->found_posts; ?> vacatures</p>
+            <p class="mk-vacature-archief__count" data-vacature-count>Resultaten: <?php echo (int) $aantal_match; ?> vacatures</p>
 
-            <div class="mk-vacature-archief__grid" data-vacature-grid>
-                <?php if ( $initial_query->have_posts() ) : ?>
-                    <?php while ( $initial_query->have_posts() ) : $initial_query->the_post(); ?>
-                        <?php get_template_part( 'template-parts/vacature-card', null, array( 'vacature_id' => get_the_ID() ) ); ?>
-                    <?php endwhile; ?>
-                    <?php wp_reset_postdata(); ?>
-                <?php else : ?>
-                    <p class="mk-vacature-archief__empty">Er zijn op dit moment geen vacatures gevonden.</p>
-                <?php endif; ?>
+            <div class="mk-vacature-archief__grid" data-vacature-grid data-per-pagina="<?php echo (int) $per_pagina; ?>" data-sector="<?php echo esc_attr( $actieve_sector ?: 'alle' ); ?>">
+                <?php foreach ( $vacature_cards as $card_args ) : ?>
+                    <?php get_template_part( 'template-parts/vacature-card', null, $card_args ); ?>
+                <?php endforeach; ?>
             </div>
 
-            <?php if ( $initial_query->max_num_pages > 1 ) : ?>
-                <div class="mk-vacature-archief__load-more">
-                    <button type="button" class="mk-vacature-archief__load-more__btn" data-vacature-load-more data-page="1" data-max-pages="<?php echo (int) $initial_query->max_num_pages; ?>" data-sector="<?php echo esc_attr( $actieve_sector ); ?>">
-                        Bekijk meer
-                        <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'blue' ) ); ?>
-                    </button>
-                </div>
-            <?php endif; ?>
+            <p class="mk-vacature-archief__empty<?php echo $aantal_match ? ' is-hidden' : ''; ?>" data-vacature-empty>Er zijn op dit moment geen vacatures gevonden.</p>
+
+            <div class="mk-vacature-archief__load-more<?php echo $aantal_match > $per_pagina ? '' : ' is-hidden'; ?>">
+                <button type="button" class="mk-vacature-archief__load-more__btn" data-vacature-load-more>
+                    Bekijk meer
+                    <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'blue' ) ); ?>
+                </button>
+            </div>
         </div>
     </section>
 

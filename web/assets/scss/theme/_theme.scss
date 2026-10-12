@@ -94,6 +94,19 @@ $mk-intro-spacing: (
     &.vervolgpagina {
         padding-top: clamp(5rem, 4rem + 4vw, 7rem);
     }
+
+    // Ankerlinks (bijv. "Solliciteer direct" → #solliciteren) niet onder de
+    // zwevende header laten eindigen.
+    [id] {
+        scroll-margin-top: clamp(5rem, 4rem + 4vw, 7rem);
+    }
+}
+
+// Vloeiend scrollen naar ankers, behalve als iemand minder beweging wil.
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
 }
 
 

@@ -24,7 +24,7 @@
             "label": "Uren",
             "name": "vac_uren",
             "type": "text",
-            "instructions": "Bijv. 32-40",
+            "instructions": "Vrij tekstveld, wordt letterlijk getoond. Bijv. ‘32-40 uur’ of ‘Fulltime’.",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": { "width": "25", "class": "", "id": "" }
@@ -149,17 +149,6 @@
             "toolbar": "basic",
             "media_upload": 0,
             "delay": 0
-        },
-        {
-            "key": "field_vac_wat_bieden_wij_cta",
-            "label": "Knop",
-            "name": "vac_wat_bieden_wij_cta",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": { "width": "", "class": "", "id": "" },
-            "return_format": "array"
         },
         {
             "key": "field_vac_tab_afdeling",
@@ -322,5 +311,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1791763200
+    "modified": 1791766800
 }

@@ -17,6 +17,8 @@ jQuery(document).ready(function ($) {
     $(window).on('scroll', toggleVisibility);
 
     $btn.on('click', function () {
-        $('html, body').animate({ scrollTop: 0 }, 500);
+        // Native scroll: html heeft scroll-behavior: smooth, een jQuery-animate
+        // zou daarmee botsen (schokkerig).
+        window.scrollTo(0, 0);
     });
 });

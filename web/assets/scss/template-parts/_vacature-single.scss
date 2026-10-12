@@ -8,10 +8,19 @@
         padding-bottom: 72px;
     }
 
+    // Breadcrumb links, "Solliciteer direct" rechts.
+    &__top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
     &__breadcrumb {
         font-size: $font-size-small;
         color: $color-text;
-        margin-bottom: 24px;
 
         a {
             color: $color-blue;

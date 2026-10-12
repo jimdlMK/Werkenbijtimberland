@@ -50,11 +50,6 @@ function mediakanjers_enqueue_assets() {
         true
     );
 
-    wp_localize_script( 'mediakanjers-scripts', 'mediakanjersVacatures', array(
-        'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-        'nonce'   => wp_create_nonce( 'mediakanjers_vacatures' ),
-    ) );
-
     wp_localize_script( 'mediakanjers-scripts', 'mediakanjersReistijd', array(
         'ajaxUrl' => admin_url( 'admin-ajax.php' ),
     ) );

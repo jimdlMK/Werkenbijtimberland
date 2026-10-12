@@ -110,6 +110,11 @@
         color: $color-text;
     }
 
+    // Gefilterde / nog niet getoonde vacatures, lege melding en "Bekijk meer".
+    .is-hidden {
+        display: none !important;
+    }
+
     &__load-more {
         display: flex;
         align-items: center;
