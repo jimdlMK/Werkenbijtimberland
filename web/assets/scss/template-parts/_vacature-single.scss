@@ -390,9 +390,11 @@
         }
     }
 
+    // Foto altijd volledig zichtbaar (niet bijsnijden), binnen een maximale
+    // hoogte en de kolombreedte; de afgeronde hoeken zitten op de foto zelf.
     &--media__media {
-        border-radius: $custom-radius-sm;
-        overflow: hidden;
+        display: flex;
+        justify-content: center;
 
         @include mq(md) {
             flex: 0 0 50%;
@@ -401,12 +403,14 @@
 
         img {
             display: block;
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 240px;
+            border-radius: $custom-radius-sm;
 
             @include mq(md) {
-                height: 360px;
+                max-height: 360px;
             }
         }
     }
