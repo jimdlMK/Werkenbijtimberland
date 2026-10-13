@@ -46,6 +46,16 @@ while ( have_posts() ) :
     $formulier_titel    = get_field( 'vac_formulier_titel', $vacature_id );
     $formulier_subtitel = get_field( 'vac_formulier_subtitel', $vacature_id );
 
+    // Snelnavigatie: alleen secties die op deze vacature ook echt getoond worden.
+    $subnav = array_filter( array(
+        'functie'        => $jouw_rol ? 'De functie' : '',
+        'wat-ga-je-doen' => ( $wat_ga_je_doen_tekst || $wat_ga_je_doen_afbeelding ) ? 'Wat ga je doen' : '',
+        'vragen-bieden'  => ( $wat_vragen_wij || $wat_bieden_wij ) ? 'Wat vragen & bieden we' : '',
+        'afdeling'       => ( $afdeling_titel || $afdeling_tekst || $afdeling_afbeelding ) ? 'De afdeling' : '',
+        'procedure'      => ( $procedure_stappen || $heeft_contact ) ? 'Procedure' : '',
+        'reistijd'       => mediakanjers_reistijd_actief() ? 'Reistijd' : '',
+    ) );
+
     $vf_titel = get_field( 'vacopt_vf_titel', 'option' ) ?: 'VF Corporation';
     $vf_tekst = get_field( 'vacopt_vf_tekst', 'option' );
     ?>
@@ -101,7 +111,7 @@ while ( have_posts() ) :
                 </div>
 
                 <?php if ( $intro ) : ?>
-                    <div class="mk-vac-header__intro"><?php echo wp_kses_post( wpautop( $intro ) ); ?></div>
+                    <div class="mk-vac-header__intro"><?php echo mediakanjers_richtext( wpautop( $intro ) ); ?></div>
                 <?php endif; ?>
 
 
@@ -113,6 +123,23 @@ while ( have_posts() ) :
             </div>
         </section>
 
+        <nav class="mk-vac-subnav" aria-label="Snel naar" data-vac-subnav>
+            <div class="container mk-vac-subnav__inner">
+                <span class="mk-vac-subnav__titel"><?php the_title(); ?></span>
+                <?php if ( $subnav ) : ?>
+                    <ul class="mk-vac-subnav__links" data-vac-subnav-links>
+                        <?php foreach ( $subnav as $anker => $label ) : ?>
+                            <li><a href="#<?php echo esc_attr( $anker ); ?>"><?php echo esc_html( $label ); ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
+                <a class="btn-primary mk-vac-subnav__cta" href="#solliciteren">
+                    Solliciteer direct
+                    <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'white' ) ); ?>
+                </a>
+            </div>
+        </nav>
+
         <?php if ( $vf_titel || $vf_tekst ) : ?>
             <section class="mk-vac-vf mk-block-spacing">
                 <div class="container">
@@ -120,7 +147,7 @@ while ( have_posts() ) :
                         <h2 class="mk-vac-vf__title"><?php echo esc_html( $vf_titel ); ?></h2>
                     <?php endif; ?>
                     <?php if ( $vf_tekst ) : ?>
-                        <div class="mk-vac-vf__text"><?php echo wp_kses_post( $vf_tekst ); ?></div>
+                        <div class="mk-vac-vf__text"><?php echo mediakanjers_richtext( $vf_tekst ); ?></div>
                     <?php endif; ?>
                 </div>
 
@@ -129,21 +156,21 @@ while ( have_posts() ) :
         <?php endif; ?>
 
         <?php if ( $jouw_rol ) : ?>
-            <section class="mk-vac-sectie mk-vac-sectie--centered mk-block-spacing">
+            <section id="functie" class="mk-vac-sectie mk-vac-sectie--centered mk-block-spacing">
                 <div class="container">
                     <h2 class="mk-vac-sectie__title">Jouw rol als <?php the_title(); ?></h2>
-                    <div class="mk-vac-sectie__text"><?php echo wp_kses_post( $jouw_rol ); ?></div>
+                    <div class="mk-vac-sectie__text"><?php echo mediakanjers_richtext( $jouw_rol ); ?></div>
                 </div>
             </section>
         <?php endif; ?>
 
         <?php if ( $wat_ga_je_doen_tekst || $wat_ga_je_doen_afbeelding ) : ?>
-            <section class="mk-vac-sectie mk-vac-sectie--media mk-block-spacing">
+            <section id="wat-ga-je-doen" class="mk-vac-sectie mk-vac-sectie--media mk-block-spacing">
                 <div class="container mk-vac-sectie--media__grid">
                     <div class="mk-vac-sectie--media__content">
                         <h2 class="mk-vac-sectie__title">Wat ga je doen</h2>
                         <?php if ( $wat_ga_je_doen_tekst ) : ?>
-                            <div class="mk-vac-sectie__text"><?php echo wp_kses_post( $wat_ga_je_doen_tekst ); ?></div>
+                            <div class="mk-vac-sectie__text"><?php echo mediakanjers_richtext( $wat_ga_je_doen_tekst ); ?></div>
                         <?php endif; ?>
                     </div>
 
@@ -157,7 +184,7 @@ while ( have_posts() ) :
         <?php endif; ?>
 
         <?php if ( $wat_vragen_wij || $wat_bieden_wij ) : ?>
-            <section class="mk-vac-sectie mk-vac-vraag-bod-sectie mk-block-spacing">
+            <section id="vragen-bieden" class="mk-vac-sectie mk-vac-vraag-bod-sectie mk-block-spacing">
                 <div class="container mk-vac-vraag-bod-sectie__media">
                     <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/single-vacature-persons.png' ); ?>" alt="">
                 </div>
@@ -165,14 +192,14 @@ while ( have_posts() ) :
                     <?php if ( $wat_vragen_wij ) : ?>
                         <div class="mk-vac-vraag-bod__col">
                             <h2 class="mk-vac-sectie__title">Wat vragen wij van jou</h2>
-                            <div class="mk-vac-sectie__text"><?php echo wp_kses_post( $wat_vragen_wij ); ?></div>
+                            <div class="mk-vac-sectie__text"><?php echo mediakanjers_richtext( $wat_vragen_wij ); ?></div>
                         </div>
                     <?php endif; ?>
 
                     <?php if ( $wat_bieden_wij ) : ?>
                         <div class="mk-vac-vraag-bod__col">
                             <h2 class="mk-vac-sectie__title">Wat bieden wij jou</h2>
-                            <div class="mk-vac-sectie__text"><?php echo wp_kses_post( $wat_bieden_wij ); ?></div>
+                            <div class="mk-vac-sectie__text"><?php echo mediakanjers_richtext( $wat_bieden_wij ); ?></div>
                             <a class="btn-primary mk-vac-sectie__cta" href="#solliciteren">
                                 Solliciteer direct
                                 <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'white' ) ); ?>
@@ -184,13 +211,13 @@ while ( have_posts() ) :
         <?php endif; ?>
 
         <?php if ( $afdeling_titel || $afdeling_tekst || $afdeling_afbeelding ) : ?>
-            <section class="mk-vac-afdeling mk-block-spacing">
+            <section id="afdeling" class="mk-vac-afdeling mk-block-spacing">
                 <div class="container mk-vac-afdeling__intro">
                     <?php if ( $afdeling_titel ) : ?>
                         <h2 class="mk-vac-sectie__title"><?php echo esc_html( $afdeling_titel ); ?></h2>
                     <?php endif; ?>
                     <?php if ( $afdeling_tekst ) : ?>
-                        <div class="mk-vac-sectie__text"><?php echo wp_kses_post( $afdeling_tekst ); ?></div>
+                        <div class="mk-vac-sectie__text"><?php echo mediakanjers_richtext( $afdeling_tekst ); ?></div>
                     <?php endif; ?>
                 </div>
 
@@ -224,47 +251,41 @@ while ( have_posts() ) :
         <?php endif; ?>
 
         <?php if ( $procedure_stappen || $heeft_contact ) : ?>
-            <section class="mk-vac-procedure mk-block-spacing">
-                <div class="container mk-vac-procedure__grid">
+            <section id="procedure" class="mk-vac-procedure mk-block-spacing">
+                <div class="container">
                     <?php if ( $procedure_stappen ) : ?>
-                        <div class="mk-vac-procedure__col">
+                        <div class="mk-vac-procedure__intro">
                             <h2 class="mk-vac-sectie__title">Sollicitatieprocedure</h2>
-                            <div class="mk-vac-procedure__stappen">
-                                <?php
-                                $totaal = count( $procedure_stappen );
-                                foreach ( $procedure_stappen as $index => $stap ) :
-                                    $is_laatste = ( $index === $totaal - 1 );
-                                ?>
-                                    <div class="mk-vac-procedure__stap">
-                                        <div class="mk-vac-procedure__stap__card">
-                                            <?php if ( ! empty( $stap['icoon'] ) ) : ?>
-                                                <div class="mk-vac-procedure__stap__icoon">
-                                                    <img src="<?php echo esc_url( $stap['icoon']['url'] ); ?>" alt="">
-                                                </div>
-                                            <?php endif; ?>
-                                            <div class="mk-vac-procedure__stap__content">
-                                                <?php if ( ! empty( $stap['titel'] ) ) : ?>
-                                                    <h3 class="mk-vac-procedure__stap__title"><?php echo esc_html( $stap['titel'] ); ?></h3>
-                                                <?php endif; ?>
-                                                <?php if ( ! empty( $stap['tekst'] ) ) : ?>
-                                                    <p class="mk-vac-procedure__stap__text"><?php echo wp_kses_post( $stap['tekst'] ); ?></p>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
+                            <p class="mk-vac-procedure__subtitel">In <?php echo (int) count( $procedure_stappen ); ?> stappen naar je nieuwe baan</p>
+                        </div>
 
-                                        <?php if ( ! $is_laatste ) : ?>
-                                            <div class="mk-vac-procedure__arrow">
-                                                <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'blue' ) ); ?>
-                                            </div>
+                        <ol class="mk-vac-procedure__tijdlijn" style="--stappen: <?php echo (int) count( $procedure_stappen ); ?>;" data-procedure>
+                            <?php foreach ( array_values( $procedure_stappen ) as $index => $stap ) : ?>
+                                <li class="mk-vac-procedure__stap" style="--i: <?php echo (int) $index; ?>;">
+                                    <div class="mk-vac-procedure__stap__marker">
+                                        <?php if ( ! empty( $stap['icoon'] ) ) : ?>
+                                            <img src="<?php echo esc_url( $stap['icoon']['url'] ); ?>" alt="">
+                                            <span class="mk-vac-procedure__stap__nummer" aria-hidden="true"><?php echo (int) $index + 1; ?></span>
+                                        <?php else : ?>
+                                            <span class="mk-vac-procedure__stap__cijfer" aria-hidden="true"><?php echo (int) $index + 1; ?></span>
                                         <?php endif; ?>
                                     </div>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
+                                    <div class="mk-vac-procedure__stap__content">
+                                        <span class="mk-vac-procedure__stap__label">Stap <?php echo (int) $index + 1; ?></span>
+                                        <?php if ( ! empty( $stap['titel'] ) ) : ?>
+                                            <h3 class="mk-vac-procedure__stap__title"><?php echo esc_html( $stap['titel'] ); ?></h3>
+                                        <?php endif; ?>
+                                        <?php if ( ! empty( $stap['tekst'] ) ) : ?>
+                                            <p class="mk-vac-procedure__stap__text"><?php echo wp_kses_post( $stap['tekst'] ); ?></p>
+                                        <?php endif; ?>
+                                    </div>
+                                </li>
+                            <?php endforeach; ?>
+                        </ol>
                     <?php endif; ?>
 
                     <?php if ( $heeft_contact ) : ?>
-                        <div class="mk-vac-procedure__col mk-vac-procedure__col--contact">
+                        <div class="mk-vac-procedure__contact">
                             <div class="mk-vac-contact__card">
                                 <?php if ( $contact_afbeelding ) : ?>
                                     <div class="mk-vac-contact__media">
@@ -283,7 +304,7 @@ while ( have_posts() ) :
                                         </p>
                                     <?php endif; ?>
                                     <?php if ( $contact_telefoon ) : ?>
-                                        <p class="mk-vac-contact__detail"><a href="tel:<?php echo esc_attr( preg_replace( '/\s+/', '', $contact_telefoon ) ); ?>"><?php echo esc_html( $contact_telefoon ); ?></a></p>
+                                        <p class="mk-vac-contact__detail"><a href="tel:<?php echo esc_attr( preg_replace( array( '/\(0\)/', '/[^\d+]/' ), '', $contact_telefoon ) ); ?>"><?php echo esc_html( $contact_telefoon ); ?></a></p>
                                     <?php endif; ?>
                                     <?php if ( $contact_email ) : ?>
                                         <p class="mk-vac-contact__detail"><a href="mailto:<?php echo esc_attr( $contact_email ); ?>"><?php echo esc_html( $contact_email ); ?></a></p>

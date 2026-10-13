@@ -1,3 +1,99 @@
+// ===== Tekstopmaak vacature-content =====
+// Eén consistente opmaak voor alle (WYSIWYG-)teksten op de vacaturepagina:
+// alinea's, opsommingen, tussenkopjes en regelafstand. Lijsten krijgen eigen
+// bolletjes, zodat geplakte tekst (bijv. uit Word) er overal hetzelfde uitziet.
+@mixin mk-vac-richtext {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+    p {
+        margin: 0 0 16px;
+    }
+
+    h2,
+    h3,
+    h4 {
+        color: inherit;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.35;
+        margin: 24px 0 8px;
+    }
+
+    strong,
+    b {
+        font-weight: 700;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+    }
+
+    ul,
+    ol {
+        margin: 0 0 16px;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        position: relative;
+        padding-left: 26px;
+        margin-bottom: 8px;
+
+        &:empty {
+            display: none;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        > ul,
+        > ol {
+            margin: 8px 0 0;
+        }
+    }
+
+    ul > li::before {
+        content: '';
+        position: absolute;
+        top: 0.65em;
+        left: 6px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: $color-secondary;
+    }
+
+    ol {
+        counter-reset: mk-vac-ol;
+
+        > li {
+            counter-increment: mk-vac-ol;
+
+            &::before {
+                content: counter(mk-vac-ol) '.';
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: $color-secondary;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
 // ===== HEADER =====
 .mk-vac-header {
     padding-top: 32px;
@@ -127,16 +223,10 @@
     }
 
     &__intro {
+        @include mk-vac-richtext;
         max-width: 720px;
         color: $color-text;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 22.8px;
         margin-bottom: 24px;
-
-        p:not(:last-child) {
-            margin-bottom: 12px;
-        }
     }
 
     &__media {
@@ -147,11 +237,15 @@
         img {
             display: block;
             width: 100%;
-            height: 320px;
+            height: 220px;
             object-fit: cover;
 
             @include mq(md) {
-                height: 767px;
+                height: 400px;
+            }
+
+            @include mq(lg) {
+                height: 520px;
             }
         }
     }
@@ -185,16 +279,10 @@
     }
 
     &__text {
+        @include mk-vac-richtext;
         max-width: 720px;
         color: $color-heading-light;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 22.8px;
         margin-bottom: 32px;
-
-        p:not(:last-child) {
-            margin-bottom: 12px;
-        }
     }
 }
 
@@ -246,6 +334,13 @@
         .mk-vac-sectie__text {
             max-width: 720px;
             margin-inline: auto;
+
+            // Opsommingen links uitgelijnd, als blok gecentreerd.
+            ul,
+            ol {
+                display: inline-block;
+                text-align: left;
+            }
         }
     }
 
@@ -268,14 +363,8 @@
     }
 
     &__text {
+        @include mk-vac-richtext;
         color: $color-text;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 22.8px;
-
-        p:not(:last-child) {
-            margin-bottom: 12px;
-        }
     }
 
     &__cta {
@@ -311,9 +400,14 @@
         }
 
         img {
+            display: block;
             width: 100%;
-            height: 100%;
+            height: 240px;
             object-fit: cover;
+
+            @include mq(md) {
+                height: 360px;
+            }
         }
     }
 }
@@ -495,90 +589,330 @@
     }
 }
 
-// ===== Sollicitatieprocedure + contact CTA =====
-.mk-vac-procedure {
-    &__grid {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-        justify-content: center;
+// ===== Snelnavigatie (verschijnt bij scrollen) =====
+.mk-vac-subnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 90;
+    background: $color-text-light;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-100%);
+    visibility: hidden;
+    transition: transform 0.3s ease, visibility 0s linear 0.3s;
 
-        @include mq(md) {
-            flex-direction: row;
-            gap: 48px;
-            align-items: center;
+    &.is-visible {
+        transform: translateY(0);
+        visibility: visible;
+        transition: transform 0.3s ease, visibility 0s linear 0s;
+    }
+
+    .admin-bar & {
+        top: 32px;
+
+        @media (max-width: 782px) {
+            top: 46px;
         }
     }
 
-    &__col {
-        @include mq(md) {
-            flex: 0 0 50%;
-            max-width: 50%;
-        }
-
-        &--contact {
-            display: flex;
-            align-items: center;
-        }
-    }
-
-    &__stappen {
+    &__inner {
         display: flex;
-        flex-direction: column;
         align-items: center;
+        gap: 16px;
+        height: 64px;
+    }
+
+    &__titel {
+        display: none;
+        flex-shrink: 1;
+        max-width: 240px;
+        overflow: hidden;
+        color: $color-heading-dark;
+        font-size: 16px;
+        font-weight: 700;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        @include mq(lg) {
+            display: block;
+        }
+    }
+
+    &__links {
+        display: flex;
+        flex: 1;
+        gap: 4px;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow-x: auto;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        a {
+            display: block;
+            padding: 8px 14px;
+            border-radius: $custom-radius-pill;
+            color: $color-text;
+            font-size: 15px;
+            font-weight: 500;
+            white-space: nowrap;
+            text-decoration: none;
+            transition: background 0.2s ease, color 0.2s ease;
+
+            &:hover {
+                background: $color-heading-light;
+            }
+
+            &.is-active {
+                background: $color-blue-light;
+                color: $color-primary;
+                font-weight: 700;
+            }
+        }
+    }
+
+    &__cta.btn-primary {
+        flex-shrink: 0;
+        margin-left: auto;
+        padding: 10px 18px;
+        font-size: 15px;
+        box-shadow: none;
+
+        @include mq-down(sm) {
+            svg {
+                display: none;
+            }
+        }
+    }
+}
+
+// ===== Sollicitatieprocedure: tijdlijn =====
+// Desktop (lg): stappen naast elkaar met een horizontale lijn door de
+// markers. Kleiner: verticale tijdlijn. Met JS loopt de lijn vol en komen de
+// stappen een voor een binnen (zie vacature-single.js).
+.mk-vac-procedure {
+    &__intro {
+        text-align: center;
+        margin-bottom: 40px;
+
+        @include mq(md) {
+            margin-bottom: 56px;
+        }
+
+        .mk-vac-sectie__title {
+            margin-bottom: 8px;
+        }
+    }
+
+    &__subtitel {
+        margin: 0;
+        color: $color-secondary;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    &__tijdlijn {
+        position: relative;
+        display: grid;
+        gap: 32px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        // Lijn (grijs) + voortgang (rood-oranje), door het midden van de markers.
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 32px;
+            bottom: 32px;
+            left: 31px;
+            width: 3px;
+            border-radius: 3px;
+            background: $color-blue-grey;
+        }
+
+        &::after {
+            background: $color-secondary;
+            transform-origin: top;
+        }
+
+        @include mq(lg) {
+            grid-template-columns: repeat(var(--stappen, 5), minmax(0, 1fr));
+            gap: 0;
+
+            &::before,
+            &::after {
+                top: 31px;
+                bottom: auto;
+                left: calc(100% / (var(--stappen, 5) * 2));
+                right: calc(100% / (var(--stappen, 5) * 2));
+                width: auto;
+                height: 3px;
+            }
+
+            &::after {
+                transform-origin: left;
+            }
+        }
     }
 
     &__stap {
-        width: 100%;
+        display: grid;
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: 20px;
+        align-items: start;
 
-        &__card {
-            display: flex;
-            align-items: center;
+        @include mq(lg) {
+            grid-template-columns: minmax(0, 1fr);
+            justify-items: center;
             gap: 20px;
-            padding: 20px 24px;
-            border-radius: $custom-radius-sm;
-            background: $color-text-light;
-            box-shadow: $custom-shadow-card;
+            padding: 0 12px;
+            text-align: center;
         }
 
-        &__icoon {
-            flex-shrink: 0;
-            width: 48px;
-            height: 48px;
+        &__marker {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            border: 3px solid $color-primary;
+            border-radius: 50%;
+            background: $color-text-light;
+            // Witte rand, zodat de lijn netjes "achter" de marker stopt.
+            box-shadow: 0 0 0 6px $color-text-light;
+            transition: transform 0.25s ease, border-color 0.25s ease;
 
             img {
-                width: 100%;
-                height: 100%;
+                width: 30px;
+                height: 30px;
                 object-fit: contain;
             }
         }
 
+        &:hover &__marker {
+            transform: translateY(-4px);
+            border-color: $color-secondary;
+        }
+
+        &__nummer {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border: 2px solid $color-text-light;
+            border-radius: 50%;
+            background: $color-secondary;
+            color: $color-text-light;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        &__cijfer {
+            color: $color-primary;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        &__content {
+            padding-top: 6px;
+
+            @include mq(lg) {
+                padding-top: 0;
+            }
+        }
+
+        &__label {
+            display: block;
+            margin-bottom: 4px;
+            color: $color-secondary;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
         &__title {
+            margin: 0 0 6px;
             color: $color-heading-dark;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             line-height: 24px;
-            margin: 0 0 4px;
         }
 
         &__text {
-            color: $color-text;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 22.8px;
             margin: 0;
+            color: $color-text;
+            font-size: 15px;
+            line-height: 1.5;
         }
     }
 
-    &__arrow {
-        display: flex;
-        justify-content: center;
-        padding: 8px 0;
+    // Animatie (alleen als JS draait en er geen voorkeur voor minder beweging is).
+    // Losse translate/scale-eigenschappen, zodat de hover (transform) blijft werken.
+    &__tijdlijn.is-animated {
+        &::after {
+            transform: scaleY(0);
+            transition: transform 1.4s cubic-bezier(0.65, 0, 0.35, 1) 0.2s;
 
-        svg {
-            width: 14px;
-            height: 20px;
-            transform: rotate(90deg);
+            @include mq(lg) {
+                transform: scaleX(0);
+            }
+        }
+
+        .mk-vac-procedure__stap {
+            opacity: 0;
+            translate: 0 16px;
+            transition: opacity 0.5s ease, translate 0.5s ease;
+            transition-delay: calc(var(--i, 0) * 0.22s + 0.1s);
+        }
+
+        .mk-vac-procedure__stap__marker {
+            scale: 0.6;
+            transition: scale 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.25s ease, border-color 0.25s ease;
+            transition-delay: calc(var(--i, 0) * 0.22s + 0.1s), 0s, 0s;
+        }
+    }
+
+    &__tijdlijn.is-visible {
+        &::after {
+            transform: none;
+        }
+
+        .mk-vac-procedure__stap {
+            opacity: 1;
+            translate: none;
+        }
+
+        .mk-vac-procedure__stap__marker {
+            scale: 1;
+        }
+    }
+
+    &__contact {
+        max-width: 760px;
+        margin-inline: auto;
+
+        &:not(:first-child) {
+            margin-top: 48px;
+
+            @include mq(md) {
+                margin-top: 64px;
+            }
         }
     }
 }
