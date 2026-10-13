@@ -275,6 +275,91 @@
             ]
         },
         {
+            "key": "field_vacopt_tab_contact",
+            "label": "Contactpersoon",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_vacopt_contact_titel",
+            "label": "Titel",
+            "name": "vacopt_contact_titel",
+            "type": "text",
+            "instructions": "Contactbalk onder de sollicitatieprocedure, geldt voor alle vacatures.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Meer weten over deze vacature?"
+        },
+        {
+            "key": "field_vacopt_contact_intro",
+            "label": "Intro",
+            "name": "vacopt_contact_intro",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Neem contact op met"
+        },
+        {
+            "key": "field_vacopt_contact_naam",
+            "label": "Naam",
+            "name": "vacopt_contact_naam",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Rianne Poorthuis"
+        },
+        {
+            "key": "field_vacopt_contact_functie",
+            "label": "Functie",
+            "name": "vacopt_contact_functie",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_vacopt_contact_telefoon",
+            "label": "Telefoonnummer",
+            "name": "vacopt_contact_telefoon",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "0546-547768"
+        },
+        {
+            "key": "field_vacopt_contact_email",
+            "label": "E-mailadres",
+            "name": "vacopt_contact_email",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "HR_almelo@vfc.com"
+        },
+        {
+            "key": "field_vacopt_contact_afbeelding",
+            "label": "Afbeelding contactpersoon",
+            "name": "vacopt_contact_afbeelding",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "return_format": "array",
+            "library": "all",
+            "preview_size": "medium"
+        },
+        {
             "key": "field_vacopt_tab_vf",
             "label": "VF Corporation",
             "name": "",
@@ -325,5 +410,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1790877600
+    "modified": 1791853200
 }

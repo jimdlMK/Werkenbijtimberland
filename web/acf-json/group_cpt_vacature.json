@@ -205,66 +205,6 @@
             "wrapper": { "width": "50", "class": "", "id": "" }
         },
         {
-            "key": "field_vac_tab_contact",
-            "label": "Contact",
-            "name": "",
-            "type": "tab",
-            "placement": "top"
-        },
-        {
-            "key": "field_vac_contact_naam",
-            "label": "Naam",
-            "name": "vac_contact_naam",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": { "width": "50", "class": "", "id": "" }
-        },
-        {
-            "key": "field_vac_contact_functie",
-            "label": "Functie",
-            "name": "vac_contact_functie",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": { "width": "50", "class": "", "id": "" }
-        },
-        {
-            "key": "field_vac_contact_telefoon",
-            "label": "Telefoonnummer",
-            "name": "vac_contact_telefoon",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": { "width": "50", "class": "", "id": "" }
-        },
-        {
-            "key": "field_vac_contact_email",
-            "label": "E-mailadres",
-            "name": "vac_contact_email",
-            "type": "email",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": { "width": "50", "class": "", "id": "" }
-        },
-        {
-            "key": "field_vac_contact_afbeelding",
-            "label": "Afbeelding contactpersoon",
-            "name": "vac_contact_afbeelding",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": { "width": "", "class": "", "id": "" },
-            "return_format": "array",
-            "library": "all",
-            "preview_size": "medium"
-        },
-        {
             "key": "field_vac_tab_formulier",
             "label": "Sollicitatieformulier",
             "name": "",
@@ -311,5 +251,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1791766800
+    "modified": 1791853200
 }

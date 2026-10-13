@@ -36,12 +36,15 @@ while ( have_posts() ) :
 
     $procedure_stappen = get_field( 'vacopt_procedure_stappen', 'option' );
 
-    $contact_naam       = get_field( 'vac_contact_naam', $vacature_id );
-    $contact_functie    = get_field( 'vac_contact_functie', $vacature_id );
-    $contact_telefoon   = get_field( 'vac_contact_telefoon', $vacature_id );
-    $contact_email      = get_field( 'vac_contact_email', $vacature_id );
-    $contact_afbeelding = get_field( 'vac_contact_afbeelding', $vacature_id );
-    $heeft_contact       = $contact_naam || $contact_telefoon || $contact_email;
+    // Contactpersoon: één keer ingesteld in Vacatures instellingen → Contactpersoon.
+    $contact_titel      = get_field( 'vacopt_contact_titel', 'option' );
+    $contact_intro      = get_field( 'vacopt_contact_intro', 'option' );
+    $contact_naam       = get_field( 'vacopt_contact_naam', 'option' );
+    $contact_functie    = get_field( 'vacopt_contact_functie', 'option' );
+    $contact_telefoon   = get_field( 'vacopt_contact_telefoon', 'option' );
+    $contact_email      = get_field( 'vacopt_contact_email', 'option' );
+    $contact_afbeelding = get_field( 'vacopt_contact_afbeelding', 'option' );
+    $heeft_contact      = $contact_naam || $contact_telefoon || $contact_email;
 
     $formulier_titel    = get_field( 'vac_formulier_titel', $vacature_id );
     $formulier_subtitel = get_field( 'vac_formulier_subtitel', $vacature_id );
@@ -289,8 +292,8 @@ while ( have_posts() ) :
                     <?php if ( $heeft_contact ) : ?>
                         <?php
                         get_template_part( 'template-parts/contact-cta', null, array(
-                            'titel'    => 'Meer weten over deze vacature?',
-                            'intro'    => 'Neem contact op met',
+                            'titel'    => $contact_titel,
+                            'intro'    => $contact_intro,
                             'naam'     => $contact_naam,
                             'functie'  => $contact_functie,
                             'telefoon' => $contact_telefoon,
