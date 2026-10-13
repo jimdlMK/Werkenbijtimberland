@@ -60,10 +60,18 @@ while ( have_posts() ) :
                         <span><?php the_title(); ?></span>
                     </nav>
 
-                    <a class="btn-primary mk-vac-header__cta" href="#solliciteren">
-                        Solliciteer direct
-                        <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'white' ) ); ?>
-                    </a>
+                    <div class="mk-vac-header__ctas">
+                        <?php if ( mediakanjers_reistijd_actief() ) : ?>
+                            <a class="mk-vac-header__reistijd" href="#reistijd">
+                                <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'locatie-lijn' ) ); ?>
+                                Bereken reistijd
+                            </a>
+                        <?php endif; ?>
+                        <a class="btn-primary mk-vac-header__cta" href="#solliciteren">
+                            Solliciteer direct
+                            <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'white' ) ); ?>
+                        </a>
+                    </div>
                 </div>
 
                 <h1 class="mk-vac-header__title"><?php the_title(); ?></h1>
@@ -287,6 +295,8 @@ while ( have_posts() ) :
                 </div>
             </section>
         <?php endif; ?>
+
+        <?php get_template_part( 'template-parts/reistijd' ); ?>
 
         <section id="solliciteren" class="mk-vac-formulier mk-block-spacing">
 

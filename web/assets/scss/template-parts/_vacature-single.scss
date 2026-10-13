@@ -18,6 +18,46 @@
         margin-bottom: 24px;
     }
 
+    &__ctas {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+    }
+
+    // Rustige tweede knop naast "Solliciteer direct".
+    &__reistijd {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 18px;
+        border: 1px solid $color-blue-grey;
+        border-radius: $custom-radius-lg;
+        background: $color-text-light;
+        color: $color-primary;
+        font-size: clamp(14px, 3vw, 1rem);
+        font-weight: 700;
+        text-decoration: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+        @include mq(sm) {
+            padding: 14px 22px;
+        }
+
+        svg {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            color: $color-secondary;
+        }
+
+        &:hover,
+        &:focus-visible {
+            border-color: $color-primary;
+            box-shadow: 3px 3px 7px 0 rgba(0, 0, 0, 0.12);
+        }
+    }
+
     &__breadcrumb {
         font-size: $font-size-small;
         color: $color-text;
