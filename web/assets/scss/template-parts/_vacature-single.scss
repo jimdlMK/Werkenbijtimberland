@@ -413,17 +413,10 @@
 }
 
 // ===== Wat vragen wij / Wat bieden wij =====
+// Geen eigen padding-top: de witte sectie ervoor geeft de ruimte al
+// (mk-block-spacing), anders ontstaat dubbele witruimte.
 .mk-vac-vraag-bod-sectie {
-    padding-top: 48px;
     background: $color-text-light;
-
-    @include mq(md) {
-        padding-top: 72px;
-    }
-
-    @include mq(lg) {
-        padding-top: 96px;
-    }
 
     &__media {
         display: flex;
@@ -1009,6 +1002,12 @@ $mk-stap-gap: 40px;
     .mk-contact__cta:first-child {
         margin-top: 0;
     }
+}
+
+// Twee gekleurde banden (afdeling → procedure) sluiten direct op elkaar aan;
+// beide hebben al eigen ruimte binnenin, een witte marge ertussen gaf dubbele ruimte.
+.mk-vac-afdeling:has(+ .mk-vac-procedure) {
+    margin-bottom: 0;
 }
 
 // Het reistijdblok volgt op de lichte procedureband: eigen witruimte bovenaan.
