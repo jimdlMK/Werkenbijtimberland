@@ -1041,11 +1041,8 @@ $mk-stap-gap: 40px;
 
 // ===== Sollicitatieformulier =====
 // Eigen witruimte bovenaan, zodat het blauwe blok altijd vrij staat. Het
-// reistijdblok ervoor laat dan zijn ondermarge vallen (geen dubbele ruimte).
-.mk-reistijd:has(+ .mk-vac-formulier) {
-    padding-bottom: 0;
-}
-
+// reistijdblok ervoor is een witte band met eigen ruimte onderin; het
+// formulier staat op de paginakleur, dus beide houden hun eigen ruimte.
 .mk-vac-formulier {
     padding-top: 48px;
 
