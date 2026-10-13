@@ -119,47 +119,17 @@ if ( ! empty( $block['className'] ) ) {
 
     <?php if ( $heeft_cta ) : ?>
         <div class="container">
-            <div class="mk-contact__cta">
-                <?php if ( $cta_foto ) : ?>
-                    <div class="mk-contact__cta__media">
-                        <img src="<?php echo esc_url( $cta_foto['sizes']['medium'] ?? $cta_foto['url'] ); ?>" alt="<?php echo esc_attr( $cta_foto['alt'] ?: $cta_naam ); ?>">
-                    </div>
-                <?php endif; ?>
-
-                <div class="mk-contact__cta__content">
-                    <?php if ( $cta_titel ) : ?>
-                        <h3 class="mk-contact__cta__title"><?php echo esc_html( $cta_titel ); ?></h3>
-                    <?php endif; ?>
-                    <?php if ( $cta_naam ) : ?>
-                        <p class="mk-contact__cta__text">
-                            <?php if ( $cta_intro ) : ?>
-                                <?php echo esc_html( $cta_intro ); ?>
-                            <?php endif; ?>
-                            <strong class="mk-contact__cta__naam"><?php echo esc_html( $cta_naam ); ?></strong>
-                            <?php if ( $cta_functie ) : ?>
-                                <span class="mk-contact__cta__functie"><?php echo esc_html( $cta_functie ); ?></span>
-                            <?php endif; ?>
-                        </p>
-                    <?php endif; ?>
-                </div>
-
-                <?php if ( $cta_telefoon || $cta_email ) : ?>
-                    <div class="mk-contact__cta__actions">
-                        <?php if ( $cta_telefoon ) : ?>
-                            <a class="mk-contact__cta__btn" href="tel:<?php echo esc_attr( preg_replace( array( '/\(0\)/', '/[^\d+]/' ), '', $cta_telefoon ) ); ?>">
-                                <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'telefoon' ) ); ?>
-                                <?php echo esc_html( $cta_telefoon ); ?>
-                            </a>
-                        <?php endif; ?>
-                        <?php if ( $cta_email ) : ?>
-                            <a class="mk-contact__cta__btn" href="mailto:<?php echo esc_attr( $cta_email ); ?>">
-                                <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'mail' ) ); ?>
-                                <?php echo esc_html( $cta_email ); ?>
-                            </a>
-                        <?php endif; ?>
-                    </div>
-                <?php endif; ?>
-            </div>
+            <?php
+            get_template_part( 'template-parts/contact-cta', null, array(
+                'titel'    => $cta_titel,
+                'intro'    => $cta_intro,
+                'naam'     => $cta_naam,
+                'functie'  => $cta_functie,
+                'telefoon' => $cta_telefoon,
+                'email'    => $cta_email,
+                'foto'     => $cta_foto,
+            ) );
+            ?>
         </div>
     <?php endif; ?>
 </section>

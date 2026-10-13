@@ -287,33 +287,17 @@ while ( have_posts() ) :
                     <?php endif; ?>
 
                     <?php if ( $heeft_contact ) : ?>
-                        <div class="mk-vac-procedure__contact">
-                            <div class="mk-vac-contact__card">
-                                <?php if ( $contact_afbeelding ) : ?>
-                                    <div class="mk-vac-contact__media">
-                                        <img src="<?php echo esc_url( $contact_afbeelding['url'] ); ?>" alt="<?php echo esc_attr( $contact_afbeelding['alt'] ?: $contact_naam ); ?>">
-                                    </div>
-                                <?php endif; ?>
-                                <div class="mk-vac-contact__content">
-                                    <h2 class="mk-vac-contact__title">Meer weten over deze vacature?</h2>
-                                    <p class="mk-vac-contact__intro">Neem contact op met:</p>
-                                    <?php if ( $contact_naam ) : ?>
-                                        <p class="mk-vac-contact__naam">
-                                            <?php echo esc_html( $contact_naam ); ?>
-                                            <?php if ( $contact_functie ) : ?>
-                                                <span class="mk-vac-contact__functie"><?php echo esc_html( $contact_functie ); ?></span>
-                                            <?php endif; ?>
-                                        </p>
-                                    <?php endif; ?>
-                                    <?php if ( $contact_telefoon ) : ?>
-                                        <p class="mk-vac-contact__detail"><a href="tel:<?php echo esc_attr( preg_replace( array( '/\(0\)/', '/[^\d+]/' ), '', $contact_telefoon ) ); ?>"><?php echo esc_html( $contact_telefoon ); ?></a></p>
-                                    <?php endif; ?>
-                                    <?php if ( $contact_email ) : ?>
-                                        <p class="mk-vac-contact__detail"><a href="mailto:<?php echo esc_attr( $contact_email ); ?>"><?php echo esc_html( $contact_email ); ?></a></p>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                        get_template_part( 'template-parts/contact-cta', null, array(
+                            'titel'    => 'Meer weten over deze vacature?',
+                            'intro'    => 'Neem contact op met',
+                            'naam'     => $contact_naam,
+                            'functie'  => $contact_functie,
+                            'telefoon' => $contact_telefoon,
+                            'email'    => $contact_email,
+                            'foto'     => $contact_afbeelding,
+                        ) );
+                        ?>
                     <?php endif; ?>
                 </div>
             </section>
