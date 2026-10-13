@@ -692,11 +692,27 @@
     }
 }
 
-// ===== Sollicitatieprocedure: tijdlijn =====
-// Desktop (lg): stappen naast elkaar met een horizontale lijn door de
-// markers. Kleiner: verticale tijdlijn. Met JS loopt de lijn vol en komen de
-// stappen een voor een binnen (zie vacature-single.js).
+// ===== Sollicitatieprocedure: stapkaarten =====
+// Desktop (xl): kaarten naast elkaar, met subgrid zodat icoon, titel en tekst
+// in alle kaarten exact op dezelfde hoogte staan. Kleiner: kaarten onder
+// elkaar (icoon links). Met JS komen de kaarten een voor een binnen, ploppen
+// de iconen in, loopt de balk onder elke kaart vol en schuiven de pijlen in
+// (zie vacature-single.js). Losse translate/scale-eigenschappen voor de
+// animatie, zodat de hover (transform) er niet mee botst.
+$mk-stap-gap: 40px;
+
 .mk-vac-procedure {
+    padding-top: 48px;
+    background: $color-heading-light;
+
+    @include mq(md) {
+        padding-top: 72px;
+    }
+
+    @include mq(lg) {
+        padding-top: 96px;
+    }
+
     &__intro {
         text-align: center;
         margin-bottom: 40px;
@@ -718,187 +734,273 @@
     }
 
     &__tijdlijn {
-        position: relative;
         display: grid;
-        gap: 32px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: $mk-stap-gap;
         margin: 0;
         padding: 0;
         list-style: none;
+        max-width: 760px;
+        margin-inline: auto;
 
-        // Lijn (grijs) + voortgang (rood-oranje), door het midden van de markers.
-        &::before,
-        &::after {
-            content: '';
-            position: absolute;
-            top: 32px;
-            bottom: 32px;
-            left: 31px;
-            width: 3px;
-            border-radius: 3px;
-            background: $color-blue-grey;
-        }
-
-        &::after {
-            background: $color-secondary;
-            transform-origin: top;
-        }
-
-        @include mq(lg) {
+        @include mq(xl) {
+            max-width: none;
             grid-template-columns: repeat(var(--stappen, 5), minmax(0, 1fr));
-            gap: 0;
-
-            &::before,
-            &::after {
-                top: 31px;
-                bottom: auto;
-                left: calc(100% / (var(--stappen, 5) * 2));
-                right: calc(100% / (var(--stappen, 5) * 2));
-                width: auto;
-                height: 3px;
-            }
-
-            &::after {
-                transform-origin: left;
-            }
+            // Rijen: top (icoon + nummer), titel, tekst, balk.
+            grid-template-rows: auto auto 1fr auto;
+            gap: 0 $mk-stap-gap;
         }
     }
 
     &__stap {
+        position: relative;
         display: grid;
-        grid-template-columns: 64px minmax(0, 1fr);
-        gap: 20px;
-        align-items: start;
+        grid-template-columns: 72px minmax(0, 1fr);
+        grid-template-areas:
+            'icoon titel'
+            'icoon tekst'
+            'balk  balk';
+        column-gap: 20px;
+        align-content: start;
+        padding: 24px 24px 0;
+        border-radius: 10px;
+        background: $color-text-light;
+        box-shadow: $custom-shadow-card;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-        @include mq(lg) {
+        @include mq(xl) {
+            grid-row: span 4;
             grid-template-columns: minmax(0, 1fr);
-            justify-items: center;
-            gap: 20px;
-            padding: 0 12px;
-            text-align: center;
+            grid-template-rows: subgrid;
+            grid-template-areas: none;
+            row-gap: 0;
+            padding: 28px 24px 0;
+            text-align: left;
         }
 
-        &__marker {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 64px;
-            height: 64px;
-            border: 3px solid $color-primary;
-            border-radius: 50%;
-            background: $color-text-light;
-            // Witte rand, zodat de lijn netjes "achter" de marker stopt.
-            box-shadow: 0 0 0 6px $color-text-light;
-            transition: transform 0.25s ease, border-color 0.25s ease;
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 28px rgba(7, 54, 116, 0.16);
+        }
 
-            img {
-                width: 30px;
-                height: 30px;
-                object-fit: contain;
+        &__top {
+            grid-area: icoon;
+            align-self: start;
+
+            @include mq(xl) {
+                grid-area: auto;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                margin-bottom: 24px;
             }
         }
 
-        &:hover &__marker {
-            transform: translateY(-4px);
-            border-color: $color-secondary;
-        }
-
-        &__nummer {
-            position: absolute;
-            top: -6px;
-            right: -6px;
+        &__icoon {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 24px;
-            height: 24px;
-            border: 2px solid $color-text-light;
+            width: 72px;
+            height: 72px;
             border-radius: 50%;
-            background: $color-secondary;
-            color: $color-text-light;
-            font-size: 12px;
-            font-weight: 700;
-            line-height: 1;
+            background: $color-blue-light;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+
+            @include mq(xl) {
+                width: 96px;
+                height: 96px;
+            }
+
+            img {
+                width: 42px;
+                height: 42px;
+                object-fit: contain;
+
+                @include mq(xl) {
+                    width: 56px;
+                    height: 56px;
+                }
+            }
+
+            // Pulserende ring bij het binnenkomen.
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border: 2px solid $color-secondary;
+                border-radius: 50%;
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+
+        &:hover &__icoon {
+            background: $color-text-light;
+            box-shadow: 0 0 0 3px $color-secondary;
         }
 
         &__cijfer {
             color: $color-primary;
-            font-size: 22px;
-            font-weight: 700;
-        }
+            font-size: 30px;
+            font-weight: 800;
 
-        &__content {
-            padding-top: 6px;
-
-            @include mq(lg) {
-                padding-top: 0;
+            @include mq(xl) {
+                font-size: 38px;
             }
         }
 
-        &__label {
-            display: block;
-            margin-bottom: 4px;
+        // Groot stapnummer ("01") rechtsboven, als outline in de huisstijl.
+        &__nummer {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            color: transparent;
+            font-size: 34px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            -webkit-text-stroke: 1.5px $color-blue-grey;
+            transition: color 0.3s ease, -webkit-text-stroke-color 0.3s ease;
+
+            @include mq(xl) {
+                position: static;
+                font-size: 44px;
+            }
+        }
+
+        &:hover &__nummer {
             color: $color-secondary;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+            -webkit-text-stroke-color: $color-secondary;
         }
 
         &__title {
-            margin: 0 0 6px;
-            color: $color-heading-dark;
+            grid-area: titel;
+            align-self: end;
+            margin: 0 48px 6px 0;
+            color: $color-primary;
             font-size: 18px;
             font-weight: 700;
             line-height: 24px;
-        }
 
-        &__text {
-            margin: 0;
-            color: $color-text;
-            font-size: 15px;
-            line-height: 1.5;
-        }
-    }
-
-    // Animatie (alleen als JS draait en er geen voorkeur voor minder beweging is).
-    // Losse translate/scale-eigenschappen, zodat de hover (transform) blijft werken.
-    &__tijdlijn.is-animated {
-        &::after {
-            transform: scaleY(0);
-            transition: transform 1.4s cubic-bezier(0.65, 0, 0.35, 1) 0.2s;
-
-            @include mq(lg) {
-                transform: scaleX(0);
+            @include mq(xl) {
+                grid-area: auto;
+                align-self: start;
+                margin: 0 0 8px;
             }
         }
 
-        .mk-vac-procedure__stap {
-            opacity: 0;
-            translate: 0 16px;
-            transition: opacity 0.5s ease, translate 0.5s ease;
-            transition-delay: calc(var(--i, 0) * 0.22s + 0.1s);
+        &__text {
+            grid-area: tekst;
+            margin: 0 0 24px;
+            color: $color-text;
+            font-size: 15px;
+            line-height: 1.55;
+
+            @include mq(xl) {
+                grid-area: auto;
+                margin-bottom: 28px;
+            }
         }
 
-        .mk-vac-procedure__stap__marker {
-            scale: 0.6;
-            transition: scale 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.25s ease, border-color 0.25s ease;
-            transition-delay: calc(var(--i, 0) * 0.22s + 0.1s), 0s, 0s;
+        // Voortgangsbalk onderaan de kaart.
+        &__balk {
+            grid-area: balk;
+            display: block;
+            height: 5px;
+            margin: 0 -24px;
+            border-radius: 0 0 10px 10px;
+            background: $color-secondary;
+            transform-origin: left;
+
+            @include mq(xl) {
+                grid-area: auto;
+                align-self: end;
+            }
+        }
+
+        // Pijl naar de volgende stap: onder de kaart (mobiel), rechts ernaast (lg).
+        &__pijl {
+            position: absolute;
+            z-index: 2;
+            left: 44px;
+            bottom: -0.5 * $mk-stap-gap - 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: $color-secondary;
+            color: $color-text-light;
+            box-shadow: 0 0 0 5px $color-heading-light;
+            transform: rotate(90deg);
+
+            @include mq(xl) {
+                left: auto;
+                right: -0.5 * $mk-stap-gap - 16px;
+                bottom: auto;
+                // Op de hoogte van het midden van het icoon.
+                top: 28px + 48px - 16px;
+                transform: none;
+            }
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+
+    // ===== Animatie =====
+    &__tijdlijn.is-animated {
+        .mk-vac-procedure__stap {
+            opacity: 0;
+            translate: 0 32px;
+            transition: opacity 0.6s ease, translate 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.3s ease, box-shadow 0.3s ease;
+            transition-delay: calc(var(--i, 0) * 0.18s), calc(var(--i, 0) * 0.18s), 0s, 0s;
+        }
+
+        .mk-vac-procedure__stap__icoon {
+            scale: 0.4;
+            transition: scale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, box-shadow 0.3s ease;
+            transition-delay: calc(var(--i, 0) * 0.18s + 0.15s), 0s, 0s;
+        }
+
+        .mk-vac-procedure__stap__balk {
+            scale: 0 1;
+            transition: scale 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+            transition-delay: calc(var(--i, 0) * 0.18s + 0.35s);
+        }
+
+        .mk-vac-procedure__stap__pijl {
+            opacity: 0;
+            scale: 0.4;
+            transition: opacity 0.4s ease, scale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition-delay: calc(var(--i, 0) * 0.18s + 0.6s);
         }
     }
 
     &__tijdlijn.is-visible {
-        &::after {
-            transform: none;
-        }
-
         .mk-vac-procedure__stap {
             opacity: 1;
             translate: none;
         }
 
-        .mk-vac-procedure__stap__marker {
+        .mk-vac-procedure__stap__icoon {
+            scale: 1;
+
+            &::after {
+                animation: mk-stap-puls 1s ease-out calc(var(--i, 0) * 0.18s + 0.35s) 1;
+            }
+        }
+
+        .mk-vac-procedure__stap__balk {
+            scale: 1 1;
+        }
+
+        .mk-vac-procedure__stap__pijl {
+            opacity: 1;
             scale: 1;
         }
     }
@@ -914,6 +1016,18 @@
                 margin-top: 64px;
             }
         }
+    }
+}
+
+@keyframes mk-stap-puls {
+    0% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.45);
     }
 }
 

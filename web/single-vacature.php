@@ -259,26 +259,28 @@ while ( have_posts() ) :
                             <p class="mk-vac-procedure__subtitel">In <?php echo (int) count( $procedure_stappen ); ?> stappen naar je nieuwe baan</p>
                         </div>
 
-                        <ol class="mk-vac-procedure__tijdlijn" style="--stappen: <?php echo (int) count( $procedure_stappen ); ?>;" data-procedure>
+                        <?php $aantal_stappen = count( $procedure_stappen ); ?>
+                        <ol class="mk-vac-procedure__tijdlijn" style="--stappen: <?php echo (int) $aantal_stappen; ?>;" data-procedure>
                             <?php foreach ( array_values( $procedure_stappen ) as $index => $stap ) : ?>
                                 <li class="mk-vac-procedure__stap" style="--i: <?php echo (int) $index; ?>;">
-                                    <div class="mk-vac-procedure__stap__marker">
-                                        <?php if ( ! empty( $stap['icoon'] ) ) : ?>
-                                            <img src="<?php echo esc_url( $stap['icoon']['url'] ); ?>" alt="">
-                                            <span class="mk-vac-procedure__stap__nummer" aria-hidden="true"><?php echo (int) $index + 1; ?></span>
-                                        <?php else : ?>
-                                            <span class="mk-vac-procedure__stap__cijfer" aria-hidden="true"><?php echo (int) $index + 1; ?></span>
-                                        <?php endif; ?>
+                                    <div class="mk-vac-procedure__stap__top">
+                                        <div class="mk-vac-procedure__stap__icoon">
+                                            <?php if ( ! empty( $stap['icoon'] ) ) : ?>
+                                                <img src="<?php echo esc_url( $stap['icoon']['url'] ); ?>" alt="">
+                                            <?php else : ?>
+                                                <span class="mk-vac-procedure__stap__cijfer" aria-hidden="true"><?php echo (int) $index + 1; ?></span>
+                                            <?php endif; ?>
+                                        </div>
+                                        <span class="mk-vac-procedure__stap__nummer"><span class="screen-reader-text">Stap </span><?php echo esc_html( str_pad( (string) ( $index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
                                     </div>
-                                    <div class="mk-vac-procedure__stap__content">
-                                        <span class="mk-vac-procedure__stap__label">Stap <?php echo (int) $index + 1; ?></span>
-                                        <?php if ( ! empty( $stap['titel'] ) ) : ?>
-                                            <h3 class="mk-vac-procedure__stap__title"><?php echo esc_html( $stap['titel'] ); ?></h3>
-                                        <?php endif; ?>
-                                        <?php if ( ! empty( $stap['tekst'] ) ) : ?>
-                                            <p class="mk-vac-procedure__stap__text"><?php echo wp_kses_post( $stap['tekst'] ); ?></p>
-                                        <?php endif; ?>
-                                    </div>
+                                    <h3 class="mk-vac-procedure__stap__title"><?php echo esc_html( $stap['titel'] ?? '' ); ?></h3>
+                                    <p class="mk-vac-procedure__stap__text"><?php echo wp_kses_post( $stap['tekst'] ?? '' ); ?></p>
+                                    <span class="mk-vac-procedure__stap__balk" aria-hidden="true"></span>
+                                    <?php if ( $index < $aantal_stappen - 1 ) : ?>
+                                        <span class="mk-vac-procedure__stap__pijl" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                                        </span>
+                                    <?php endif; ?>
                                 </li>
                             <?php endforeach; ?>
                         </ol>
