@@ -79,16 +79,24 @@
                 fill: $color-heading-dark;
             }
         }
+    }
 
-        &__item--functie {
+    // Salaris op een eigen regel onder de meta.
+    &__salaris {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin: 8px 0 0;
+        color: $color-primary;
+        font-family: $font-family-standard-font;
+        font-size: $font-size-small;
+        font-weight: 700;
+
+        svg {
+            flex-shrink: 0;
+            width: 15px;
+            height: 15px;
             color: $color-secondary;
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 22.8px;
-
-            svg path {
-                fill: $color-secondary;
-            }
         }
     }
 

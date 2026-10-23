@@ -13,7 +13,6 @@ while ( have_posts() ) :
 
     $vacature_id = get_the_ID();
 
-    $functie   = get_field( 'vac_functie', $vacature_id );
     $uren      = get_field( 'vac_uren', $vacature_id );
     $locatie   = get_field( 'vac_locatie', $vacature_id );
     $salaris   = get_field( 'vac_salaris', $vacature_id );
@@ -90,12 +89,6 @@ while ( have_posts() ) :
                 <h1 class="mk-vac-header__title"><?php the_title(); ?></h1>
 
                 <div class="mk-vac-header__meta">
-                    <?php if ( $functie ) : ?>
-                        <span class="mk-vac-header__meta__item mk-vac-header__meta__item--functie">
-                            <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'sector' ) ); ?>
-                            <?php echo esc_html( $functie ); ?>
-                        </span>
-                    <?php endif; ?>
                     <?php if ( $uren ) : ?>
                         <span class="mk-vac-header__meta__item">
                             <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'klok' ) ); ?>
@@ -109,7 +102,10 @@ while ( have_posts() ) :
                         </span>
                     <?php endif; ?>
                     <?php if ( $salaris ) : ?>
-                        <span class="mk-vac-header__meta__item"><?php echo esc_html( $salaris ); ?></span>
+                        <span class="mk-vac-header__meta__item mk-vac-header__meta__item--salaris">
+                            <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'euro' ) ); ?>
+                            <?php echo esc_html( $salaris ); ?>
+                        </span>
                     <?php endif; ?>
                 </div>
 

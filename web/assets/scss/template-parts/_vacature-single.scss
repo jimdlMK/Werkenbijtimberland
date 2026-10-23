@@ -96,7 +96,6 @@
 
 // ===== HEADER =====
 .mk-vac-header {
-    padding-top: 32px;
     padding-bottom: 48px;
     background: $color-heading-light;
 
@@ -104,11 +103,12 @@
         padding-bottom: 72px;
     }
 
-    // Breadcrumb links, "Solliciteer direct" rechts.
+    // Breadcrumb links, "Solliciteer direct" rechts. Bovenaan uitgelijnd,
+    // zodat het kruimelpad op dezelfde hoogte staat als op andere pagina's.
     &__top {
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
         gap: 16px;
         margin-bottom: 24px;
@@ -155,13 +155,7 @@
     }
 
     &__breadcrumb {
-        font-size: $font-size-small;
-        color: $color-text;
-
-        a {
-            color: $color-blue;
-            text-decoration: none;
-        }
+        @include mk-breadcrumb;
     }
 
     &__badge {
@@ -209,14 +203,12 @@
                 fill: $color-heading-dark;
             }
 
-            &--functie {
+            // Euro is een lijn-icoon: niet vullen zoals de andere meta-iconen.
+            &--salaris svg {
                 color: $color-secondary;
-                font-size: 16px;
-                font-weight: 700;
-                line-height: 22.8px;
 
-                svg path {
-                    fill: $color-secondary;
+                path {
+                    fill: none;
                 }
             }
         }

@@ -1,6 +1,5 @@
 // ===== HEADER =====
 .mk-nieuws-header {
-    padding-top: 32px;
     padding-bottom: 40px;
     background: $color-heading-light;
 
@@ -9,14 +8,8 @@
     }
 
     &__breadcrumb {
-        font-size: $font-size-small;
-        color: $color-text;
+        @include mk-breadcrumb;
         margin-bottom: 24px;
-
-        a {
-            color: $color-blue;
-            text-decoration: none;
-        }
     }
 
     &__datum {

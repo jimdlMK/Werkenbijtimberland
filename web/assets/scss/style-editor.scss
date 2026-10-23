@@ -1,0 +1,53 @@
+/*
+ * Extra stijlen voor de klassieke (TinyMCE) editor, o.a. de WYSIWYG-velden van
+ * ACF. De algemene reset in style-main zet bij ul/ol/li de padding op 0,
+ * waardoor opsommingstekens in de editor buiten beeld vielen en een lijst
+ * niet van gewone tekst te onderscheiden was. Hier maken we lijsten (en wat
+ * ademruimte) weer zichtbaar. Alleen .mce-content-body, dus geen invloed op
+ * de block editor of de voorkant.
+ */
+@import "theme/_theme-vars.scss";
+
+body.mce-content-body {
+    padding: 12px 16px;
+    background: $color-text-light;
+    line-height: 1.6;
+
+    p {
+        margin: 0 0 1em;
+    }
+
+    ul,
+    ol {
+        margin: 0 0 1em;
+        padding-left: 1.5em;
+    }
+
+    ul {
+        list-style: disc;
+    }
+
+    ol {
+        list-style: decimal;
+    }
+
+    li {
+        margin-bottom: 0.25em;
+    }
+
+    li::marker {
+        color: $color-secondary;
+    }
+
+    h2,
+    h3,
+    h4 {
+        margin: 1em 0 0.5em;
+        font-weight: 700;
+    }
+
+    a {
+        color: $color-blue;
+        text-decoration: underline;
+    }
+}

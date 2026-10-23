@@ -104,9 +104,11 @@ add_filter( 'wp_resource_hints', 'mediakanjers_resource_hints', 10, 2 );
 
 /**
  * Editor styles: zodat de block editor de front-end typografie/kleuren toont.
+ * style-editor.css maakt in de WYSIWYG-velden (TinyMCE) o.a. opsommingen
+ * weer zichtbaar, die door de reset in style-main wegvielen.
  */
 function mediakanjers_editor_assets() {
-    add_editor_style( 'dist/css/style-main.css' );
+    add_editor_style( array( 'dist/css/style-main.css', 'dist/css/style-editor.css' ) );
 }
 add_action( 'admin_init', 'mediakanjers_editor_assets' );
 

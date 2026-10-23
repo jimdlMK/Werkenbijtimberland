@@ -1,0 +1,71 @@
+{
+    "key": "group_block_stage_info",
+    "title": "Stage-blokken: waar pas ik de inhoud aan?",
+    "fields": [
+        {
+            "key": "field_stage_block_info",
+            "label": "Inhoud aanpassen",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "De teksten van dit blok worden centraal beheerd, zodat ze overal hetzelfde zijn.\n\nAanpassen via <a href=\"admin.php?page=mediakanjers-stage-instellingen\" target=\"_blank\"><strong>Mediakanjers → Stage instellingen</strong></a>, met de tabbladen:\n• Mogelijkheden (intro + dropdown)\n• Verwachten & bieden\n• Reviews\n• Sollicitatieformulier",
+            "new_lines": "br",
+            "esc_html": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/stage-mogelijkheden-intro"
+            }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/stage-mogelijkheden-dropdown"
+            }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/stage-verwachten-bieden"
+            }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/stage-reviews"
+            }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/stage-formulier"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Uitleg in de zijbalk van de stage-blokken: hun inhoud komt uit Stage instellingen.",
+    "show_in_rest": 0,
+    "modified": 1792713600
+}

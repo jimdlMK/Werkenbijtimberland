@@ -13,9 +13,9 @@ $vacature_id = isset( $args['vacature_id'] ) ? $args['vacature_id'] : get_the_ID
 $sectoren    = isset( $args['sectoren'] ) ? (array) $args['sectoren'] : null;
 $verborgen   = ! empty( $args['verborgen'] );
 
-$functie   = get_field( 'vac_functie', $vacature_id );
 $uren      = get_field( 'vac_uren', $vacature_id );
 $locatie   = get_field( 'vac_locatie', $vacature_id );
+$salaris   = get_field( 'vac_salaris', $vacature_id );
 $thumbnail = get_field( 'vac_thumbnail', $vacature_id );
 $permalink = get_permalink( $vacature_id );
 $titel     = get_the_title( $vacature_id );
@@ -32,12 +32,6 @@ $titel     = get_the_title( $vacature_id );
             <?php get_template_part( 'template-parts/blocks/partials/arrow-icon', null, array( 'color' => 'copper' ) ); ?>
         </div>
         <div class="mk-vacature-card__meta">
-            <?php if ( $functie ) : ?>
-                <span class="mk-vacature-card__meta__item mk-vacature-card__meta__item--functie">
-                    <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'sector' ) ); ?>
-                    <?php echo esc_html( $functie ); ?>
-                </span>
-            <?php endif; ?>
             <?php if ( $uren ) : ?>
                 <span class="mk-vacature-card__meta__item">
                     <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'klok' ) ); ?>
@@ -51,5 +45,11 @@ $titel     = get_the_title( $vacature_id );
                 </span>
             <?php endif; ?>
         </div>
+        <?php if ( $salaris ) : ?>
+            <p class="mk-vacature-card__salaris">
+                <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'euro' ) ); ?>
+                <?php echo esc_html( $salaris ); ?>
+            </p>
+        <?php endif; ?>
     </div>
 </a>

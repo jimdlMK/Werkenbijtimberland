@@ -32,7 +32,6 @@ if ( ! empty( $block['className'] ) ) {
         <div class="swiper" id="<?php echo esc_attr( $slider_id ); ?>" data-slider-type="vacatures" data-slider-edge="<?php echo esc_attr( $edge ); ?>"<?php echo 'rechts' === $edge ? ' dir="rtl"' : ''; ?>>
             <div class="swiper-wrapper">
                 <?php foreach ( $vacatures as $vacature ) :
-                    $functie   = get_field( 'vac_functie', $vacature->ID );
                     $uren      = get_field( 'vac_uren', $vacature->ID );
                     $locatie   = get_field( 'vac_locatie', $vacature->ID );
                     $intro     = get_field( 'vac_intro', $vacature->ID );
@@ -50,12 +49,6 @@ if ( ! empty( $block['className'] ) ) {
                                 <h3 class="mk-vacatures-blok__slide__title"><?php echo esc_html( $vacature->post_title ); ?></h3>
 
                                 <div class="mk-vacatures-blok__slide__meta">
-                                    <?php if ( $functie ) : ?>
-                                        <span class="mk-vacatures-blok__slide__meta__item mk-vacatures-blok__slide__meta__item--functie">
-                                            <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'sector' ) ); ?>
-                                            <?php echo esc_html( $functie ); ?>
-                                        </span>
-                                    <?php endif; ?>
                                     <?php if ( $uren ) : ?>
                                         <span class="mk-vacatures-blok__slide__meta__item">
                                             <?php get_template_part( 'template-parts/blocks/partials/icon', null, array( 'name' => 'klok' ) ); ?>

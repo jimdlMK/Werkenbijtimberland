@@ -1,5 +1,4 @@
 .mk-nieuws-archief {
-    padding-top: 32px;
     padding-bottom: 48px;
 
     @include mq(md) {
@@ -7,14 +6,8 @@
     }
 
     &__breadcrumb {
-        font-size: $font-size-small;
-        color: $color-text;
-        margin-bottom: 16px;
-
-        a {
-            color: $color-blue;
-            text-decoration: none;
-        }
+        @include mk-breadcrumb;
+        margin-bottom: 24px;
     }
 
     &__title {

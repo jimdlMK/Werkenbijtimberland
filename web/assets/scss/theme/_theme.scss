@@ -84,15 +84,38 @@ $mk-intro-spacing: (
     }
 }
 
+// Gedeelde opmaak voor alle kruimelpaden (blok uit mkbase + de eigen
+// kruimelpaden op vacature- en nieuwspagina's), zodat ze er overal gelijk uitzien.
+@mixin mk-breadcrumb {
+    font-size: $font-size-small;
+    line-height: 1.5;
+    color: $color-text;
+
+    a {
+        color: $color-primary;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
 // THEME //
 #main-content {
     overflow: hidden;
 
     // Op vervolgpagina's (geen full-bleed hero) moet content niet onder de
-    // zwevende .mk-header__pill vallen. De voorpagina reserveert deze ruimte
-    // zelf via de hero-sectie.
+    // header vallen. Ruimte = onderkant logo + 32px, zodat het kruimelpad op
+    // elke pagina op dezelfde hoogte en vrij van het logo staat
+    // (logo: top 16px + 56px < lg, top 24px + 82px vanaf lg; zie _header.scss).
+    // De voorpagina reserveert deze ruimte zelf via de hero-sectie.
     &.vervolgpagina {
-        padding-top: clamp(5rem, 4rem + 4vw, 7rem);
+        padding-top: 16px + 56px + 32px;
+
+        @include mq(lg) {
+            padding-top: 24px + 82px + 32px;
+        }
     }
 
     // Ankerlinks (bijv. "Solliciteer direct" → #solliciteren) niet onder de
