@@ -103,14 +103,35 @@ function mediakanjers_resource_hints( $urls, $relation_type ) {
 add_filter( 'wp_resource_hints', 'mediakanjers_resource_hints', 10, 2 );
 
 /**
- * Editor styles: zodat de block editor de front-end typografie/kleuren toont.
- * style-editor.css maakt in de WYSIWYG-velden (TinyMCE) o.a. opsommingen
- * weer zichtbaar, die door de reset in style-main wegvielen.
+ * Editor styles: zodat de editors de front-end typografie/kleuren tonen.
+ * style-editor.css laat de WYSIWYG-velden (TinyMCE) de tekst precies zo
+ * tonen als op de voorkant (lettertype, opsommingen, regelafstand).
  */
 function mediakanjers_editor_assets() {
-    add_editor_style( array( 'dist/css/style-main.css', 'dist/css/style-editor.css' ) );
+    add_editor_style( array(
+        'https://fonts.googleapis.com/css2?family=Strichpunkt+Sans:wght@400..900&display=swap',
+        'dist/css/style-main.css',
+        'dist/css/style-editor.css',
+    ) );
 }
 add_action( 'admin_init', 'mediakanjers_editor_assets' );
+
+/**
+ * Per ACF-WYSIWYG-veld een class op de editor-body (mk-veld-{naam}), zodat
+ * style-editor.css velden met een afwijkende voorkant-opmaak kan nadoen.
+ */
+function mediakanjers_acf_wysiwyg_script() {
+    $path = '/assets/admin/acf-wysiwyg.js';
+
+    wp_enqueue_script(
+        'mediakanjers-acf-wysiwyg',
+        get_stylesheet_directory_uri() . $path,
+        array( 'acf-input' ),
+        file_exists( get_stylesheet_directory() . $path ) ? filemtime( get_stylesheet_directory() . $path ) : null,
+        true
+    );
+}
+add_action( 'acf/input/admin_enqueue_scripts', 'mediakanjers_acf_wysiwyg_script' );
 
 /**
  * Admin-CSS voor de block editor zelf (buiten de content-iframe): maakt het

@@ -1,53 +1,88 @@
 /*
- * Extra stijlen voor de klassieke (TinyMCE) editor, o.a. de WYSIWYG-velden van
- * ACF. De algemene reset in style-main zet bij ul/ol/li de padding op 0,
- * waardoor opsommingstekens in de editor buiten beeld vielen en een lijst
- * niet van gewone tekst te onderscheiden was. Hier maken we lijsten (en wat
- * ademruimte) weer zichtbaar. Alleen .mce-content-body, dus geen invloed op
- * de block editor of de voorkant.
+ * Stijlen voor de klassieke (TinyMCE) editor, o.a. de WYSIWYG-velden van ACF.
+ *
+ * Doel: de editor toont de tekst precies zoals op de voorkant (lettertype,
+ * regelafstand, opsommingen met rood-oranje bolletjes), zodat de redacteur
+ * direct het resultaat ziet. De opmaak komt uit dezelfde mixin als de
+ * voorkant (theme/_richtext.scss).
+ *
+ * Velden die op de voorkant anders getoond worden, krijgen hier dezelfde
+ * afwijking. Daarvoor zet assets/admin/acf-wysiwyg.js per veld een class
+ * "mk-veld-{veldnaam}" op de editor-body.
+ *
+ * Alleen .mce-content-body: geen invloed op de block editor of de voorkant.
  */
 @import "theme/_theme-vars.scss";
+@import "theme/_richtext.scss";
 
 body.mce-content-body {
-    padding: 12px 16px;
+    @include mk-vac-richtext;
+    max-width: none;
+    margin: 0;
+    padding: 16px 20px;
     background: $color-text-light;
-    line-height: 1.6;
+    color: $color-text;
+    font-family: $font-family-standard-font;
 
-    p {
-        margin: 0 0 1em;
-    }
-
-    ul,
-    ol {
-        margin: 0 0 1em;
-        padding-left: 1.5em;
-    }
-
-    ul {
-        list-style: disc;
-    }
-
-    ol {
-        list-style: decimal;
-    }
-
-    li {
-        margin-bottom: 0.25em;
-    }
-
-    li::marker {
-        color: $color-secondary;
-    }
-
-    h2,
-    h3,
-    h4 {
-        margin: 1em 0 0.5em;
-        font-weight: 700;
-    }
-
+    // Links zoals op de voorkant van de content.
     a {
         color: $color-blue;
-        text-decoration: underline;
+    }
+
+    // ===== Vacature: "Jouw rol" staat gecentreerd =====
+    &.mk-veld-vac_jouw_rol {
+        text-align: center;
+
+        ul,
+        ol {
+            display: inline-block;
+            text-align: left;
+        }
+    }
+
+    // ===== Witte tekst op blauw (VF Corporation, Kijkje op de afdeling) =====
+    &.mk-veld-vacopt_vf_tekst,
+    &.mk-veld-vac_afdeling_tekst {
+        background: $color-primary;
+        color: $color-heading-light;
+
+        a {
+            color: inherit;
+        }
+    }
+
+    &.mk-veld-vac_afdeling_tekst {
+        text-align: center;
+    }
+
+    // ===== Stage: "Wat verwachten wij" / "Wat bieden wij" als vinkjes =====
+    &.mk-veld-stageopt_vw_tekst,
+    &.mk-veld-stageopt_wb_tekst {
+        line-height: 22.8px;
+
+        p {
+            margin: 0 0 12px;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 0;
+        }
+
+        li {
+            margin: 0;
+            padding-left: 32px;
+        }
+
+        ul > li::before {
+            top: 4px;
+            left: 0;
+            width: 21px;
+            height: 15px;
+            border-radius: 0;
+            background: url('../../assets/images/icons/checkmark (2).svg') no-repeat left center / contain;
+        }
     }
 }

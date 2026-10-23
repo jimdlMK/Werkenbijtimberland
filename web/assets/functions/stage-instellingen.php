@@ -9,10 +9,13 @@ function mediakanjers_options_page() {
         return;
     }
 
+    // Slug blijft 'mediakanjers-instellingen' (onderpagina's en links verwijzen ernaar).
     acf_add_options_page( array(
-        'page_title' => 'Mediakanjers instellingen',
-        'menu_title' => 'Mediakanjers',
+        'page_title' => 'Centrale teksten',
+        'menu_title' => 'Centrale teksten',
         'menu_slug'  => 'mediakanjers-instellingen',
+        'icon_url'   => 'dashicons-edit-page',
+        'position'   => 21,
         'redirect'   => true,
     ) );
 }
@@ -28,8 +31,8 @@ function mediakanjers_stage_options_page() {
     }
 
     acf_add_options_sub_page( array(
-        'page_title'  => 'Stage instellingen',
-        'menu_title'  => 'Stage instellingen',
+        'page_title'  => 'Centrale teksten: Stages',
+        'menu_title'  => 'Stages',
         'menu_slug'   => 'mediakanjers-stage-instellingen',
         'parent_slug' => 'mediakanjers-instellingen',
     ) );

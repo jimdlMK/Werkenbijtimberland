@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "De teksten van dit blok worden centraal beheerd, zodat ze overal hetzelfde zijn.\n\nAanpassen via <a href=\"admin.php?page=mediakanjers-stage-instellingen\" target=\"_blank\"><strong>Mediakanjers → Stage instellingen</strong></a>, met de tabbladen:\n• Mogelijkheden (intro + dropdown)\n• Verwachten & bieden\n• Reviews\n• Sollicitatieformulier",
+            "message": "De teksten van dit blok worden centraal beheerd, zodat ze overal hetzelfde zijn.\n\nAanpassen via <a href=\"admin.php?page=mediakanjers-stage-instellingen\" target=\"_blank\"><strong>Centrale teksten → Stages</strong></a>, met de tabbladen:\n• Mogelijkheden (intro + dropdown)\n• Verwachten & bieden\n• Reviews\n• Sollicitatieformulier",
             "new_lines": "br",
             "esc_html": 0
         }
@@ -65,7 +65,7 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Uitleg in de zijbalk van de stage-blokken: hun inhoud komt uit Stage instellingen.",
+    "description": "Uitleg in de zijbalk van de stage-blokken: hun inhoud komt uit Centrale teksten → Stages.",
     "show_in_rest": 0,
     "modified": 1792713600
 }

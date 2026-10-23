@@ -65,7 +65,7 @@ function mediakanjers_register_acf_blocks() {
         array(
             'name'        => 'stage-mogelijkheden-intro',
             'title'       => __( 'Stage: Mogelijkheden', 'mediakanjers' ),
-            'description' => __( 'Intro-sectie ("Talent inzetten...") vanuit de Stage instellingen.', 'mediakanjers' ),
+            'description' => __( 'Intro-sectie ("Talent inzetten...") vanuit Centrale teksten → Stages.', 'mediakanjers' ),
             'icon'        => 'lightbulb',
             'keywords'    => array( 'stage', 'mogelijkheden', 'intro' ),
         ),

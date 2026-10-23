@@ -10,8 +10,8 @@ function mediakanjers_nieuws_options_page() {
     }
 
     acf_add_options_sub_page( array(
-        'page_title'  => 'Nieuws instellingen',
-        'menu_title'  => 'Nieuws instellingen',
+        'page_title'  => 'Centrale teksten: Nieuws',
+        'menu_title'  => 'Nieuws',
         'menu_slug'   => 'mediakanjers-nieuws-instellingen',
         'parent_slug' => 'mediakanjers-instellingen',
     ) );
